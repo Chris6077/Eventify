@@ -1,5 +1,6 @@
 package com.example.schueler.eventures;
 
+import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -54,7 +55,9 @@ public class Event extends AppCompatActivity {
 
 	private void setupActionBarToggle(){
 		this.toggle = new ActionBarDrawerToggle(this,mdl,R.string.actionbar_open,R.string.actionbar_close);
-		this.mdl.addDrawerListener(this.toggle);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+			this.mdl.addDrawerListener(this.toggle);
+		}
 		toggle.syncState();
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
@@ -66,6 +69,8 @@ public class Event extends AppCompatActivity {
 
 
 		this.image_event.setAnimation(anim_vertical_down);
+
+
 	}
 
 }

@@ -3,12 +3,30 @@
 
     <item
         is-multidex="true"
+        jar="/home/schueler/AndroidStudioProjects/ProjectX/Eventify/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_a3ef25419051ed150efa9592ac6fc04be74c9f88/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/schueler/AndroidStudioProjects/ProjectX/Eventures/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="92a77993c535f31dc07db27975ea19532cc64fbb">
         <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/Eventures/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f329a9733e6e93411df69ba905cb6a047aa19742/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/schueler/AndroidStudioProjects/ProjectX/Eventify/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1a092da95585f2f6ad24725b85fd503111403645">
+        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_b3ea20d841405b46b3f44f808022cd68783d4d8a/classes.dex" />
     </item>
     <item
         is-multidex="true"

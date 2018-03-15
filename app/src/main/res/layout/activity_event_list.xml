@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/content_event_list"
     tools:context="com.example.schueler.eventures.EventListActivity">
 
     <!-- tob bar (search bar, filter) -->

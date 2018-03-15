@@ -38,4 +38,12 @@
     <!-- Strings realted to event list -->
     <string name="eventlist_search">Suchen</string>
 
+    <!-- Strings related to navigation drawer menu -->
+    <string name="navmenu_map">Map</string>
+    <string name="navmenu_all">Alle Events</string>
+    <string name="navmenu_favourite">Likes</string>
+    <string name="navmenu_addevent">Event Hinzufügen</string>
+    <string name="navmenu_fixedevents">Zugesagte Events</string>
+    <string name="navmenu_myevents">Meine Events</string>
+
 </resources>
