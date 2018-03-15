@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "444786683738",
+    "firebase_url": "https://eventify-8750a.firebaseio.com",
+    "project_id": "eventify-8750a",
+    "storage_bucket": "eventify-8750a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444786683738:android:961a724bc9e43aa7",
+        "android_client_info": {
+          "package_name": "com.example.schueler.eventures"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444786683738-jiggd2rhpf431bfb797qv6rgh2u1mbp6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.schueler.eventures",
+            "certificate_hash": "cd3d16951da76e2c2aaf1bd259c1f16f863755de"
+          }
+        },
+        {
+          "client_id": "444786683738-hk27cuu0s6n55gbnfjglp2h5hv1hkplp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACoui-yvs2eHCEKg2f5Tpr3RbO8sS0V24"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444786683738-hk27cuu0s6n55gbnfjglp2h5hv1hkplp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
