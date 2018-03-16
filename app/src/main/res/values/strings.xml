@@ -49,4 +49,9 @@
     <string name="navmenu_fixedevents">Zugesagte Events</string>
     <string name="navmenu_myevents">Meine Events</string>
 
+    <!-- Strings related to event add -->
+    <string name="eventadd_create_event">Event erstellen</string>
+    <string name="eventadd_create_new_event">Neues Event erstellen</string>
+    <string name="eventadd_event_name">Event Name</string>
+
 </resources>

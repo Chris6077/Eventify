@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.schueler.eventures.New_EventActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+     <!-- Content all -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:background="@drawable/wallpaper13"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+
+
+            <!-- Content Header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textAlignment="center"
+                android:text="Neues Event erzeugen"/>
+
+            <EditText
+                android:id="@+id/input_eventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:drawablePadding="20dp"
+                android:gravity="center"
+                android:hint="@string/eventadd_event_name"
+                android:inputType="text"
+                android:textColor="@color/white"
+                android:textColorLink="@color/colorAccent"/>
+
+
+        </LinearLayout>
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/content_event"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Uhrzeit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/clock"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_time"
+                        android:inputType="datetime"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Teilnehmer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/running"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_participants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_participants"
+                        android:inputType="number"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Kategorie -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/biker"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/input_category">
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Ort -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/location"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_place"
+                        android:inputType="text"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Chat -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/lightbulb"
+                    android:layout_marginRight="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_iformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_time"
+                        android:inputType="textAutoCorrect"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_event"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="@string/eventadd_create_event"
+                android:background="@drawable/rounded_rectangle_primary"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+
+
+    <include layout="@layout/navigation_drawer"></include>
+
+</android.support.v4.widget.DrawerLayout>
