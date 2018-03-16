@@ -54,4 +54,10 @@
     <string name="eventadd_create_new_event">Neues Event erstellen</string>
     <string name="eventadd_event_name">Event Name</string>
 
+    <!-- Strings related to user -->
+    <string name="user_full_name">Voller Name</string>
+    <string name="user_events_hosted">Veranstaltete Events</string>
+    <string name="user_events_participated">Teilgenommene Events</string>
+    <string name="user_rating">Bewertung</string>
+
 </resources>
