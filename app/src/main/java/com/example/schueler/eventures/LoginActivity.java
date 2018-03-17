@@ -302,7 +302,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         if(v.getId() == this.btn_sign_up.getId()){
             Intent registration_activity = new Intent(this,Registration_Activity.class);
             startActivity(registration_activity);
-            overridePendingTransition(R.anim.anim_slide_out_left,R.anim.anim_slide_in_right);
+            overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
         }
     }
 

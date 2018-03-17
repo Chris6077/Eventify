@@ -41,7 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:transitionName="content_transition"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true" android:focusableInTouchMode="true">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
