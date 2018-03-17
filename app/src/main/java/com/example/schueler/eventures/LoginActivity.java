@@ -3,6 +3,7 @@ package com.example.schueler.eventures;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -38,7 +39,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor>, OnClickListener {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -63,9 +64,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
     private ImageView img_login;
-    LinearLayout email_login_form;
+    private LinearLayout email_login_form;
     private Animation anim_horizontal_left;
     private Animation anim_horizontal_right;
+    private Button btn_sign_up;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         // Set up the login form.
 
         this.setViews();
-        this.setAnimations();
+        //this.setAnimations();
+        this.registrateevendhandlers();
 
     }
 
@@ -102,6 +105,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
         img_login = (ImageView) findViewById(R.id.img_login);
         email_login_form = (LinearLayout) findViewById(R.id.email_login_form);
+        btn_sign_up = (Button) findViewById(R.id.btn_sign_up);
     }
 
     private void setAnimations(){
@@ -111,6 +115,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         anim_horizontal_right = AnimationUtils.loadAnimation(this,R.anim.anim_horizontal_right);
         this.email_login_form.setAnimation(anim_horizontal_right);
 
+    }
+
+    private void registrateevendhandlers(){
+        this.btn_sign_up.setOnClickListener(this);
     }
 
 
@@ -287,6 +295,15 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == this.btn_sign_up.getId()){
+            Intent registration_activity = new Intent(this,Registration_Activity.class);
+            startActivity(registration_activity);
+            overridePendingTransition(R.anim.anim_slide_out_left,R.anim.anim_slide_in_right);
+        }
     }
 
     private interface ProfileQuery {

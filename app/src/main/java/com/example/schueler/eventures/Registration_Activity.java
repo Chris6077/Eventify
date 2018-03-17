@@ -270,6 +270,12 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 
 	}
 
+	@Override
+	public void finish() {
+		super.finish();
+		overridePendingTransition(R.anim.anim_slide_in_left,R.anim.slide_out_right);
+	}
+
 	private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
 		//Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
 		//ArrayAdapter<String> adapter =
