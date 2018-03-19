@@ -70,12 +70,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="10dp"
+                    android:id="@+id/content_user"
                     android:layout_margin="2.5dp"
                     android:background="@drawable/shadow_box">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:id="@+id/img_profile_event"
+                        android:transitionName="img_profile"
                         android:src="@drawable/profle"
                         android:layout_marginRight="20dp"/>
 
@@ -88,6 +91,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
+                            android:id="@+id/text_view_profile_event"
+                            android:transitionName="text_view_profile"
                             android:text="Marcel Judth"/>
 
                         <TextView
@@ -144,12 +149,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:padding="10dp"
+                    android:id="@+id/content_participants"
                     android:layout_margin="2.5dp"
                     android:background="@drawable/shadow_box">
 
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
+                        android:id="@+id/img_running_event"
+                        android:transitionName="img_running"
                         android:src="@drawable/running"
                         android:layout_marginRight="20dp"/>
 
@@ -167,6 +175,8 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:id="@+id/text_view_participants_event"
+                            android:transitionName="text_view_participants"
                             android:textSize="15sp"
                             android:text="Teilnehmer"/>
 

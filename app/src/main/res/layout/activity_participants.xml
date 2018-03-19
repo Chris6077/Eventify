@@ -25,12 +25,16 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/img_running_participants"
+                android:transitionName="img_running"
                 android:src="@drawable/running"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/event_participants"
+                android:id="@+id/text_view_participants_participants"
+                android:transitionName="text_view_participants"
                 android:textColor="@color/white"
                 android:textSize="30sp"/>
 

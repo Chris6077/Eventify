@@ -31,12 +31,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:transitionName="img_profle"
                         android:src="@drawable/profle"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Username"
+                        android:text="Marcel Judth"
+                        android:transitionName="text_view_profile"
                         android:textColor="@color/white"
                         android:textSize="30sp"/>
 
