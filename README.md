@@ -1,4 +1,4 @@
 <p style="text-align: center;">
-  <img src="./misc/res/banner.png"/>
+  <img align="center" src="./misc/res/banner.png"/>
 </p>
 #
