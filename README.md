@@ -1,3 +1,3 @@
-![Picture](./misc/res/logo/logo.png)
+![Picture](./misc/res/logo/banner.png)
 # Eventify
 App that manages Events
