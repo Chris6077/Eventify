@@ -1,2 +1,4 @@
-![Picture](./misc/res/banner.png)
+<p style="text-align: center;">
+  <img src="./misc/res/banner.png"/>
+</p>
 #
