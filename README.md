@@ -13,3 +13,5 @@ This app will manage user created events. They can be added, edited and viewed o
 * *[Daily Scrum Log](https://htlvillachat-my.sharepoint.com/:x:/g/personal/winklerc_edu_htl-villach_at/EXtbpCOansBAoR7AqLHziX0BhJlfjjP077jxgPgL7cal_A?e=qxp9wd)*
 
 * *[User Stories](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EUmzPwoXzbZFs3ojCz2KYNUBqhjcG0TBia4W-uYe5KzEYw?e=QhVqnu)*
+
+* *[Class Diagram (unfinished)](./misc/syp/Eventify.class.violet.html)
