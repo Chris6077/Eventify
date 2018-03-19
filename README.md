@@ -2,7 +2,7 @@
 
 # Description
 
-This app will manage user created events. They can added, edited and viewed on the integrated map or other parts of our app. Users can participate in, rate and like events.
+This app will manage user created events. They can be added, edited and viewed on the integrated map or other parts of our app. Users can participate in, rate and like events.
 
 # SYP Stuff
 
