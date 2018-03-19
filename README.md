@@ -1,5 +1,9 @@
 ![Picture](./misc/res/banner.png)
 
+
+
+
+
 # SYP Stuff
 
 *[Daily Scrum Log](https://htlvillachat-my.sharepoint.com/:x:/g/personal/winklerc_edu_htl-villach_at/EXtbpCOansBAoR7AqLHziX0BhJlfjjP077jxgPgL7cal_A?e=qxp9wd)*
