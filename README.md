@@ -1,4 +1,4 @@
-![Picture](./misc/res/banner.png)
+# ![Picture](./misc/res/banner.png)
 
 # Description
 
