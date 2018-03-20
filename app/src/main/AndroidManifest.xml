@@ -68,10 +68,19 @@
         </activity>
         <activity android:name=".UserActivity">
         </activity>
-        <activity android:name=".WelcomeActivity"
-                  android:theme="@style/style_no_actionbar">
+        <activity
+            android:name=".WelcomeActivity"
+            android:theme="@style/style_no_actionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainControllerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>

@@ -1,5 +1,7 @@
 package com.example.schueler.eventures;
 
+import android.content.Context;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.example.schueler.eventures.pkg_data.classes_test.Database;
 import com.example.schueler.eventures.pkg_data.classes_test.mEvent;
+import com.example.schueler.eventures.pkg_data.classes_test.navmenu_listener;
 
 import java.sql.Time;
 import java.util.List;
@@ -23,6 +26,7 @@ public class EventListActivity extends AppCompatActivity {
 	private ActionBarDrawerToggle toggle;
 	private Database database;
 	private ListView listView_events;
+	private NavigationView navigation;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,7 @@ public class EventListActivity extends AppCompatActivity {
 		setContentView(R.layout.activity_event_list);
 
 		this.setViews();
+		this.registrateeventhandlers();
 		this.setupActionBarToggle();
 		this.loadData();
 	}
@@ -51,6 +56,14 @@ public class EventListActivity extends AppCompatActivity {
 	private void setViews(){
 		this.mdl = (DrawerLayout) findViewById(R.id.content_event_list);
 		this.listView_events = (ListView) findViewById(R.id.listview_events);
+		this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
+	}
+
+	private void registrateeventhandlers(){
+
+		final Context context = this;
+
+		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(context,this));
 	}
 
 	private void setupActionBarToggle(){

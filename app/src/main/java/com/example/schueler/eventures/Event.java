@@ -1,9 +1,11 @@
 package com.example.schueler.eventures;
 
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -43,12 +45,17 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_event);
+		try{
+			super.onCreate(savedInstanceState);
+			setContentView(R.layout.activity_event);
 
-		this.setViews();
-		this.setupActionBarToggle();
-		this.registereventhandlers();
+			this.setViews();
+			this.setupActionBarToggle();
+			this.registereventhandlers();
+		}catch(Exception error){
+			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+		}
+
 		//this.setAnimations();
 	}
 
@@ -81,9 +88,12 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 	}
 
 	private void registereventhandlers(){
+
+		final Context context = this;
+
 		this.content_participants.setOnClickListener(this);
 		this.content_user.setOnClickListener(this);
-		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
+		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(context,this));
 	}
 
 	private void setupActionBarToggle(){
@@ -95,21 +105,10 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
-	private void setAnimations(){
-		anim_horizontal_left = AnimationUtils.loadAnimation(this,R.anim.anim_horizontal_left);
-		anim_vertical_down = AnimationUtils.loadAnimation(this,R.anim.anim_vertical_down);
-		this.content_event.setAnimation(anim_horizontal_left);
-
-
-		this.image_event.setAnimation(anim_vertical_down);
-
-
-	}
-
-	private void Participants_sharedTransitionAnimation(){
-		Intent participants_activity = new Intent(this,ParticipantsActivity.class);
+	private void Participants_sharedTransitionAnimation() throws Exception{
+		Intent user_activity = new Intent(this,ParticipantsActivity.class);
 		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, new Pair<View, String>(img_running,"img_running"),new Pair<View, String>(text_view_participants,"text_view_participants"));
-		startActivity(participants_activity,options.toBundle());
+		startActivity(user_activity,options.toBundle());
 	}
 
 	private void User_sharedTransitionAnimation(){
@@ -122,11 +121,16 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		if(content_participants.getId() == v.getId()){
-			this.Participants_sharedTransitionAnimation();
-		}else if(content_user.getId() == v.getId()){
-			this.User_sharedTransitionAnimation();
+		try{
+			if(content_participants.getId() == v.getId()){
+				this.Participants_sharedTransitionAnimation();
+			}else if(content_user.getId() == v.getId()){
+				this.User_sharedTransitionAnimation();
+			}
+		}catch (Exception error){
+			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
 		}
-
 	}
+
+
 }
