@@ -2,7 +2,7 @@
 
 # Description
 
-This app will manage user created events. They can be added, edited and viewed on the integrated map or other parts of our app. Users can participate in, rate and like events.
+This app will manage user created events. They can be added, edited and viewed on the integrated map or other parts of our app. Users can participate in, rate and like events. The user that created an event will be rewarded with the events ratings. Administrators can deactivate all user accounts and delete all events. The user can only deactivate his own account and delete his own events. Events will not really be deleted. Their state will change from "confirmed" to "called off". A payment service for events may be implemented later.
 
 # SYP Stuff
 
