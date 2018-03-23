@@ -3,6 +3,7 @@ package com.example.schueler.eventures;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.DatePickerDialog;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -23,13 +24,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.app.DatePickerDialog;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -37,7 +39,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class Registration_Activity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
+public class Registration_Activity extends AppCompatActivity implements LoaderCallbacks<Cursor>, OnClickListener {
 
 	/**
 	 * Id to identity READ_CONTACTS permission request.
@@ -59,6 +61,10 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 	// UI references.
 	private EditText mEmailView;
 	private EditText mPasswordView;
+	private EditText lastnameView;
+	private EditText firstnameView;
+	private TextView birthdateView;
+	private Button Sign_in_Button;
 	private View mProgressView;
 	private View mLoginFormView;
 
@@ -66,32 +72,11 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_registration_);
-		// Set up the login form.
-		mEmailView = (EditText) findViewById(R.id.email);
-		populateAutoComplete();
 
-		mPasswordView = (EditText) findViewById(R.id.password);
-		mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-			@Override
-			public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-				if (id == R.id.login || id == EditorInfo.IME_NULL) {
-					attemptLogin();
-					return true;
-				}
-				return false;
-			}
-		});
+		this.setViews();
+		this.registrateeventhandlers();
+		this.attemptLogin();
 
-		Button mEmailSignInButton = (Button) findViewById(R.id.email_sign_in_button);
-		mEmailSignInButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				attemptLogin();
-			}
-		});
-
-		mLoginFormView = findViewById(R.id.login_form);
-		mProgressView = findViewById(R.id.login_progress);
 	}
 
 	private void populateAutoComplete() {
@@ -190,6 +175,17 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 		}
 	}
 
+	private void setViews(){
+		mEmailView = (EditText) findViewById(R.id.email);
+		mPasswordView = (EditText) findViewById(R.id.password);
+		Sign_in_Button = (Button) findViewById(R.id.email_sign_in_button);
+		mLoginFormView = findViewById(R.id.login_form);
+		mProgressView = findViewById(R.id.login_progress);
+		firstnameView = (EditText) findViewById(R.id.firstname);
+		lastnameView = (EditText) findViewById(R.id.lastname);
+		birthdateView = (TextView) findViewById(R.id.birthdate);
+	}
+
 	private boolean isEmailValid(String email) {
 		//TODO: Replace this with your own logic
 		return email.contains("@");
@@ -198,6 +194,48 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 	private boolean isPasswordValid(String password) {
 		//TODO: Replace this with your own logic
 		return password.length() > 4;
+	}
+
+	private void registrateeventhandlers(){
+		mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+			@Override
+			public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
+				if (id == R.id.login || id == EditorInfo.IME_NULL) {
+					attemptLogin();
+					return true;
+				}
+				return false;
+			}
+		});
+		Sign_in_Button.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				attemptLogin();
+			}
+		});
+		birthdateView.setOnClickListener(this);
+	}
+
+	private void openPopupBirthdate(){
+		// calender class's instance and get current date , month and year from calender
+		final Calendar c = Calendar.getInstance();
+		int mYear = c.get(Calendar.YEAR); // current year
+		int mMonth = c.get(Calendar.MONTH); // current month
+		int mDay = c.get(Calendar.DAY_OF_MONTH); // current day
+		// date picker dialog
+		DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+				new DatePickerDialog.OnDateSetListener() {
+
+					@Override
+					public void onDateSet(DatePicker view, int year,
+					                      int monthOfYear, int dayOfMonth) {
+						// set day of month , month and year value in the edit text
+						birthdateView.setText(dayOfMonth + "/"
+								+ (monthOfYear + 1) + "/" + year);
+
+					}
+				}, mYear, mMonth, mDay);
+		datePickerDialog.show();
 	}
 
 	/**
@@ -285,6 +323,13 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 		//mEmailView.setAdapter(adapter);
 	}
 
+	@Override
+	public void onClick(View v) {
+		if(v.getId() == this.birthdateView.getId()){
+			this.openPopupBirthdate();
+		}
+	}
+
 
 	private interface ProfileQuery {
 		String[] PROJECTION = {
@@ -300,6 +345,7 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 	 * Represents an asynchronous login/registration task used to authenticate
 	 * the user.
 	 */
+
 	public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
 		private final String mEmail;
@@ -352,5 +398,6 @@ public class Registration_Activity extends AppCompatActivity implements LoaderCa
 			showProgress(false);
 		}
 	}
+
 }
 

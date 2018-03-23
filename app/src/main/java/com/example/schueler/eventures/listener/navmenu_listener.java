@@ -1,4 +1,4 @@
-package com.example.schueler.eventures.pkg_data.classes_test;
+package com.example.schueler.eventures.listener;
 
 import android.content.Context;
 import android.content.Intent;
@@ -21,14 +21,13 @@ import com.example.schueler.eventures.WelcomeActivity;
 public class navmenu_listener implements NavigationView.OnNavigationItemSelectedListener {
 
 	final Context currentContext;
-	private Event event;
 	private Object obj;
 
 
 	//constructors
 
-	public navmenu_listener (Context context,Object obj){
-		currentContext = context;
+	public navmenu_listener (Object obj){
+		this.currentContext = ((AppCompatActivity)obj);
 		this.obj = obj;
 	}
 

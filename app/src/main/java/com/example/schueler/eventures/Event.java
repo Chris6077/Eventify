@@ -3,29 +3,22 @@ package com.example.schueler.eventures;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.os.Build;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.schueler.eventures.pkg_data.classes_test.navmenu_listener;
-
-import org.w3c.dom.Text;
+import com.example.schueler.eventures.listener.navmenu_listener;
 
 public class Event extends AppCompatActivity implements View.OnClickListener {
 
@@ -93,7 +86,7 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 
 		this.content_participants.setOnClickListener(this);
 		this.content_user.setOnClickListener(this);
-		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(context,this));
+		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
 	}
 
 	private void setupActionBarToggle(){
