@@ -6,13 +6,15 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.schueler.eventures.adapter.adapter_list_view_event;
 import com.example.schueler.eventures.listener.navmenu_listener;
 import com.example.schueler.eventures.pkg_data.classes_test.Database;
 import com.example.schueler.eventures.pkg_data.classes_test.mEvent;
+
+import java.util.ArrayList;
 
 public class EventListActivity extends AppCompatActivity {
 
@@ -88,7 +90,16 @@ public class EventListActivity extends AppCompatActivity {
 	}
 
 	private void fillList(){
-		ArrayAdapter<mEvent> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,database.getEvents());
-		this.listView_events.setAdapter(adapter);
+
+		ArrayList<String> temp = new ArrayList<>();
+
+		temp.add("Event1");
+		temp.add("Event2");
+		temp.add("Event3");
+		temp.add("Event4");
+
+		this.listView_events.setAdapter(new adapter_list_view_event(this,R.layout.listview_item_event,temp));
 	}
+
+
 }
