@@ -11,8 +11,6 @@ import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
 import com.example.schueler.eventures.listener.navmenu_listener;
-import com.example.schueler.eventures.pkg_data.classes_test.Database;
-import com.example.schueler.eventures.pkg_data.classes_test.mEvent;
 
 import java.util.ArrayList;
 
@@ -20,7 +18,6 @@ public class EventListActivity extends AppCompatActivity {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
-	private Database database;
 	private ListView listView_events;
 	private NavigationView navigation;
 
@@ -32,7 +29,7 @@ public class EventListActivity extends AppCompatActivity {
 		this.setViews();
 		this.registrateeventhandlers();
 		this.setupActionBarToggle();
-		this.loadData();
+		this.fillList();
 	}
 
 	//super
@@ -64,29 +61,6 @@ public class EventListActivity extends AppCompatActivity {
 		this.mdl.addDrawerListener(this.toggle);
 		toggle.syncState();
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-	}
-
-	private void loadData(){
-		try{
-			database = new Database();
-
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			database.add(new mEvent("name","20:30",12,Database.category.LADIES_NIGHT,"Klagenfurt","Information"));
-			this.fillList();
-		}catch (Exception error){
-			Toast.makeText(this,"error ... " + error.getMessage(), Toast.LENGTH_LONG).show();
-		}
-
 	}
 
 	private void fillList(){

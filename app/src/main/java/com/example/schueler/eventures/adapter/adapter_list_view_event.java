@@ -50,7 +50,6 @@ public class adapter_list_view_event extends ArrayAdapter<String> {
 	}
 
 
-
 	//custom
 
 
