@@ -14,7 +14,7 @@ This app will manage user created events. They can be added, edited and viewed o
 
 * *[User Stories](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EUmzPwoXzbZFs3ojCz2KYNUBqhjcG0TBia4W-uYe5KzEYw?e=QhVqnu)*
 
-* *[Schnittstellendefinition}()*
+* *[Schnittstellendefinition}(https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/Ecna0Q--hulLnKaud-q1ATgBdUgAsIqeprQZuKkLSFXxVQ?e=NY39gD)*
 
 * *[Akzeptanzkriterien](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EWKYWMxxgSVFk8PcSJsaWOABvfcUlnKE-nCgzaNNNYeKKw?e=fTZHrs)*
 
