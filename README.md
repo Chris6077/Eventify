@@ -16,6 +16,8 @@ This app will manage user created events. They can be added, edited and viewed o
 
 * *[User Story Map](https://github.com/Chris6077/Eventify/blob/master/misc/syp/SM.pdf)*
 
+<> (https://www.lucidchart.com/documents/view/c08b1d8b-54e0-43a7-8066-4af53858b357 Eventify SM Edit)
+
 * *[Schnittstellendefinition](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/Ecna0Q--hulLnKaud-q1ATgBdUgAsIqeprQZuKkLSFXxVQ?e=NY39gD)*
 
 * *[Akzeptanzkriterien](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EWKYWMxxgSVFk8PcSJsaWOABvfcUlnKE-nCgzaNNNYeKKw?e=fTZHrs)*
