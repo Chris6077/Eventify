@@ -2,7 +2,7 @@ db.createCollection("Events", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-         required: [ "name", "state", "description", "maxParticipants", "minAge", "type", "startDate", "endDate", "created", "lastEdited" ],
+         required: [ "name", "state", "description", "maxParticipants", "minAge", "type", "category", "startDate", "endDate", "created", "lastEdited" ],
          properties: {
             name: {
                bsonType: "string",
@@ -32,6 +32,10 @@ db.createCollection("Events", {
             },
             type: {
                enum: ["Public", "NoList", "Private"],
+               description: "can only be one of the enum values and is required"
+            },
+            category: {
+               enum: ["Sportevent", "Festival", "Konzert", "Party", "Aktivität", "Sonstiges"],
                description: "can only be one of the enum values and is required"
             },
             startDate: {

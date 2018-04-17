@@ -6,6 +6,7 @@
     "maxParticipants": 20,
     "minAge": 18,
     "type": "Public",
+    "category": "Konzert",
     "startDate": "2018-04-17T10:28:39.535Z",
     "endDate": "2018-04-17T10:28:39.535Z",
     "created": "2018-04-17T10:28:39.535Z",
