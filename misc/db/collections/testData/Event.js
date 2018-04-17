@@ -1,6 +1,7 @@
 //'Content-Type: application/json'
 {
     "name": "Event1",
+    "creatorID": "243Fsdge543efg",
     "state": "Confirmed",
     "description": "TestEvent1",
     "maxParticipants": 20,

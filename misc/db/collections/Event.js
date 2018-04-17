@@ -2,9 +2,13 @@ db.createCollection("Events", {
    validator: {
       $jsonSchema: {
          bsonType: "object",
-         required: [ "name", "state", "description", "maxParticipants", "minAge", "type", "category", "startDate", "endDate", "created", "lastEdited" ],
+         required: [ "name", "creatorID", "state", "description", "maxParticipants", "minAge", "type", "category", "startDate", "endDate", "created", "lastEdited" ],
          properties: {
             name: {
+               bsonType: "string",
+               description: "must be a string and is required"
+            },
+            creatorID: {
                bsonType: "string",
                description: "must be a string and is required"
             },
