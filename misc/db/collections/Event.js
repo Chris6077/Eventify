@@ -49,8 +49,25 @@ db.createCollection("Events", {
             lastEdited: {
                bsonType: "date",
                description: "must be a date and is required"
+            },
+            location: {
+               bsonType: "object",
+               required: ["lat", "lon"],
+               properties: {
+                 lat: {
+                  bsonType: "double",
+                    description: "must be a double and is required"
+                 },
+                 lon: {
+                  bsonType: "double",
+                    description: "must be a double and is required"
+                 }
+               },
+               additionalProperties: false,
+               description: "must be a location { lat: int, lon: int } and is required"
             }
-         }
+         },
+         additionalProperties: false
       }
    }
 })
