@@ -21,7 +21,7 @@ db.createCollection("Events", {
                minimum: 1,
                maximum: 2000000000,
                exclusiveMaximum: false,
-               description: "must be an integer in [ 0, 2000000000 ] and is required"
+               description: "must be an integer in [ 1, 2000000000 ] and is required"
             },
             minAge: {
                bsonType: "int",
