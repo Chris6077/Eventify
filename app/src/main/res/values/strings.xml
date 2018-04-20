@@ -1,4 +1,6 @@
 <resources>
+
+    <!-- general -->
     <string name="app_name">Eventify</string>
     <string name="app_name_lower_case">eventify</string>
     <string name="action_settings">Settings</string>
@@ -8,6 +10,9 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_event">EventActivity</string>
+
+    <!-- webservice -->
+    <string name="webservice_base_url">https://httpbin.org/post</string>
 
     <string name="actionbar_open">Open</string>
     <string name="actionbar_close">Close</string>
@@ -29,7 +34,11 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+
+    <!-- Strings related to registration -->
     <string name="title_activity_registration_">Sign Up</string>
+    <string name="progress_dialog_regestration_title">Bitte Warten...</string>
+    <string name="progress_dialog_registration_message">Account wird erstellt.</string>
 
     <!-- Strings related to event -->
     <string name="event_organizer">Veranstalter</string>

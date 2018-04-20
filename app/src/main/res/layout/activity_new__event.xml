@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/new_event_rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.schueler.eventures.New_EventActivity">
@@ -16,14 +17,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/colorAccent"
+        android:transitionName="fab_transition">
 
         <!-- Header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:gravity="center"
-            android:background="@color/colorPrimaryDark"
             android:orientation="vertical"
             android:padding="20dp">
 
@@ -40,20 +42,6 @@
                 android:padding="20dp"
                 android:text="Neues Event erzeugen"/>
 
-            <EditText
-                android:id="@+id/input_eventName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:drawablePadding="20dp"
-                android:gravity="center"
-                android:shadowColor="@color/white"
-                android:textColorHint="@color/white"
-                android:hint="@string/eventadd_event_name"
-                android:inputType="text"
-                android:textColor="@color/white"
-                android:textColorLink="@color/colorAccent"/>
-
 
         </LinearLayout>
 
@@ -63,7 +51,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/content_event"
             android:orientation="vertical"
-            android:padding="20dp">
+            android:background="@color/white"
+            android:padding="10dp"
+            android:focusable="true" android:focusableInTouchMode="true">
 
             <!-- Uhrzeit -->
             <LinearLayout
@@ -74,11 +64,6 @@
                 android:layout_margin="2.5dp"
                 android:background="@drawable/shadow_box">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/clock"
-                    android:layout_marginRight="20dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,11 +94,6 @@
                 android:layout_margin="2.5dp"
                 android:background="@drawable/shadow_box">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/running"
-                    android:layout_marginRight="20dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -137,36 +117,6 @@
             </LinearLayout>
 
             <!-- Kategorie -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-                android:layout_margin="2.5dp"
-                android:background="@drawable/shadow_box">
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/biker"
-                    android:layout_marginRight="20dp"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <android.support.v7.widget.AppCompatSpinner
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:id="@+id/input_category">
-
-                    </android.support.v7.widget.AppCompatSpinner>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
 
             <!-- Ort -->
             <LinearLayout
@@ -177,11 +127,6 @@
                 android:layout_margin="2.5dp"
                 android:background="@drawable/shadow_box">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/location"
-                    android:layout_marginRight="20dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -213,11 +158,6 @@
                 android:layout_margin="2.5dp"
                 android:background="@drawable/shadow_box">
 
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/lightbulb"
-                    android:layout_marginRight="20dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -240,6 +180,32 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/input_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
             <Button
                 android:id="@+id/create_event"
                 style="?android:textAppearanceSmall"
@@ -248,7 +214,7 @@
                 android:layout_marginTop="16dp"
                 android:textColor="@color/white"
                 android:text="@string/eventadd_create_event"
-                android:background="@drawable/rounded_rectangle_primary"
+                android:background="@drawable/rounded_rectangle_accent"
                 android:textStyle="bold"/>
 
         </LinearLayout>
@@ -257,8 +223,5 @@
 
     </ScrollView>
 
-
-
-    <include layout="@layout/navigation_drawer"></include>
 
 </android.support.v4.widget.DrawerLayout>

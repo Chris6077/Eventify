@@ -57,7 +57,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".New_EventActivity">
+        <activity
+            android:name=".New_EventActivity"
+            android:launchMode="singleTask"
+            android:theme="@style/style_no_actionbar">
         </activity>
         <activity android:name=".ParticipantsActivity">
             <intent-filter>
@@ -66,7 +69,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".UserActivity">
+        <activity android:name=".UserActivity"
+            android:theme="@style/style_no_actionbar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
         <activity
             android:name=".WelcomeActivity"
@@ -76,6 +84,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".CreateEventDialogActivty">
         </activity>
     </application>
 

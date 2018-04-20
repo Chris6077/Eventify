@@ -1,11 +1,14 @@
 package com.example.schueler.eventures.listener;
 
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Pair;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.example.schueler.eventures.Event;
 import com.example.schueler.eventures.EventListActivity;
@@ -36,9 +39,7 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-		if(item.getItemId() == R.id.mntm_add_event){
-			startActivity(New_EventActivity.class);
-		}else if(item.getItemId() == R.id.mntm_all_events){
+		if(item.getItemId() == R.id.mntm_all_events){
 			startActivity(EventListActivity.class);
 		}else if(item.getItemId() == R.id.mntm_favourites){
 			startActivity(EventListActivity.class);
@@ -57,11 +58,12 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 
 	private void startActivity(Class classname){
 		Intent activity = new Intent(this.currentContext,classname);
-		activity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		activity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		((AppCompatActivity)obj).finishAffinity();
-		currentContext.startActivity(activity);
-		((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
+
+		activity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((AppCompatActivity)obj);
+		currentContext.startActivity(activity,options.toBundle());
+		((AppCompatActivity)obj).finish();
+		//((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
 	}
 
 

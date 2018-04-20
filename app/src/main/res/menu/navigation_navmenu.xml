@@ -10,10 +10,6 @@
           android:title="@string/navmenu_favourite"
           android:icon="@drawable/ic_favorite_black_24dp">
     </item>
-    <item android:id="@+id/mntm_add_event"
-        android:title="@string/navmenu_addevent"
-        android:icon="@drawable/ic_playlist_add_black_24dp">
-    </item>
     <item android:id="@+id/mntm_fixed_events"
           android:title="@string/navmenu_fixedevents"
           android:icon="@drawable/ic_playlist_add_check_black_24dp">
