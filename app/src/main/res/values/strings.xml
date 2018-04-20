@@ -1,0 +1,74 @@
+<resources>
+
+    <!-- general -->
+    <string name="app_name">Eventify</string>
+    <string name="app_name_lower_case">eventify</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_event">EventActivity</string>
+
+    <!-- webservice -->
+    <string name="webservice_base_url">https://httpbin.org/post</string>
+
+    <string name="actionbar_open">Open</string>
+    <string name="actionbar_close">Close</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="prompt_firstname">Vorname</string>
+    <string name="prompt_lastname">Nachname</string>
+    <string name="prompt_birthdate">Geburtsdatum</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_up">Sign up</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <!-- Strings related to registration -->
+    <string name="title_activity_registration_">Sign Up</string>
+    <string name="progress_dialog_regestration_title">Bitte Warten...</string>
+    <string name="progress_dialog_registration_message">Account wird erstellt.</string>
+
+    <!-- Strings related to event -->
+    <string name="event_organizer">Veranstalter</string>
+    <string name="event_time">Uhrzeit</string>
+    <string name="event_participants">Teilnehmer</string>
+    <string name="event_category">Kategorie</string>
+    <string name="event_information">Beschreibung</string>
+    <string name="event_place">Ort</string>
+    <string name="event_chat">Event-Chat</string>
+
+    <!-- Strings realted to event list -->
+    <string name="eventlist_search">Suchen</string>
+
+    <!-- Strings related to navigation drawer menu -->
+    <string name="navmenu_map">Map</string>
+    <string name="navmenu_all">Alle Events</string>
+    <string name="navmenu_favourite">Likes</string>
+    <string name="navmenu_addevent">Event Hinzufügen</string>
+    <string name="navmenu_fixedevents">Zugesagte Events</string>
+    <string name="navmenu_myevents">Meine Events</string>
+
+    <!-- Strings related to event add -->
+    <string name="eventadd_create_event">Event erstellen</string>
+    <string name="eventadd_create_new_event">Neues Event erstellen</string>
+    <string name="eventadd_event_name">Event Name</string>
+
+    <!-- Strings related to user -->
+    <string name="user_full_name">Voller Name</string>
+    <string name="user_events_hosted">Veranstaltete Events</string>
+    <string name="user_events_participated">Teilgenommene Events</string>
+    <string name="user_rating">Bewertung</string>
+
+</resources>
