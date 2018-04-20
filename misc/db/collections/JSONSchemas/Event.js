@@ -37,7 +37,7 @@
          "description": "can only be one of the enum values and is required"
       },
       "category": {
-         "enum": ["Sportevent", "Festival", "Konzert", "Party", "Aktivität", "Sonstiges"],
+         "enum": ["Sportsevent", "Festival", "Concert", "Party", "Activity", "Other"],
          "description": "can only be one of the enum values and is required"
       },
       "startDate": {
