@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/create_event_dialog_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.schueler.eventures.CreateEventDialogActivty"
+    android:background="@color/colorAccent">
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        android:id="@+id/create_event_close"
+        android:layout_gravity="left|top"
+        android:src="@drawable/ic_close_black_24dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="450dp"
+        android:layout_marginTop="50dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/create_event_input_content"
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+
+
+        <!-- Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/content_event"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="10dp"
+            android:focusable="true" android:focusableInTouchMode="true">
+
+            <!-- Uhrzeit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/create_event_input_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Datum"
+                        android:inputType="date"
+                        android:paddingTop="20dp"
+                        android:paddingLeft="5dp"
+                        android:maxLines="1"
+                        android:textSize="18sp"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Teilnehmer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_participants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_participants"
+                        android:inputType="number"
+                        android:drawablePadding="20dp"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Ort -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_place"
+                        android:inputType="textPostalAddress"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Chat -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/input_iformation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/event_information"
+                        android:inputType="textAutoCorrect"
+                        android:drawablePadding="20dp"
+                        android:maxLines="1"
+                        android:singleLine="true"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!-- Kategorie -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/input_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </android.support.v7.widget.AppCompatSpinner>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/create_event_button_submit"
+                style="?android:textAppearanceSmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/white"
+                android:text="@string/eventadd_create_event"
+                android:background="@drawable/rounded_rectangle_accent"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
