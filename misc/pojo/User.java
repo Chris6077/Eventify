@@ -13,6 +13,7 @@ import java.time.LocalDate;
  * @author Chris
  */
 public class User implements Serializable {
+    private String uID;
     private final String firstName;
     private final String lastName;
     private final LocalDate birthDate;
@@ -41,6 +42,14 @@ public class User implements Serializable {
         lastEdited = LocalDate.now();
         numberOfCreatedEvents = 0;
         numberOfParticipated = 0;
+    }
+    
+    public String getUID(){
+        return uID;
+    }
+    
+    public void setUID(String uID){
+        this.uID = uID;
     }
 
     public String getFirstName() {
@@ -133,6 +142,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "{ 'firstName': '" + firstName + "', 'lastName': '" + lastName + "', 'birthDate': '" + birthDate + "', 'username': '" + username + "', 'email': '" + email + "', 'password': '" + password + "', 'profilePicture': '" + profilePicture + "', 'type': '" + type + "', 'state': '" + state + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'numberOfCreatedEvents': '" + numberOfCreatedEvents + "', 'numberOfParticipated': '" + numberOfParticipated + "' }";
+        return "{ 'uID': '" + uID + "', 'firstName': '" + firstName + "', 'lastName': '" + lastName + "', 'birthDate': '" + birthDate + "', 'username': '" + username + "', 'email': '" + email + "', 'password': '" + password + "', 'profilePicture': '" + profilePicture + "', 'type': '" + type + "', 'state': '" + state + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'numberOfCreatedEvents': '" + numberOfCreatedEvents + "', 'numberOfParticipated': '" + numberOfParticipated + "' }";
     }
 }
