@@ -1,5 +1,6 @@
 //'Content-Type: application/json'
 {
+    "eID": "soigh3oih"
     "name": "Event1",
     "creatorID": "243Fsdge543efg",
     "state": "Confirmed",
