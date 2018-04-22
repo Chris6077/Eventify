@@ -16,7 +16,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Event_Activity"
-            android:label="eventify">
+            android:label="eventify"
+            android:theme="@style/style_no_actionbar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

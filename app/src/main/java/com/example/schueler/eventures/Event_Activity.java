@@ -4,6 +4,8 @@ import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -22,7 +24,7 @@ import com.example.schueler.eventures.listener.navmenu_listener;
 
 public class Event_Activity extends AppCompatActivity implements View.OnClickListener {
 
-	private DrawerLayout mdl;
+	private CoordinatorLayout mdl;
 	private ActionBarDrawerToggle toggle;
 	private LinearLayout content_event;
 	private ImageView image_event;
@@ -35,6 +37,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 	private TextView text_view_participants;
 	private TextView text_view_profile;
 	private NavigationView navigation;
+	private CollapsingToolbarLayout collapsingToolbar;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +46,8 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 			setContentView(R.layout.activity_event);
 
 			this.setViews();
-			this.setupActionBarToggle();
 			this.registereventhandlers();
+			this.setContent();
 		}catch(Exception error){
 			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
 		}
@@ -67,7 +70,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 	//custom
 
 	private void setViews(){
-		this.mdl = (DrawerLayout) findViewById(R.id.content);
+		this.mdl = (CoordinatorLayout) findViewById(R.id.content);
 		this.content_event = (LinearLayout) findViewById(R.id.content_event);
 		this.content_participants = (LinearLayout) findViewById(R.id.content_participants);
 		this.img_running = (ImageView) findViewById(R.id.img_running_event);
@@ -76,6 +79,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 		this.img_profile = (ImageView) findViewById(R.id.img_profile_event);
 		this.text_view_profile = (TextView) findViewById(R.id.text_view_profile_event);
 		this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
+		this.collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_event);
 
 	}
 
@@ -85,16 +89,6 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 
 		this.content_participants.setOnClickListener(this);
 		this.content_user.setOnClickListener(this);
-		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
-	}
-
-	private void setupActionBarToggle(){
-		this.toggle = new ActionBarDrawerToggle(this,mdl,R.string.actionbar_open,R.string.actionbar_close);
-		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-			this.mdl.addDrawerListener(this.toggle);
-		}
-		toggle.syncState();
-		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	private void Participants_sharedTransitionAnimation() throws Exception{
@@ -107,6 +101,10 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 		Intent user_activity = new Intent(this,UserActivity.class);
 		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, new Pair<View, String>(img_profile,"img_profile"),new Pair<View, String>(text_view_profile,"text_view_profile"));
 		startActivity(user_activity,options.toBundle());
+	}
+
+	private void setContent(){
+		this.collapsingToolbar.setTitle("Rad fahren");
 	}
 
 	//super

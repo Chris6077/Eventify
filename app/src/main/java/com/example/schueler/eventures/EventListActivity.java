@@ -114,13 +114,7 @@ public class EventListActivity extends AppCompatActivity {
 
 		//ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.listview_item_event,temp);
 
-		events.add(new Event("Kino","3131341414",EventState.Unconfirmed,"not confirmed yet.",200,14,EventType.Public,EventCategory.Other,new Date(),new Date()));
-		events.add(new Event("Radfahren","1131313141",EventState.Confirmed,"bike tour to italy.",200,14,EventType.Public,EventCategory.Sportsevent,new Date(),new Date()));
-		events.add(new Event("Hausparty","1211412",EventState.CalledOff,"Party at my place.",200,14,EventType.Public,EventCategory.Party,new Date(),new Date()));
-		events.add(new Event("Martin Garrix Concert","21312333",EventState.Confirmed,"martin garrix open air concert.",200,14,EventType.Public,EventCategory.Concert,new Date(),new Date()));
-
 		adapter_list_view_event adapter = new adapter_list_view_event(this,R.layout.listview_item_event, events);
-
 		this.listView_events.setAdapter(adapter);
 	}
 
@@ -243,8 +237,6 @@ public class EventListActivity extends AppCompatActivity {
 		LoadEventsSync loadEventsSync = new LoadEventsSync(getString(R.string.webservice_base_url));
 		loadEventsSync.execute();
 	}
-
-
 
 
 	//listener
