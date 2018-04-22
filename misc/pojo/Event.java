@@ -149,6 +149,6 @@ public class Event implements Serializable {
 
     @Override
     public String toString() {
-        return "{ 'name': '" + name + "', 'creatorID': '" + creatorID + "', 'state': '" + state + "', 'description': '" + description + "', 'maxParticipants': '" + maxParticipants + "', 'minAge': '" + minAge + "', 'type': '" + type + "', 'category': '" + category + "', 'startDate': '" + startDate + "', 'endDate': '" + endDate + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'location': '" + location + "' }";
+        return "{ 'eID': '" + eID + "', 'name': '" + name + "', 'creatorID': '" + creatorID + "', 'state': '" + state + "', 'description': '" + description + "', 'maxParticipants': '" + maxParticipants + "', 'minAge': '" + minAge + "', 'type': '" + type + "', 'category': '" + category + "', 'startDate': '" + startDate + "', 'endDate': '" + endDate + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'location': '" + location + "' }";
     }
 }
