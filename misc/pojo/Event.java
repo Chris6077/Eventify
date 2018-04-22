@@ -13,6 +13,7 @@ import java.time.LocalDate;
  * @author Chris
  */
 public class Event implements Serializable {
+    private String eID;
     private String name;
     private String creatorID;
     private EventState state;
@@ -40,6 +41,14 @@ public class Event implements Serializable {
         this.endDate = endDate;
         this.created = LocalDate.now();
         this.lastEdited = LocalDate.now();
+    }
+    
+    public String getEID() {
+        return eID;
+    }
+    
+    public void setEID(String eID) {
+        this.eID = eID;
     }
 
     public String getName() {
