@@ -6,16 +6,11 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Pair;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.schueler.eventures.Event;
 import com.example.schueler.eventures.EventListActivity;
 import com.example.schueler.eventures.MapActivity;
-import com.example.schueler.eventures.New_EventActivity;
 import com.example.schueler.eventures.R;
-import com.example.schueler.eventures.WelcomeActivity;
 
 /**
  * Created by schueler on 3/18/18.

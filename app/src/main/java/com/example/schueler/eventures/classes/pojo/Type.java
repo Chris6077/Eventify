@@ -1,4 +1,4 @@
-package com.example.schueler.eventures.classes.enums;
+package com.example.schueler.eventures.classes.pojo;
 
 /**
  * Created by schueler on 4/18/18.

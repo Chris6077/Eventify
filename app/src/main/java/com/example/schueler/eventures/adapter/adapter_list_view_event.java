@@ -3,50 +3,42 @@ package com.example.schueler.eventures.adapter;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
-import android.view.GestureDetector;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
-import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ViewSwitcher;
 
-import com.example.schueler.eventures.Event;
-import com.example.schueler.eventures.LoginActivity;
+import com.example.schueler.eventures.Event_Activity;
 import com.example.schueler.eventures.R;
+import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.EventType;
 import com.example.schueler.eventures.listener.DoubleTapListener;
-import com.example.schueler.eventures.viewholder.view_holder_event;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
  * Created by schueler on 3/23/18.
  */
 
-public class adapter_list_view_event extends ArrayAdapter<String> {
+public class adapter_list_view_event extends ArrayAdapter<Event> {
 
 
 	AppCompatActivity appCompatActivityResource;
-	ArrayList<String> data;
+	ArrayList<Event> data;
 
 
 	//constructors
 
-	public adapter_list_view_event(AppCompatActivity res, @LayoutRes int resource, ArrayList<String> data) {
+	public adapter_list_view_event(AppCompatActivity res, @LayoutRes int resource, ArrayList<Event> data) {
 		super(res, resource, data);
 		this.setAppCompatActivityResource(res);
 		this.data = data;
@@ -72,11 +64,13 @@ public class adapter_list_view_event extends ArrayAdapter<String> {
 		LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.listview_item_event, parent, false);
-		TextView header = (TextView) rowView.findViewById(R.id.list_item_header);
-		header.setText(this.data.get(position));
-		ImageView image = (ImageView) rowView.findViewById(R.id.list_item_imageView);
+		TextView header_desc = (TextView) rowView.findViewById(R.id.list_item_header);
+		TextView header = (TextView) rowView.findViewById(R.id.list_item_event_name);
+		header_desc.setText(this.data.get(position).getDescription());
+		header.setText(this.data.get(position).getName());
 
 		this.setUpIconLike(rowView);
+		this.setUpIconCategory(rowView,this.data.get(position).getCategory());
 		this.setUpRowViewListener(rowView);
 		this.setUpTitleListener(rowView);
 
@@ -111,6 +105,30 @@ public class adapter_list_view_event extends ArrayAdapter<String> {
 
 	}
 
+	private void setUpIconCategory(View rowView, EventCategory eventCategory){
+		ImageView imageview_header_image_category = (ImageView) rowView.findViewById(R.id.category_image_event_list_item);
+		switch (eventCategory){
+			case Activity:
+				imageview_header_image_category.setImageResource(R.drawable.category_activity);
+				break;
+			case Festival:
+				imageview_header_image_category.setImageResource(R.drawable.category_festival);
+				break;
+			case Other:
+				imageview_header_image_category.setImageResource(R.drawable.category_other);
+				break;
+			case Sportsevent:
+				imageview_header_image_category.setImageResource(R.drawable.category_sports);
+				break;
+			case Party:
+				imageview_header_image_category.setImageResource(R.drawable.category_party);
+				break;
+			case Concert:
+				imageview_header_image_category.setImageResource(R.drawable.category_concert);
+				break;
+		}
+	}
+
 	private void setUpRowViewListener(View rowView){
 
 		final ImageView imageView = (ImageView) rowView.findViewById(R.id.list_item_like);
@@ -140,13 +158,13 @@ public class adapter_list_view_event extends ArrayAdapter<String> {
 
 	private void setUpTitleListener(View rowView){
 		final LinearLayout content_title = (LinearLayout) rowView.findViewById(R.id.list_item_header_title);
-		final ImageView header_image = (ImageView) rowView.findViewById(R.id.list_item_imageView);
+		final ImageView header_image = (ImageView) rowView.findViewById(R.id.category_image_event_list_item);
 
 		content_title.setOnClickListener(
 			new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent event_activity = new Intent(getAppCompatActivityResource(),Event.class);
+					Intent event_activity = new Intent(getAppCompatActivityResource(),Event_Activity.class);
 					ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getAppCompatActivityResource(), new Pair<View, String>(header_image,"header_image"));
 					getAppCompatActivityResource().startActivity(event_activity,options.toBundle());
 				}

@@ -12,7 +12,8 @@
     <string name="title_activity_event">EventActivity</string>
 
     <!-- webservice -->
-    <string name="webservice_base_url">https://httpbin.org/post</string>
+    <string name="webservice_base_url">https://eventify-test.glitch.me/</string>
+    <string name="webservice_get_Events_url">https://eventify-test.glitch.me/getAllEvents</string>s
 
     <string name="actionbar_open">Open</string>
     <string name="actionbar_close">Close</string>

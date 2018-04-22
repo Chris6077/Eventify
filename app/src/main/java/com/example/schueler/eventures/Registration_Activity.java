@@ -14,7 +14,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.schueler.eventures.classes.User;
+import com.example.schueler.eventures.classes.pojo.User;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -118,7 +118,7 @@ public class Registration_Activity extends AppCompatActivity {
 		try{
 			registerSync = new RegisterSync(getString(R.string.webservice_base_url));
 			gson = new Gson();
-			User user = new User("Julian","Black",new Date("1999/10/25"),"julian","email@mail.com","1234");
+			User user = new User("Julian","Black",new Date("1999/10/25"),"julian","email@mail.com","1234","");
 			registerSync.execute(gson.toJson(user).toString());
 
 		}catch(Exception error){

@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
@@ -26,22 +25,29 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
+import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.EventState;
+import com.example.schueler.eventures.classes.pojo.EventType;
 import com.example.schueler.eventures.listener.navmenu_listener;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.zip.Inflater;
+import java.util.Date;
 
 public class EventListActivity extends AppCompatActivity {
 
@@ -93,6 +99,7 @@ public class EventListActivity extends AppCompatActivity {
 	private void registrateeventhandlers(){
 		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
 		this.fab_add_event.setOnClickListener(new fab_listener(this,fab_add_event));
+
 	}
 
 	private void setupActionBarToggle(){
@@ -103,13 +110,16 @@ public class EventListActivity extends AppCompatActivity {
 		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
-	private void fillList(Collection<Event> events){
-
-		ArrayList<String> temp = new ArrayList<>();
+	private void fillList(ArrayList<Event> events){
 
 		//ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.listview_item_event,temp);
 
-		adapter_list_view_event adapter = new adapter_list_view_event(this,R.layout.listview_item_event,temp);
+		events.add(new Event("Kino","3131341414",EventState.Unconfirmed,"not confirmed yet.",200,14,EventType.Public,EventCategory.Other,new Date(),new Date()));
+		events.add(new Event("Radfahren","1131313141",EventState.Confirmed,"bike tour to italy.",200,14,EventType.Public,EventCategory.Sportsevent,new Date(),new Date()));
+		events.add(new Event("Hausparty","1211412",EventState.CalledOff,"Party at my place.",200,14,EventType.Public,EventCategory.Party,new Date(),new Date()));
+		events.add(new Event("Martin Garrix Concert","21312333",EventState.Confirmed,"martin garrix open air concert.",200,14,EventType.Public,EventCategory.Concert,new Date(),new Date()));
+
+		adapter_list_view_event adapter = new adapter_list_view_event(this,R.layout.listview_item_event, events);
 
 		this.listView_events.setAdapter(adapter);
 	}
@@ -230,10 +240,12 @@ public class EventListActivity extends AppCompatActivity {
 	}
 
 	private void loadEvents(){
-		this.fillList(null);
-		LoadEventsSync loadEventsSync = new LoadEventsSync("url");
+		LoadEventsSync loadEventsSync = new LoadEventsSync(getString(R.string.webservice_base_url));
 		loadEventsSync.execute();
 	}
+
+
+
 
 	//listener
 
@@ -263,7 +275,7 @@ public class EventListActivity extends AppCompatActivity {
 
 	//async Tasks
 
-	private class LoadEventsSync extends AsyncTask<String,Void,Collection<Event>>{
+	private class LoadEventsSync extends AsyncTask<Object, Object, ArrayList<Event>> {
 
 		//fields
 		private String url;
@@ -276,12 +288,15 @@ public class EventListActivity extends AppCompatActivity {
 
 		//super
 		@Override
-		protected Collection<Event> doInBackground(String... params) {
+		protected ArrayList<Event> doInBackground(Object... params) {
 			try {
-				HttpURLConnection conn = (HttpURLConnection) new URL(this.url).openConnection();
-				this.PostData(conn,params);
-				this.GetData(conn);
-				return null;
+				Gson gson = new Gson();
+				HttpURLConnection conn = (HttpURLConnection) new URL(this.url + "getAllEvents").openConnection();
+				Type collectionType = new TypeToken<Collection<Event>>(){}.getType();
+				String result = GetData(conn);
+				ArrayList<Event> events = gson.fromJson(result, collectionType);
+				return events;
+
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -289,8 +304,9 @@ public class EventListActivity extends AppCompatActivity {
 		}
 
 		@Override
-		protected void onPostExecute(Collection<Event> events) {
+		protected void onPostExecute(ArrayList<Event> events) {
 			listView_events.removeHeaderView(progressView);
+			fillList(events);
 			super.onPostExecute(events);
 		}
 

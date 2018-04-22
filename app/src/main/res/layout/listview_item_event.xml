@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:focusableInTouchMode="true"
-                android:layout_margin="2.5dp"
-                android:padding="20dp"
-                android:background="@drawable/shadow_box">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:focusableInTouchMode="true"
+    android:layout_margin="2.5dp"
+    android:padding="20dp"
+    android:background="@drawable/shadow_box">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,18 +16,33 @@
         android:id="@+id/list_item_header_title"
         android:orientation="vertical">
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <ImageView
+                android:layout_height="30dp"
+                android:layout_width="30dp"
+                android:id="@+id/category_image_event_list_item"
+                android:transitionName="header_image"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/biker"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/list_item_organizer"
+                android:id="@+id/list_item_event_name"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:text="Event"/>
+                android:text="Event"
+                android:textColor="#000000"
+                android:layout_marginLeft="20dp"
+                />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -48,7 +64,8 @@
                 android:textSize="15sp"
                 android:id="@+id/list_item_header"
                 android:transitionName="text_view_profile"
-                android:text="@string/event_organizer"/>
+                android:text="@string/event_organizer"
+                android:layout_marginLeft="50dp"/>
 
         </LinearLayout>
 
@@ -59,12 +76,8 @@
         android:layout_height="wrap_content"
         android:padding="15dp">
 
-        <ImageView
-            android:id="@+id/list_item_imageView"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:transitionName="header_image"
-            android:src="@drawable/wallpaper4"/>
+
+
 
     </LinearLayout>
 
@@ -79,7 +92,6 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:id="@+id/list_item_like"
-            android:layout_gravity="right"
             android:src="@drawable/ic_favorite_border_black_24dp"/>
 
         <TextView
@@ -91,14 +103,20 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="right"
-            android:src="@drawable/ic_add_circle_outline_black_24dp"/>
 
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_check_black_24dp"
+                android:layout_gravity="right"
+                android:scaleType="center"
+                />
+        </LinearLayout>
 
     </LinearLayout>
 

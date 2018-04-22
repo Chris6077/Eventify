@@ -20,7 +20,7 @@ import android.widget.Toast;
 
 import com.example.schueler.eventures.listener.navmenu_listener;
 
-public class Event extends AppCompatActivity implements View.OnClickListener {
+public class Event_Activity extends AppCompatActivity implements View.OnClickListener {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -69,7 +69,6 @@ public class Event extends AppCompatActivity implements View.OnClickListener {
 	private void setViews(){
 		this.mdl = (DrawerLayout) findViewById(R.id.content);
 		this.content_event = (LinearLayout) findViewById(R.id.content_event);
-		this.image_event = (ImageView) findViewById(R.id.event_header_image);
 		this.content_participants = (LinearLayout) findViewById(R.id.content_participants);
 		this.img_running = (ImageView) findViewById(R.id.img_running_event);
 		this.text_view_participants = (TextView) findViewById(R.id.text_view_participants_event);
