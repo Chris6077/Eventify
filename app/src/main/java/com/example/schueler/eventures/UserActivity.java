@@ -31,7 +31,7 @@ public class UserActivity extends AppCompatActivity {
 	private void setContent(){
 		this.collapsingToolbar.setTitle("Marcel Judth");
 		this.LoadImageFromURL();
-		Log.d("hallo", "hasdölkf");
+		
 	}
 
 	private void LoadImageFromURL(){
