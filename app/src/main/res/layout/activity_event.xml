@@ -86,7 +86,6 @@
                         android:layout_height="40dp"
                         android:id="@+id/img_profile_event"
                         android:transitionName="img_profile"
-                        android:src="@drawable/profle"
                         android:layout_marginRight="20dp"/>
 
                     <LinearLayout

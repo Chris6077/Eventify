@@ -3,6 +3,9 @@ package com.example.schueler.eventures;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
@@ -11,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,6 +25,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.listener.navmenu_listener;
+
+import java.io.InputStream;
+import java.net.URL;
 
 public class Event_Activity extends AppCompatActivity implements View.OnClickListener {
 
@@ -105,6 +112,13 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 
 	private void setContent(){
 		this.collapsingToolbar.setTitle("Rad fahren");
+		this.LoadImageFromURL();
+	}
+
+	private void LoadImageFromURL(){
+		new DownloadImageTask((ImageView) findViewById(R.id.img_profile_event))
+				.execute("https://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png");
+
 	}
 
 	//super
@@ -119,6 +133,33 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 			}
 		}catch (Exception error){
 			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
+		}
+	}
+
+	//async Task
+
+	private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+		ImageView bmImage;
+
+		public DownloadImageTask(ImageView bmImage) {
+			this.bmImage = bmImage;
+		}
+
+		protected Bitmap doInBackground(String... urls) {
+			String urldisplay = urls[0];
+			Bitmap mIcon11 = null;
+			try {
+				InputStream in = new java.net.URL(urldisplay).openStream();
+				mIcon11 = BitmapFactory.decodeStream(in);
+			} catch (Exception e) {
+				Log.e("Error", e.getMessage());
+				e.printStackTrace();
+			}
+			return mIcon11;
+	}
+
+		protected void onPostExecute(Bitmap result) {
+			bmImage.setImageBitmap(result);
 		}
 	}
 
