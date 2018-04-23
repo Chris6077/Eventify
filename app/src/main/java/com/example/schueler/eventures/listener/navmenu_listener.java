@@ -12,10 +12,6 @@ import com.example.schueler.eventures.EventListActivity;
 import com.example.schueler.eventures.MapActivity;
 import com.example.schueler.eventures.R;
 
-/**
- * Created by schueler on 3/18/18.
- */
-
 public class navmenu_listener implements NavigationView.OnNavigationItemSelectedListener {
 
 	final Context currentContext;
@@ -23,7 +19,6 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 
 
 	//constructors
-
 	public navmenu_listener (Object obj){
 		this.currentContext = ((AppCompatActivity)obj);
 		this.obj = obj;
@@ -31,7 +26,6 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 
 
 	//super
-
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 		if(item.getItemId() == R.id.mntm_all_events){
@@ -50,7 +44,6 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 
 
 	//custom
-
 	private void startActivity(Class classname){
 		Intent activity = new Intent(this.currentContext,classname);
 
@@ -60,6 +53,5 @@ public class navmenu_listener implements NavigationView.OnNavigationItemSelected
 		((AppCompatActivity)obj).finish();
 		//((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
 	}
-
 
 }

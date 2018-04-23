@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class LocalDatabase {
 
+	//classes
 	private class currentUser extends User{
 
 		private String UID;
@@ -27,5 +28,27 @@ public class LocalDatabase {
 		public void setUID(String UID) {
 			this.UID = UID;
 		}
+
 	}
+
+	//fields
+	private currentUser User;
+
+
+	//constructor
+	public LocalDatabase(currentUser user) {
+		User = user;
+	}
+
+
+	//getter & setter
+
+	public currentUser getUser() {
+		return User;
+	}
+
+	public void setUser(currentUser user) {
+		User = user;
+	}
+
 }

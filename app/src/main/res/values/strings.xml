@@ -13,7 +13,8 @@
 
     <!-- webservice -->
     <string name="webservice_base_url">https://eventify-test.glitch.me/</string>
-    <string name="webservice_get_Events_url">https://eventify-test.glitch.me/getAllEvents</string>s
+    <string name="webservice_get_Events_url">https://eventify-test.glitch.me/getAllEvents</string>
+    <string name="webservice_post_Login">https://eventify-test.glitch.me/login</string>
 
     <string name="actionbar_open">Open</string>
     <string name="actionbar_close">Close</string>
