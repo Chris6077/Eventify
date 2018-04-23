@@ -72,5 +72,8 @@
     <string name="user_events_hosted">Veranstaltete Events</string>
     <string name="user_events_participated">Teilgenommene Events</string>
     <string name="user_rating">Bewertung</string>
+    <string name="default_info_title">Hallo</string>
+    <string name="default_info_snippet">hallo2</string>
+    <string name="pick_place">title1</string>
 
 </resources>

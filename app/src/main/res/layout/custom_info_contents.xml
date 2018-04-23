@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layoutDirection="locale"
+    android:orientation="vertical"
+    >
+
+
+    <!--Name and Logo-->
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            style="@style/MapEventImage"
+            app:srcCompat="@drawable/event_image_marker"
+            />
+        <TextView
+            android:id="@+id/txtEventName"
+            style="@style/MapEventName"
+            android:text="Spazieren"/>
+        <TextView
+            android:id="@+id/txtEventPublicity"
+            style="@style/MapEventPublicity"
+            android:text="Öffentlich"
+            />
+    </LinearLayout>
+    <!--Name und Logo ende-->
+
+
+    <!--Ort-->
+        <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_margin="2.5dp"
+            android:background="@drawable/shadow_box">
+
+            <ImageView
+                style="@style/MapEventInfoImageView"
+                android:src="@drawable/event_icon_2" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/MapEventInfoHeadLine"
+                    android:text="Velden am Wörthersee"/>
+
+                <TextView
+                    style="@style/MapEventInfoDescription"
+                    android:text="Ort"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!--Ort Ende-->
+
+    <!--Uhrzeit-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    style="@style/MapEventInfoImageView"
+                    android:src="@drawable/clock" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/MapEventInfoHeadLine"
+                        android:text="9:30"/>
+
+                    <TextView
+                        style="@style/MapEventInfoDescription"
+                        android:text="Uhrzeit"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    <!--Uhrzeit Ende-->
+
+    <!--Veranstalter-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:layout_margin="2.5dp"
+                android:background="@drawable/shadow_box">
+
+                <ImageView
+                    style="@style/MapEventInfoImageView"
+                    android:src="@drawable/profle" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/MapEventInfoHeadLine"
+                        android:text="Marcel Judth"/>
+
+                    <TextView
+                        style="@style/MapEventInfoDescription"
+                        android:text="Veranstalter"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    <!--Veranstalter Ende-->
+
+</LinearLayout>
+

@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
-import com.example.schueler.eventures.classes.Database;
+import com.example.schueler.eventures.classes.pojo.Database;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -154,12 +154,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void fillMapWithEvents() {
-        ArrayList<com.example.schueler.eventures.classes.Event> allEvents = this.db.getEvents();
-        for (com.example.schueler.eventures.classes.Event event : allEvents) {
-            this.mMap.addMarker(new MarkerOptions().position(event.getPlace())
-                    .title(event.getName()));
-            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(event.getPlace()));
-        }
+//        ArrayList<com.example.schueler.eventures.classes.Event> allEvents = this.db.getEvents();
+//        for (com.example.schueler.eventures.classes.Event event : allEvents) {
+//            this.mMap.addMarker(new MarkerOptions().position(event.getPlace())
+//                    .title(event.getName()));
+//            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(event.getPlace()));
+//        }
 
     }
 
