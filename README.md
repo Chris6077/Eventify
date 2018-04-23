@@ -25,3 +25,16 @@ This app will manage user created eventActivities. They can be added, edited and
 * *[Akzeptanzkriterien](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EWKYWMxxgSVFk8PcSJsaWOABvfcUlnKE-nCgzaNNNYeKKw?e=fTZHrs)*
 
 * *[Class Diagram (final - violet uml sourceforge)](./misc/syp/Eventify.class.violet.html)*
+
+# Webservice
+
+Our services are Java based and will be deployed on herokuapp.
+
+* *[Repository](https://github.com/Val9000/EventifyAPI)*
+
+### Tags
+* Glassfish
+* BSON
+* GSON
+* JSON
+* MongoDB Java Driver Core
