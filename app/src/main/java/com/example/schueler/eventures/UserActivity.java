@@ -31,12 +31,11 @@ public class UserActivity extends AppCompatActivity {
 	private void setContent(){
 		this.collapsingToolbar.setTitle("Marcel Judth");
 		this.LoadImageFromURL();
-		
+
 	}
 
 	private void LoadImageFromURL(){
 		new DownloadImageTask((ImageView) findViewById(R.id.User_header_img))
 				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
-
 	}
 }
