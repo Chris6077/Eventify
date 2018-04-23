@@ -3,6 +3,7 @@ package com.example.schueler.eventures;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.example.schueler.eventures.asynctask.DownloadImageTask;
@@ -30,6 +31,7 @@ public class UserActivity extends AppCompatActivity {
 	private void setContent(){
 		this.collapsingToolbar.setTitle("Marcel Judth");
 		this.LoadImageFromURL();
+		Log.d("hallo", "hasdölkf");
 	}
 
 	private void LoadImageFromURL(){
