@@ -34,7 +34,7 @@ public class UserActivity extends AppCompatActivity {
 
 	private void LoadImageFromURL(){
 		new DownloadImageTask((ImageView) findViewById(R.id.User_header_img))
-				.execute("https://java.sogeti.nl/JavaBlog/wp-content/uploads/2009/04/android_icon_256.png");
+				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
 
 	}
 }
