@@ -57,7 +57,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/content_event"
+                android:id="@+id/content_create_event"
                 android:orientation="vertical"
                 android:background="@color/white"
                 android:padding="10dp"

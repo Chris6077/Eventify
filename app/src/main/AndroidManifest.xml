@@ -95,14 +95,11 @@
 
         <activity android:name=".CreateEventDialogActivty">
         </activity>
-<<<<<<< HEAD
         <activity android:name=".StrangerActivity"
                   android:theme="@style/style_no_actionbar">
-=======
-
+            </activity>
 
         <activity android:name=".MapsActivity">
->>>>>>> 9c0fe68a0d407ee636514ba1548989d366d05c7a
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 

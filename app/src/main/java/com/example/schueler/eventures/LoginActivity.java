@@ -40,6 +40,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.classes.pojo.User;
+import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
+import com.example.schueler.eventures.classes.pojo.local.LoginUserObject;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -86,6 +88,7 @@ public class LoginActivity extends AppCompatActivity{
     private Animation anim_horizontal_right;
     private Button btn_sign_up;
     private Button btn_sign_in;
+    private LocalDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,16 +121,31 @@ public class LoginActivity extends AppCompatActivity{
                 getApplicationContext().startActivity(registration_activity);
             }
         });
+        database = LocalDatabase.getInstance();
     }
 
-    private boolean isEmailValid(String email) {
-        //TODO: Replace this with your own logic
-        return email.contains("@");
+    private boolean isEmailValid() {
+
+        if(TextUtils.isEmpty(this.mEmailView.getText().toString())){
+            mEmailView.setError(this.getString(R.string.error_field_required));
+            mEmailView.requestFocus();
+            return false;
+        }if(!this.mEmailView.getText().toString().contains("@")){
+            mEmailView.setError(this.getString(R.string.error_invalid_email));
+            mEmailView.requestFocus();
+            return false;
+        }
+        return true;
     }
 
-    private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
-        return password.length() > 4;
+    private boolean isPasswordValid() {
+
+        if(TextUtils.isEmpty(this.mPasswordView.getText().toString())){
+            mPasswordView.setError(this.getString(R.string.error_field_required));
+            mPasswordView.requestFocus();
+            return false;
+        }
+        return true;
     }
 
     private void login() {
@@ -136,41 +154,36 @@ public class LoginActivity extends AppCompatActivity{
         LoginSync loginSync;
 
         //check if textfileds are empty
-        if (IsEmpty(mEmailView)) {
+        if(isEmailValid() && isPasswordValid()){
+
+            //send request to webservice
+            try {
+                gson = new Gson();
+                String email = this.mEmailView.getText().toString();
+                String password = this.mPasswordView.getText().toString();
+
+                LoginUserObject param = new LoginUserObject(email,password);
+
+                loginSync = new LoginSync(getString(R.string.webservice_post_Login));
+                loginSync.execute(gson.toJson(param).toString());
+
+            } catch (Exception error) {
+                Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
+            }
         }
 
-        //finally make post request
+    }
 
-        try {
-            loginSync = new LoginSync(getString(R.string.webservice_post_Login));
-            gson = new Gson();
-            User user = new User("Julian", "Black", new Date("1999/10/25"), "julian", "email@mail.com", "1234", "");
-            loginSync.execute(gson.toJson(user).toString());
-
-        } catch (Exception error) {
-            Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
+    private void processResult(String result){
+        if(result == null){
+            Toast.makeText(this, "wrong credentials! ", Toast.LENGTH_SHORT).show();
+            return;
         }
+        this.database.setUser(new LocalDatabase.currentUser("Julian","Blaschke",new Date(),"julian","jbl@gmail.com","jbl","https:((falösdflkjasf","dlöasdfj"));
+        Intent event_activity = new Intent(this,EventListActivity.class);
+        this.startActivity(event_activity);
     }
 
-    private boolean IsEmpty(View view) {
-        View focusView;
-        if (TextUtils.isEmpty(mEmailView.toString())) {
-            mEmailView.setError(this.getString(R.string.error_field_required));
-            focusView = mEmailView;
-            focusView.requestFocus();
-            return true;
-        }
-        return false;
-    }
-
-    private void ShowProgressDialog() {
-        ProgressDialog dialog = new ProgressDialog(this);
-        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-        dialog.setMessage("Loading. Please wait...");
-        dialog.setIndeterminate(true);
-        dialog.setCanceledOnTouchOutside(false);
-        dialog.show();
-    }
 
 
     //async Tasks
@@ -205,7 +218,8 @@ public class LoginActivity extends AppCompatActivity{
         @Override
         protected void onPostExecute(final String result) {
             asyncDialog.dismiss();
-            Toast.makeText(getApplication(), result, Toast.LENGTH_LONG).show();
+            processResult(result);
+
         }
 
         @Override

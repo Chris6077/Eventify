@@ -131,6 +131,10 @@ public class EventListActivity extends AppCompatActivity {
 		final View dialogView = View.inflate(this,R.layout.activity_create_event_dialog_activty,null);
 
 		final Dialog dialog = new Dialog(this,R.style.MyAlertDialogStyle);
+		final LinearLayout content = (LinearLayout) dialogView.findViewById(R.id.content_create_event);
+
+		content.setFocusable(false);
+
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(dialogView);
 
@@ -327,14 +331,17 @@ public class EventListActivity extends AppCompatActivity {
 		}
 
 		@Override
-		protected void onPostExecute(ArrayList<Event> events) {
-			listView_events.removeHeaderView(progressView);
+		protected void onPostExecute(ArrayList<Event> events){
+			//listView_events.removeHeaderView(progressView);
 			fillList(events);
+			listView_events.removeHeaderView(progressView);
 			super.onPostExecute(events);
 		}
 
 		@Override
 		protected void onPreExecute() {
+			adapter_list_view_event adapter = new adapter_list_view_event(EventListActivity.this, R.layout.listview_item_event, new ArrayList<Event>());
+			listView_events.setAdapter(adapter);
 			listView_events.addHeaderView(progressView);
 			super.onPreExecute();
 		}
