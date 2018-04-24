@@ -187,7 +187,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.navigation_navmenu, menu);
+        //getMenuInflater().inflate(R.menu.navigation_navmenu, menu);
         return true;
     }
 
@@ -225,15 +225,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
-                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
-                        (FrameLayout) findViewById(R.id.map), false);
+                //View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
+                //        (FrameLayout) findViewById(R.id.map), false);
 
                 /*TODO
                 *   Fill the event informations dynamically
                 *   Also an onclick on the menue and redirect to the event inforamtion activity
                 * */
 
-                return infoWindow;
+                return null;
             }
 
         });
@@ -493,11 +493,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 this.btnKarte.setChecked(false);
                 this.btnSatellit.setChecked(true);
                 this.mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-            }else
-            if(view.getId() == R.id.MenuImage){
-                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_menue_map));
-                mDrawerLayout.openDrawer(Gravity.LEFT);
             }
+//            if(view.getId() == R.id.MenuImage){
+//                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_menue_map));
+//                mDrawerLayout.openDrawer(Gravity.LEFT);
+//            }
         }catch (Exception ex){
             Log.d("Error", ex.toString());
         }
