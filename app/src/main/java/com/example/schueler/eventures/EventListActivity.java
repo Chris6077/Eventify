@@ -23,14 +23,17 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.listener.NavMenuHeader_listener;
 import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -99,7 +102,7 @@ public class EventListActivity extends AppCompatActivity {
 	private void registrateeventhandlers(){
 		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
 		this.fab_add_event.setOnClickListener(new fab_listener(this,fab_add_event));
-
+		this.registrateHeaderListener();
 	}
 
 	private void setupActionBarToggle(){
@@ -112,10 +115,13 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void fillList(ArrayList<Event> events){
 
-		//ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.listview_item_event,temp);
-
-		adapter_list_view_event adapter = new adapter_list_view_event(this,R.layout.listview_item_event, events);
-		this.listView_events.setAdapter(adapter);
+		if(events == null || events.size() < 1) {
+			Toast.makeText(this,"no resource found",Toast.LENGTH_LONG).show();
+			return;
+		}else {
+			adapter_list_view_event adapter = new adapter_list_view_event(this, R.layout.listview_item_event, events);
+			this.listView_events.setAdapter(adapter);
+		}
 	}
 
 	private void showDiag() {
@@ -236,6 +242,13 @@ public class EventListActivity extends AppCompatActivity {
 	private void loadEvents(){
 		LoadEventsSync loadEventsSync = new LoadEventsSync(getString(R.string.webservice_base_url));
 		loadEventsSync.execute();
+	}
+
+	private void registrateHeaderListener(){
+		View navHeader;
+		navHeader = navigation.getHeaderView(0);
+		navHeader.setOnClickListener(new NavMenuHeader_listener(this));
+
 	}
 
 

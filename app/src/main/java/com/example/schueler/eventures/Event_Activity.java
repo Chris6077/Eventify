@@ -106,7 +106,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 	}
 
 	private void User_sharedTransitionAnimation(){
-		Intent user_activity = new Intent(this,UserActivity.class);
+		Intent user_activity = new Intent(this,StrangerActivity.class);
 		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, new Pair<View, String>(img_profile,"img_profile"),new Pair<View, String>(text_view_profile,"text_view_profile"));
 		startActivity(user_activity,options.toBundle());
 	}

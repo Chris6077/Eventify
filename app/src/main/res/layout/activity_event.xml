@@ -203,7 +203,6 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/biker"
                         android:layout_marginRight="20dp"/>
 
                     <LinearLayout

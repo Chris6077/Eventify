@@ -75,5 +75,6 @@
     <string name="default_info_title">Hallo</string>
     <string name="default_info_snippet">hallo2</string>
     <string name="pick_place">title1</string>
+    <string name="user_logout">Logout</string>
 
 </resources>
