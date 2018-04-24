@@ -76,5 +76,8 @@
     <string name="default_info_snippet">hallo2</string>
     <string name="pick_place">title1</string>
     <string name="user_logout">Logout</string>
+    <string name="event_date_begin">Anfangsdatum</string>
+    <string name="event_date_end">Enddatum</string>
+    <string name="event_minage">Mindestalter</string>
 
 </resources>

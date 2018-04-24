@@ -25,10 +25,12 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
+import com.example.schueler.eventures.asynctask.DownloadImageTask;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
@@ -157,9 +159,11 @@ public class EventListActivity extends AppCompatActivity {
 				return false;
 			}
 		});
-		final TextView input_date = (TextView) dialog.findViewById(R.id.create_event_input_date);
+		final Button input_begin_date = (Button) dialog.findViewById(R.id.create_event_input_begin_date);
+		final Button input_end_date = (Button) dialog.findViewById(R.id.create_event_input_end_date);
 
-		input_date.setOnClickListener(new DatePickerListener());
+		input_begin_date.setOnClickListener(new DatePickerListener());
+		input_end_date.setOnClickListener(new DatePickerListener());
 
 		final Button button_submit = (Button) dialog.findViewById(R.id.create_event_button_submit);
 
@@ -178,7 +182,7 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void revealShow(View dialogView, boolean b, final Dialog dialog) {
 
-		final View view = dialogView.findViewById(R.id.create_event_dialog_content);
+		final View view = dialogView.findViewById(R.id.new_event_rootLayout);
 
 		int w = view.getWidth();
 		int h = view.getHeight();
@@ -248,6 +252,12 @@ public class EventListActivity extends AppCompatActivity {
 		View navHeader;
 		navHeader = navigation.getHeaderView(0);
 		navHeader.setOnClickListener(new NavMenuHeader_listener(this));
+		new DownloadImageTask((ImageView) navigation.getHeaderView(0).findViewById(R.id.navHeader_image)    )
+				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
+
+	}
+
+	private void fillSpinnerCategory(Spinner spinner){
 
 	}
 
@@ -275,6 +285,14 @@ public class EventListActivity extends AppCompatActivity {
 		@Override
 		public void onClick(View v) {
 			openDatePicker((TextView) v);
+		}
+	}
+
+	private class BtnSubmitNewEvent_listener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+
 		}
 	}
 

@@ -27,7 +27,7 @@ public class CreateEventDialogActivty extends AppCompatActivity {
 	//custom
 
 	private void setViews(){
-		this.input_date = (TextView) this.findViewById(R.id.create_event_input_date);
+		this.input_date = (TextView) this.findViewById(R.id.create_event_input_begin_date);
 	}
 
 	private void registerEventHandler(){
