@@ -15,6 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBOPY8SF4qhMJsrS8d77h7Dp5rRp74lWqM" />
         <activity
             android:name=".Event_Activity"
             android:label="eventify"
@@ -78,6 +80,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity
             android:name=".WelcomeActivity"
             android:theme="@style/style_no_actionbar">
@@ -87,7 +90,17 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <activity android:name=".CreateEventDialogActivty">
+        </activity>
+
+
+        <activity android:name=".MapsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
         </activity>
     </application>
 
