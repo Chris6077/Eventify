@@ -24,6 +24,10 @@ import android.widget.Switch;
 import android.widget.ToggleButton;
 
 import com.example.schueler.eventures.classes.pojo.Database;
+import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.EventState;
+import com.example.schueler.eventures.classes.pojo.EventType;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -44,6 +48,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
 
@@ -130,10 +135,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.btnKarte.setOnClickListener(this);
         this.btnSatellit.setOnClickListener(this);
         this.btnKarte.setChecked(true);
-        this.menuImage = (ImageView) findViewById(R.id.MenuImage);
+        this.mDrawerLayout = (DrawerLayout) this.findViewById(R.id.drawerLayout);
+        this.mToggle = new ActionBarDrawerToggle(this, this.mDrawerLayout, R.string.menu_open, R.string.menu_close);
+        this.menuImage = (ImageView) this.findViewById(R.id.MenuImage);
+        this.mDrawerLayout.addDrawerListener(this.mToggle);
+        this.mToggle.syncState();
         this.menuImage.setOnClickListener(this);
-        this.mDrawerLayout = (DrawerLayout) this.findViewById(R.id.navigation_drawer);
-        //this.mDrawerLayout.addDrawerListener(this);
     }
 
     private void setStyleMap() {
@@ -154,19 +161,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void fillMapWithEvents() {
-//        ArrayList<com.example.schueler.eventures.classes.Event> allEvents = this.db.getEvents();
-//        for (com.example.schueler.eventures.classes.Event event : allEvents) {
-//            this.mMap.addMarker(new MarkerOptions().position(event.getPlace())
-//                    .title(event.getName()));
-//            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(event.getPlace()));
-//        }
+        ArrayList<Event> allEvents = this.db.getEvents();
+        for (Event event : allEvents) {
+            LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
+            this.mMap.addMarker(new MarkerOptions().position(newLatLng)
+                    .title(event.getName()));
+            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
+        }
 
     }
 
     private void fillDatabaseWithTestData() {
-        LatLng l = new LatLng(46.608488, 14.027941);
-        //this.db.add(new mEvent("First Event", "Heute", 20, Database.category.PARTY, l, "Some infos"));
-    }
+        LatLng l = new LatLng(46.602540, 13.843018);
+        Event e = new Event("First Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
+        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(l.latitude, l.longitude));
+        this.db.add(e);
+        }
 
     /**
      * Saves the state of the map when the activity is paused.
@@ -187,7 +197,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        //getMenuInflater().inflate(R.menu.navigation_navmenu, menu);
+        getMenuInflater().inflate(R.menu.navigation_navmenu, menu);
         return true;
     }
 
@@ -225,8 +235,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
-                //View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
-                //        (FrameLayout) findViewById(R.id.map), false);
+                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
+                       (FrameLayout) findViewById(R.id.map), false);
+
+
 
                 /*TODO
                 *   Fill the event informations dynamically
@@ -481,6 +493,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+
+
     @Override
     public void onClick(View view) {
         try{
@@ -493,11 +507,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 this.btnKarte.setChecked(false);
                 this.btnSatellit.setChecked(true);
                 this.mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+            }else
+            if(view.getId() == R.id.MenuImage){
+                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_menue_map));
+                mDrawerLayout.openDrawer(Gravity.LEFT);
             }
-//            if(view.getId() == R.id.MenuImage){
-//                view.startAnimation(AnimationUtils.loadAnimation(this, R.anim.anim_menue_map));
-//                mDrawerLayout.openDrawer(Gravity.LEFT);
-//            }
         }catch (Exception ex){
             Log.d("Error", ex.toString());
         }

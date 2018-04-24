@@ -12,19 +12,19 @@ import java.io.Serializable;
  * @author Chris
  */
 public class Location implements Serializable {
-    private final String lat;
-    private final String lon;
+    private final double lat;
+    private final double lon;
     
-    public Location(String lat, String lon){
+    public Location(double lat, double lon){
         this.lat = lat;
         this.lon = lon;
     }
 
-    public String getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public String getLon() {
+    public double getLon() {
         return lon;
     }
 
