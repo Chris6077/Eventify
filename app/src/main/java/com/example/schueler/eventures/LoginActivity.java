@@ -226,7 +226,7 @@ public class LoginActivity extends AppCompatActivity{
         protected void onPreExecute() {
             //set message of the dialog
             asyncDialog.setTitle(getString(R.string.progress_dialog_regestration_title));
-            asyncDialog.setMessage(getString(R.string.progress_dialog_registration_message));
+            asyncDialog.setMessage(getString(R.string.progress_dialog_login_message));
             //show dialog
             asyncDialog.show();
             super.onPreExecute();

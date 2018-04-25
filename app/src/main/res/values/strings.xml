@@ -41,6 +41,7 @@
     <string name="title_activity_registration_">Sign Up</string>
     <string name="progress_dialog_regestration_title">Bitte Warten...</string>
     <string name="progress_dialog_registration_message">Account wird erstellt.</string>
+    <string name="progress_dialog_login_message">Sie werden angemeldet.</string>
 
     <!-- Strings related to event -->
     <string name="event_organizer">Veranstalter</string>
