@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package POJO;
 
 /**
  *
  * @author Chris
  */
-public enum EventCategory {
-    Sportsevent,
-    Festival,
-    Concert,
-    Party,
-    Activity,
-    Other
+public enum EventType {
+    NoList,
+    Private,
+    Public
 }

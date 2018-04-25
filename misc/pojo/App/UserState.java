@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package data;
+package POJO;
 
 /**
  *
  * @author Chris
  */
-public enum EventType {
-    Public,
-    Private,
-    NoList
+public enum UserState {
+    Activated,
+    Deactivated
 }
