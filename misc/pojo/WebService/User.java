@@ -14,24 +14,24 @@ import java.util.Collection;
  * @author Chris
  */
 public class User {
-    private transient int uID;
+    private int uID;
     private String firstName;
     private String lastName;
     private LocalDate birthdate;
     private String email;
     private String password;
     private String profilePicture;
-    private transient UserState state;
-    private transient UserType type;
-    private transient int numberOfCreated;
-    private transient int numberOfParticipated;
-    private transient double rating;
-    private transient int totalFollowers;
-    private transient LocalDate created;
-    private transient LocalDate lastEdited;
-    private transient ArrayList<SlimUser> follows;
-    private transient ArrayList<SlimEvent> likes;
-    private transient ArrayList<SlimEvent> participatesIn;
+    private UserState state;
+    private UserType type;
+    private int numberOfCreated;
+    private int numberOfParticipated;
+    private ArrayList<Integer> ratings;
+    private int totalFollowers;
+    private LocalDate created;
+    private LocalDate lastEdited;
+    private ArrayList<SlimUser> follows;
+    private ArrayList<SlimEvent> likes;
+    private ArrayList<SlimEvent> participatesIn;
 
     public User(String firstName, String lastName, LocalDate birthdate, String email, String password, String profilePicture) {
         this.firstName = firstName;
@@ -40,6 +40,17 @@ public class User {
         this.email = email;
         this.password = password;
         this.profilePicture = profilePicture;
+        this.state = UserState.Activated;
+        this.type = UserType.User;
+        this.numberOfCreated = 0;
+        this.numberOfParticipated = 0;
+        this.ratings = new ArrayList<>();
+        this.totalFollowers = 0;
+        this.created = LocalDate.now();
+        this.lastEdited = LocalDate.now();
+        this.follows = new ArrayList<>();
+        this.likes = new ArrayList<>();
+        this.participatesIn = new ArrayList<>();
     }
 
     public int getuID() {
@@ -86,8 +97,8 @@ public class User {
         return numberOfParticipated;
     }
 
-    public double getRating() {
-        return rating;
+    public Collection<Integer> getRatings() {
+        return ratings;
     }
 
     public int getTotalFollowers() {
@@ -114,6 +125,10 @@ public class User {
         return participatesIn;
     }
 
+    public void setuID(int uID) {
+        this.uID = uID;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -136,6 +151,50 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public void setState(UserState state) {
+        this.state = state;
+    }
+
+    public void setType(UserType type) {
+        this.type = type;
+    }
+
+    public void setNumberOfCreated(int numberOfCreated) {
+        this.numberOfCreated = numberOfCreated;
+    }
+
+    public void setNumberOfParticipated(int numberOfParticipated) {
+        this.numberOfParticipated = numberOfParticipated;
+    }
+
+    public void setRatings(Collection<Integer> ratings) {
+        this.ratings = (ArrayList<Integer>) ratings;
+    }
+
+    public void setTotalFollowers(int totalFollowers) {
+        this.totalFollowers = totalFollowers;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public void setLastEdited(LocalDate lastEdited) {
+        this.lastEdited = lastEdited;
+    }
+
+    public void setFollows(Collection<SlimUser> follows) {
+        this.follows = (ArrayList<SlimUser>) follows;
+    }
+
+    public void setLikes(Collection<SlimEvent> likes) {
+        this.likes = (ArrayList<SlimEvent>) likes;
+    }
+
+    public void setParticipatesIn(Collection<SlimEvent> participatesIn) {
+        this.participatesIn = (ArrayList<SlimEvent>) participatesIn;
     }
     
     @Override

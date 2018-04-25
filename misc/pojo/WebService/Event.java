@@ -14,21 +14,21 @@ import java.util.Collection;
  * @author Chris
  */
 public class Event {
-    private transient String eID;
+    private String eID;
     private String name;
     private String description;
     private int maxParticipators;
     private int minAge;
-    private transient int totalLikes;
-    private transient int totalParticipators;
+    private int totalLikes;
+    private int totalParticipators;
     private LocalDate startDate;
     private LocalDate endDate;
-    private transient LocalDate created;
-    private transient LocalDate lastEdited;
+    private LocalDate created;
+    private LocalDate lastEdited;
     private EventType type;
-    private transient EventState state;
+    private EventState state;
     private EventCategory category;
-    private transient ArrayList<MinimalUser> participators;
+    private ArrayList<MinimalUser> participators;
     private MinimalUser creator;
 
     public Event(String name, String description, int maxParticipators, int minAge, LocalDate startDate, LocalDate endDate, EventType type, EventCategory category, MinimalUser creator) {
@@ -41,6 +41,12 @@ public class Event {
         this.type = type;
         this.category = category;
         this.creator = creator;
+        this.totalLikes = 0;
+        this.totalParticipators = 0;
+        this.created = LocalDate.now();
+        this.lastEdited = LocalDate.now();
+        this.state = EventState.Unconfirmed;
+        this.participators = new ArrayList<>();
     }
 
     public String geteID() {
@@ -107,6 +113,10 @@ public class Event {
         return creator;
     }
 
+    public void seteID(String eID) {
+        this.eID = eID;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -123,16 +133,48 @@ public class Event {
         this.minAge = minAge;
     }
 
+    public void setTotalLikes(int totalLikes) {
+        this.totalLikes = totalLikes;
+    }
+
+    public void setTotalParticipators(int totalParticipators) {
+        this.totalParticipators = totalParticipators;
+    }
+
+    public void setStartDate(LocalDate startDate) {
+        this.startDate = startDate;
+    }
+
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
+    }
+
+    public void setCreated(LocalDate created) {
+        this.created = created;
+    }
+
+    public void setLastEdited(LocalDate lastEdited) {
+        this.lastEdited = lastEdited;
     }
 
     public void setType(EventType type) {
         this.type = type;
     }
 
+    public void setState(EventState state) {
+        this.state = state;
+    }
+
     public void setCategory(EventCategory category) {
         this.category = category;
+    }
+
+    public void setParticipators(Collection<MinimalUser> participators) {
+        this.participators = (ArrayList<MinimalUser>) participators;
+    }
+
+    public void setCreator(MinimalUser creator) {
+        this.creator = creator;
     }
     
     @Override
