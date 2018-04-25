@@ -38,7 +38,6 @@ public class StrangerActivity extends AppCompatActivity {
 	private void setContent(){
 		this.collapsingToolbar.setTitle("Marcel Judth");
 		this.LoadImageFromURL();
-
 	}
 
 	private void LoadImageFromURL(){
