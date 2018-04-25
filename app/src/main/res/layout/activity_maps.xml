@@ -27,7 +27,11 @@
             android:id="@+id/MenuImage"
             android:layout_width="40sp"
             android:layout_height="40sp"
+<<<<<<< HEAD
             android:src="@drawable/ic_menu" />
+=======
+            app:srcCompat="@drawable/ic_close_black_24dp"/>
+>>>>>>> 8b96d29db463937e4343665146144d9343b7662c
 
         <LinearLayout
             android:layout_width="wrap_content"

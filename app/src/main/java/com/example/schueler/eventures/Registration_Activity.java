@@ -137,15 +137,6 @@ public class Registration_Activity extends AppCompatActivity {
 		return false;
 	}
 
-	private void ShowProgressDialog(){
-		ProgressDialog dialog = new ProgressDialog(this);
-		dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		dialog.setMessage("Loading. Please wait...");
-		dialog.setIndeterminate(true);
-		dialog.setCanceledOnTouchOutside(false);
-		dialog.show();
-	}
-
 
 	//listener
 

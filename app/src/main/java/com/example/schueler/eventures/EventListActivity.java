@@ -23,14 +23,19 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
+import com.example.schueler.eventures.asynctask.DownloadImageTask;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.listener.NavMenuHeader_listener;
 import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -99,7 +104,7 @@ public class EventListActivity extends AppCompatActivity {
 	private void registrateeventhandlers(){
 		this.navigation.setNavigationItemSelectedListener(new navmenu_listener(this));
 		this.fab_add_event.setOnClickListener(new fab_listener(this,fab_add_event));
-
+		this.registrateHeaderListener();
 	}
 
 	private void setupActionBarToggle(){
@@ -112,10 +117,13 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void fillList(ArrayList<Event> events){
 
-		//ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.listview_item_event,temp);
-
-		adapter_list_view_event adapter = new adapter_list_view_event(this,R.layout.listview_item_event, events);
-		this.listView_events.setAdapter(adapter);
+		if(events == null || events.size() < 1) {
+			Toast.makeText(this,"no resource found",Toast.LENGTH_LONG).show();
+			return;
+		}else {
+			adapter_list_view_event adapter = new adapter_list_view_event(this, R.layout.listview_item_event, events);
+			this.listView_events.setAdapter(adapter);
+		}
 	}
 
 	private void showDiag() {
@@ -123,6 +131,10 @@ public class EventListActivity extends AppCompatActivity {
 		final View dialogView = View.inflate(this,R.layout.activity_create_event_dialog_activty,null);
 
 		final Dialog dialog = new Dialog(this,R.style.MyAlertDialogStyle);
+		final LinearLayout content = (LinearLayout) dialogView.findViewById(R.id.content_create_event);
+
+		content.setFocusable(false);
+
 		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		dialog.setContentView(dialogView);
 
@@ -151,9 +163,11 @@ public class EventListActivity extends AppCompatActivity {
 				return false;
 			}
 		});
-		final TextView input_date = (TextView) dialog.findViewById(R.id.create_event_input_date);
+		final Button input_begin_date = (Button) dialog.findViewById(R.id.create_event_input_begin_date);
+		final Button input_end_date = (Button) dialog.findViewById(R.id.create_event_input_end_date);
 
-		input_date.setOnClickListener(new DatePickerListener());
+		input_begin_date.setOnClickListener(new DatePickerListener());
+		input_end_date.setOnClickListener(new DatePickerListener());
 
 		final Button button_submit = (Button) dialog.findViewById(R.id.create_event_button_submit);
 
@@ -172,7 +186,7 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void revealShow(View dialogView, boolean b, final Dialog dialog) {
 
-		final View view = dialogView.findViewById(R.id.create_event_dialog_content);
+		final View view = dialogView.findViewById(R.id.new_event_rootLayout);
 
 		int w = view.getWidth();
 		int h = view.getHeight();
@@ -238,6 +252,19 @@ public class EventListActivity extends AppCompatActivity {
 		loadEventsSync.execute();
 	}
 
+	private void registrateHeaderListener(){
+		View navHeader;
+		navHeader = navigation.getHeaderView(0);
+		navHeader.setOnClickListener(new NavMenuHeader_listener(this));
+		new DownloadImageTask((ImageView) navigation.getHeaderView(0).findViewById(R.id.navHeader_image)    )
+				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
+
+	}
+
+	private void fillSpinnerCategory(Spinner spinner){
+
+	}
+
 
 	//listener
 
@@ -262,6 +289,14 @@ public class EventListActivity extends AppCompatActivity {
 		@Override
 		public void onClick(View v) {
 			openDatePicker((TextView) v);
+		}
+	}
+
+	private class BtnSubmitNewEvent_listener implements OnClickListener{
+
+		@Override
+		public void onClick(View v) {
+
 		}
 	}
 
@@ -296,14 +331,17 @@ public class EventListActivity extends AppCompatActivity {
 		}
 
 		@Override
-		protected void onPostExecute(ArrayList<Event> events) {
-			listView_events.removeHeaderView(progressView);
+		protected void onPostExecute(ArrayList<Event> events){
+			//listView_events.removeHeaderView(progressView);
 			fillList(events);
+			listView_events.removeHeaderView(progressView);
 			super.onPostExecute(events);
 		}
 
 		@Override
 		protected void onPreExecute() {
+			adapter_list_view_event adapter = new adapter_list_view_event(EventListActivity.this, R.layout.listview_item_event, new ArrayList<Event>());
+			listView_events.setAdapter(adapter);
 			listView_events.addHeaderView(progressView);
 			super.onPreExecute();
 		}
