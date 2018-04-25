@@ -1,17 +1,21 @@
 package com.example.schueler.eventures;
 
+import android.app.ActivityOptions;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -28,6 +32,7 @@ import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -50,7 +55,7 @@ import com.google.android.gms.tasks.Task;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
@@ -93,6 +98,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private ImageView menuImage;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    private NavigationView navigation;
+
 
 
     @Override
@@ -141,6 +148,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.mDrawerLayout.addDrawerListener(this.mToggle);
         this.mToggle.syncState();
         this.menuImage.setOnClickListener(this);
+        this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
+        this.navigation.setNavigationItemSelectedListener(this);
     }
 
     private void setStyleMap() {
@@ -175,6 +184,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng l = new LatLng(46.602540, 13.843018);
         Event e = new Event("First Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
         e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(l.latitude, l.longitude));
+        this.db.add(e);
+        e = new Event("Second Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
+        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.608465, 13.844906));
+        this.db.add(e);
+        e = new Event("Third Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
+        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.612636, 13.845078));
         this.db.add(e);
         }
 
@@ -235,17 +250,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
+
+                Log.d("Servas", "sldk");
+
                 View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
                        (FrameLayout) findViewById(R.id.map), false);
-
-
 
                 /*TODO
                 *   Fill the event informations dynamically
                 *   Also an onclick on the menue and redirect to the event inforamtion activity
                 * */
 
-                return null;
+                return infoWindow;
             }
 
         });
@@ -516,4 +532,33 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("Error", ex.toString());
         }
     }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == R.id.mntm_all_events){
+            startActivity(EventListActivity.class);
+        }else if(item.getItemId() == R.id.mntm_favourites){
+            startActivity(EventListActivity.class);
+        }else if(item.getItemId() == R.id.mntm_fixed_events){
+            startActivity(EventListActivity.class);
+        }else if(item.getItemId() == R.id.mntm_my_events){
+            startActivity(EventListActivity.class);
+        }else if(item.getItemId() == R.id.mntm_map){
+            startActivity(MapsActivity.class);
+        }
+        return true;
+    }
+
+
+    //custom
+    private void startActivity(Class classname){
+        Intent activity = new Intent(this,classname);
+
+        activity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this);
+        this.startActivity(activity,options.toBundle());
+        this.finish();
+        //((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
+    }
+
 }

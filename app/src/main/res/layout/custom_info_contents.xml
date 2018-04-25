@@ -58,7 +58,7 @@
 
                 <TextView
                     style="@style/MapEventInfoHeadLine"
-                    android:text="Velden am Wörthersee"/>
+                    android:text="Villach an der Drau"/>
 
                 <TextView
                     style="@style/MapEventInfoDescription"
@@ -128,7 +128,7 @@
 
                     <TextView
                         style="@style/MapEventInfoHeadLine"
-                        android:text="Marcel Judth"/>
+                        android:text="Julian Blaschke"/>
 
                     <TextView
                         style="@style/MapEventInfoDescription"
