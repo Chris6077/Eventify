@@ -3,10 +3,6 @@ package com.example.schueler.eventures;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
@@ -14,7 +10,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,10 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.asynctask.DownloadImageTask;
-import com.example.schueler.eventures.listener.navmenu_listener;
-
-import java.io.InputStream;
-import java.net.URL;
 
 public class Event_Activity extends AppCompatActivity implements View.OnClickListener {
 

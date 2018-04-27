@@ -2,6 +2,7 @@ package com.example.schueler.eventures;
 
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,6 +16,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.classes.pojo.User;
+import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
+import com.example.schueler.eventures.classes.pojo.local.RegistrationUserObject;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -110,16 +113,22 @@ public class Registration_Activity extends AppCompatActivity {
 		RegisterSync registerSync;
 
 		//check if textfileds are empty
-		if(IsEmpty(mEmailView)){
-		}
+
 
 		//finally make post request
 
 		try{
-			registerSync = new RegisterSync(getString(R.string.webservice_base_url));
+			registerSync = new RegisterSync(getString(R.string.webservice_post_Register));
 			gson = new Gson();
-			User user = new User("Julian","Black",new Date("1999/10/25"),"julian","email@mail.com","1234","");
-			registerSync.execute(gson.toJson(user).toString());
+			String email = this.mEmailView.getText().toString();
+			String firstname = this.mFirstNameView.getText().toString();
+			String lastname = this.mLastNameView.getText().toString();
+			String birthdate = this.mBirthDateView.getText().toString();
+			String password = this.mPasswordView.getText().toString();
+
+
+			RegistrationUserObject param = new RegistrationUserObject(firstname,lastname,birthdate,email,password);
+			registerSync.execute(gson.toJson(param).toString());
 
 		}catch(Exception error){
 			Toast.makeText(this,error.toString(),Toast.LENGTH_LONG).show();
@@ -137,6 +146,14 @@ public class Registration_Activity extends AppCompatActivity {
 		return false;
 	}
 
+	private void processResult(String result){
+		if(result == null){
+			Toast.makeText(this, "wrong credentials! ", Toast.LENGTH_SHORT).show();
+			return;
+		}
+		Intent event_activity = new Intent(this,EventListActivity.class);
+		this.startActivity(event_activity);
+	}
 
 	//listener
 
@@ -189,7 +206,7 @@ public class Registration_Activity extends AppCompatActivity {
 		@Override
 		protected void onPostExecute(final String result){
 			asyncDialog.dismiss();
-			Toast.makeText(getApplication(),result,Toast.LENGTH_LONG).show();
+			processResult(result);
 		}
 
 		@Override

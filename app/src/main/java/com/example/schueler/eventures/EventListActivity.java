@@ -32,9 +32,6 @@ import android.widget.Toast;
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
 import com.example.schueler.eventures.asynctask.DownloadImageTask;
 import com.example.schueler.eventures.classes.pojo.Event;
-import com.example.schueler.eventures.classes.pojo.EventCategory;
-import com.example.schueler.eventures.classes.pojo.EventState;
-import com.example.schueler.eventures.classes.pojo.EventType;
 import com.example.schueler.eventures.listener.NavMenuHeader_listener;
 import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.gson.Gson;
@@ -49,10 +46,8 @@ import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 public class EventListActivity extends AppCompatActivity {
 
