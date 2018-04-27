@@ -3,12 +3,20 @@
 
     <item
         is-multidex="true"
+<<<<<<< HEAD
         jar="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/libs/gson-2.5.jar"
+=======
+        jar="D:\Desktop\Eventify\Eventify\app\libs\gson-2.5.jar"
+>>>>>>> b8f14956d433032ae9e6be095bd6c3de2e60ef91
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
+<<<<<<< HEAD
         <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.5_25e173d7fbac36df74959767131394e6ac07ba99/classes.dex" />
+=======
+        <dex dex="D:\Desktop\Eventify\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\2\gson-2.5_4ce80457cb947b2ecb1f2ca345b4a0084fbb0bfa\classes.dex" />
+>>>>>>> b8f14956d433032ae9e6be095bd6c3de2e60ef91
     </item>
 
 </items>
