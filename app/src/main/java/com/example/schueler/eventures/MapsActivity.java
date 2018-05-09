@@ -15,7 +15,6 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -32,7 +31,6 @@ import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
-import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -53,7 +51,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 

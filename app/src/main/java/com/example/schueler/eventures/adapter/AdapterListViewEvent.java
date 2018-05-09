@@ -1,10 +1,8 @@
 package com.example.schueler.eventures.adapter;
 
 import android.app.ActivityOptions;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -13,7 +11,6 @@ import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -23,8 +20,7 @@ import com.example.schueler.eventures.Event_Activity;
 import com.example.schueler.eventures.R;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
-import com.example.schueler.eventures.classes.pojo.EventType;
-import com.example.schueler.eventures.listener.DoubleTapListener;
+import com.example.schueler.eventures.listener.ListenerDoubleTap;
 
 import java.util.ArrayList;
 
@@ -32,7 +28,7 @@ import java.util.ArrayList;
  * Created by schueler on 3/23/18.
  */
 
-public class adapter_list_view_event extends ArrayAdapter<Event> {
+public class AdapterListViewEvent extends ArrayAdapter<Event> {
 
 
 	AppCompatActivity appCompatActivityResource;
@@ -41,7 +37,7 @@ public class adapter_list_view_event extends ArrayAdapter<Event> {
 
 	//constructors
 
-	public adapter_list_view_event(AppCompatActivity res, @LayoutRes int resource, ArrayList<Event> data) {
+	public AdapterListViewEvent(AppCompatActivity res, @LayoutRes int resource, ArrayList<Event> data) {
 		super(res, resource, data);
 		this.setAppCompatActivityResource(res);
 		this.data = data;
@@ -137,7 +133,7 @@ public class adapter_list_view_event extends ArrayAdapter<Event> {
 		final ImageView imageView = (ImageView) rowView.findViewById(R.id.list_item_like);
 
 
-		rowView.setOnClickListener(new DoubleTapListener() {
+		rowView.setOnClickListener(new ListenerDoubleTap() {
 
 			@Override
 			public void onSingleClick(View v) {

@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,8 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.schueler.eventures.adapter.adapter_list_view_event;
-import com.example.schueler.eventures.asynctask.DownloadImageTask;
+import com.example.schueler.eventures.asynctask.TaskGetImage;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -119,7 +117,7 @@ public class Event_Activity extends AppCompatActivity{
 	}
 
 	private void LoadImageFromURL(int imageRes){
-		new DownloadImageTask((ImageView) findViewById(imageRes))
+		new TaskGetImage((ImageView) findViewById(imageRes))
 				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
 
 	}

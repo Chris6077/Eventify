@@ -16,13 +16,13 @@ import com.example.schueler.eventures.MapActivity;
 import com.example.schueler.eventures.MapsActivity;
 import com.example.schueler.eventures.R;
 
-public class navmenu_listener implements NavigationView.OnNavigationItemSelectedListener {
+public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSelectedListener {
 
 	private AppCompatActivity resource;
 
 
 	//constructors
-	public navmenu_listener (AppCompatActivity obj){
+	public ListenerNavigationMenu(AppCompatActivity obj){
 		this.resource = obj;
 	}
 

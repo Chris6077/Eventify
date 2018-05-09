@@ -10,7 +10,7 @@ import org.w3c.dom.Text;
  * Created by schueler on 3/23/18.
  */
 
-public class view_holder_event {
+public class ViewHolderEvent {
 
 	private View item;
 
@@ -21,7 +21,7 @@ public class view_holder_event {
 
 	//constructors
 
-	public view_holder_event(View item) {
+	public ViewHolderEvent(View item) {
 		this.setItem(item);
 	}
 

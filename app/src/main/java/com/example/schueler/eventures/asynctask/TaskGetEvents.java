@@ -3,7 +3,7 @@ package com.example.schueler.eventures.asynctask;
 import android.os.AsyncTask;
 
 import com.example.schueler.eventures.classes.pojo.Event;
-import com.example.schueler.eventures.interfaces.Interface_get_events;
+import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -22,14 +22,14 @@ import java.util.Collection;
  * Created by schueler on 5/7/18.
  */
 
-public class Task_get_events extends AsyncTask<Object, Object, ArrayList<Event>> {
+public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<Event>> {
 
 	//fields
 	private String url;
-	private Interface_get_events listener;
+	private InterfaceGetEvents listener;
 
 	//constructors
-	public Task_get_events(String url, Interface_get_events listener) {
+	public TaskGetEvents(String url, InterfaceGetEvents listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}
@@ -43,11 +43,11 @@ public class Task_get_events extends AsyncTask<Object, Object, ArrayList<Event>>
 		this.url = url;
 	}
 
-	public Interface_get_events getListener() {
+	public InterfaceGetEvents getListener() {
 		return listener;
 	}
 
-	public void setListener(Interface_get_events listener) {
+	public void setListener(InterfaceGetEvents listener) {
 		this.listener = listener;
 	}
 

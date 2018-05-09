@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Created by schueler on 5/7/18.
  */
 
-public interface Interface_get_events {
+public interface InterfaceGetEvents {
 	public void onPreExecute();
 	public void onPostExecute(ArrayList<Event> events);
 }

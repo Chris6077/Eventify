@@ -1,8 +1,6 @@
 package com.example.schueler.eventures;
 
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
@@ -10,12 +8,10 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.schueler.eventures.asynctask.DownloadImageTask;
+import com.example.schueler.eventures.asynctask.TaskGetImage;
 
 import java.io.IOException;
 
@@ -63,7 +59,7 @@ public class UserActivity extends AppCompatActivity {
 
 	private void setViews(){
 		this.collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_user);
-		this.logoutView = findViewById(R.id.list_item_user_logout);
+		//this.logoutView = findViewById(R.id.list_item_user_logout);
 		this.fab_choose_pic = (FloatingActionButton) findViewById(R.id.fab_choose_picture_user);
 	}
 
@@ -79,7 +75,7 @@ public class UserActivity extends AppCompatActivity {
 	}
 
 	private void LoadImageFromURL(){
-		new DownloadImageTask((ImageView) findViewById(R.id.User_header_img))
+		new TaskGetImage((ImageView) findViewById(R.id.User_header_img))
 				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
 	}
 

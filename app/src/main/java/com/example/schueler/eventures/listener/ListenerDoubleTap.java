@@ -5,7 +5,7 @@ import android.view.View;
 /**
  * Created by schueler on 4/5/18.
  */
-public abstract class DoubleTapListener implements View.OnClickListener {
+public abstract class ListenerDoubleTap implements View.OnClickListener {
 
 	private static final long DOUBLE_CLICK_TIME_DELTA = 300;//milliseconds
 

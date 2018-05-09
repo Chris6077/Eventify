@@ -12,13 +12,13 @@ import com.example.schueler.eventures.UserActivity;
  * Created by schueler on 4/23/18.
  */
 
-public class NavMenuHeader_listener  implements View.OnClickListener {
+public class ListenerNavigationMenuHeader implements View.OnClickListener {
 
 	//fields
 	private AppCompatActivity resource;
 
 	//constructors
-	public NavMenuHeader_listener(AppCompatActivity resource) {
+	public ListenerNavigationMenuHeader(AppCompatActivity resource) {
 		this.resource = resource;
 	}
 
