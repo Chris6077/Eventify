@@ -174,7 +174,7 @@ public class LoginActivity extends AppCompatActivity{
 
     }
 
-    private void processResult(String result){
+    public void processResult(String result){
         if(result == null){
             Toast.makeText(this, "wrong credentials! ", Toast.LENGTH_SHORT).show();
             return;

@@ -38,7 +38,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Event_Activity extends AppCompatActivity implements View.OnClickListener {
+public class Event_Activity extends AppCompatActivity{
 
 	private CoordinatorLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -88,12 +88,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 	private void setViews(){
 		this.mdl = (CoordinatorLayout) findViewById(R.id.content);
 		this.content_event = (LinearLayout) findViewById(R.id.content_event);
-		this.content_participants = (LinearLayout) findViewById(R.id.content_participants);
-		this.img_running = (ImageView) findViewById(R.id.img_running_event);
-		this.text_view_participants = (TextView) findViewById(R.id.text_view_participants_event);
 		this.content_user = (LinearLayout) findViewById(R.id.content_user);
-		this.img_profile = (ImageView) findViewById(R.id.img_profile_event);
-		this.text_view_profile = (TextView) findViewById(R.id.text_view_profile_event);
 		this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
 		this.collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapsingToolbar_event);
 
@@ -103,8 +98,7 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 
 		final Context context = this;
 
-		this.content_participants.setOnClickListener(this);
-		this.content_user.setOnClickListener(this);
+		
 	}
 
 	private void Participants_sharedTransitionAnimation() throws Exception{
@@ -120,12 +114,12 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 	}
 
 	private void setContent(){
-		this.collapsingToolbar.setTitle("Rad fahren");
-		this.LoadImageFromURL();
+		//this.collapsingToolbar.setTitle("Rad fahren");
+		//this.LoadImageFromURL();
 	}
 
-	private void LoadImageFromURL(){
-		new DownloadImageTask((ImageView) findViewById(R.id.img_profile_event))
+	private void LoadImageFromURL(int imageRes){
+		new DownloadImageTask((ImageView) findViewById(imageRes))
 				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
 
 	}
@@ -149,18 +143,6 @@ public class Event_Activity extends AppCompatActivity implements View.OnClickLis
 
 	//super
 
-	@Override
-	public void onClick(View v) {
-		try{
-			if(content_participants.getId() == v.getId()){
-				this.Participants_sharedTransitionAnimation();
-			}else if(content_user.getId() == v.getId()){
-				this.User_sharedTransitionAnimation();
-			}
-		}catch (Exception error){
-			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
-		}
-	}
 
 	//async Task
 

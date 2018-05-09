@@ -31,7 +31,9 @@ import android.widget.Toast;
 
 import com.example.schueler.eventures.adapter.adapter_list_view_event;
 import com.example.schueler.eventures.asynctask.DownloadImageTask;
+import com.example.schueler.eventures.asynctask.Task_get_events;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.interfaces.Interface_get_events;
 import com.example.schueler.eventures.listener.NavMenuHeader_listener;
 import com.example.schueler.eventures.listener.navmenu_listener;
 import com.google.gson.Gson;
@@ -49,7 +51,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
-public class EventListActivity extends AppCompatActivity {
+public class EventListActivity extends AppCompatActivity implements Interface_get_events {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -57,6 +59,8 @@ public class EventListActivity extends AppCompatActivity {
 	private NavigationView navigation;
 	private View progressView;
 	public FloatingActionButton fab_add_event;
+
+	//super
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +74,6 @@ public class EventListActivity extends AppCompatActivity {
 
 
 	}
-
-	//super
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -243,8 +245,8 @@ public class EventListActivity extends AppCompatActivity {
 	}
 
 	private void loadEvents(){
-		LoadEventsSync loadEventsSync = new LoadEventsSync(getString(R.string.webservice_base_url));
-		loadEventsSync.execute();
+		Task_get_events get_events = new Task_get_events(getString(R.string.webservice_base_url), this);
+						get_events.execute();
 	}
 
 	private void registrateHeaderListener(){
@@ -259,6 +261,8 @@ public class EventListActivity extends AppCompatActivity {
 	private void fillSpinnerCategory(Spinner spinner){
 
 	}
+
+
 
 
 	//listener
