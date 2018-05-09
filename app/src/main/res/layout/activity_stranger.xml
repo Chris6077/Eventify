@@ -73,7 +73,7 @@
             android:layout_margin="20dp"
             android:orientation="vertical">
 
-            <!-- Full Name -->
+          <!--  &lt;!&ndash; Full Name &ndash;&gt;
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
 
             </LinearLayout>
 
-            <!-- Events Hosted -->
+            &lt;!&ndash; Events Hosted &ndash;&gt;
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
             </LinearLayout>
 
-            <!-- Events participated -->
+            &lt;!&ndash; Events participated &ndash;&gt;
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
 
             </LinearLayout>
 
-            <!-- rating -->
+            &lt;!&ndash; rating &ndash;&gt;
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -220,7 +220,7 @@
 
 
             </LinearLayout>
-
+-->
 
         </LinearLayout>
 

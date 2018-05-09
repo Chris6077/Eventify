@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 
-public class EventListActivity extends AppCompatActivity implements Interface_get_events {
+public class EventListActivity extends AppCompatActivity {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -245,7 +245,7 @@ public class EventListActivity extends AppCompatActivity implements Interface_ge
 	}
 
 	private void loadEvents(){
-		Task_get_events get_events = new Task_get_events(getString(R.string.webservice_base_url), this);
+		Task_get_events get_events = new Task_get_events(getString(R.string.webservice_base_url), new Get_events_listener());
 						get_events.execute();
 	}
 
@@ -296,6 +296,22 @@ public class EventListActivity extends AppCompatActivity implements Interface_ge
 		@Override
 		public void onClick(View v) {
 
+		}
+	}
+
+	private class Get_events_listener implements Interface_get_events{
+
+		@Override
+		public void onPreExecute() {
+			adapter_list_view_event adapter = new adapter_list_view_event(EventListActivity.this, R.layout.listview_item_event, new ArrayList<Event>());
+			listView_events.setAdapter(adapter);
+			listView_events.addHeaderView(progressView);
+		}
+
+		@Override
+		public void onPostExecute(ArrayList<Event> events) {
+			fillList(events);
+			listView_events.removeHeaderView(progressView);
 		}
 	}
 

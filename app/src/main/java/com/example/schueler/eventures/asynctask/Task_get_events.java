@@ -70,7 +70,7 @@ public class Task_get_events extends AsyncTask<Object, Object, ArrayList<Event>>
 
 	@Override
 	protected void onPostExecute(ArrayList<Event> events){
-		this.getListener().onPostExecute();
+		this.getListener().onPostExecute(events);
 		super.onPostExecute(events);
 	}
 
