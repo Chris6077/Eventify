@@ -15,13 +15,15 @@ public class SlimEvent {
     private transient int totalLikes;
     private transient int maxParticipators;
     private transient int totalParticipators;
+    private transient EventCategory category;
 
-    public SlimEvent(String eID, String name, int totalLikes, int maxParticipators, int totalParticipators) {
+    public SlimEvent(String eID, String name, int totalLikes, int maxParticipators, int totalParticipators, EventCategory category) {
         this.eID = eID;
         this.name = name;
         this.totalLikes = totalLikes;
         this.maxParticipators = maxParticipators;
         this.totalParticipators = totalParticipators;
+        this.category = category;
     }
 
     public String geteID() {
@@ -42,6 +44,10 @@ public class SlimEvent {
 
     public int getTotalParticipators() {
         return totalParticipators;
+    }
+    
+    public EventCategory getCategory() {
+        return category;
     }
     
     @Override
