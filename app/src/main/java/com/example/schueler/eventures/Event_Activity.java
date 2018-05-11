@@ -20,8 +20,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schueler.eventures.adapter.AdapterListViewEvent;
+import com.example.schueler.eventures.asynctask.TaskGetEvent;
+import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.asynctask.TaskGetImage;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.handler.HandlerState;
+import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
+import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -60,8 +66,8 @@ public class Event_Activity extends AppCompatActivity{
 			setContentView(R.layout.activity_event);
 
 			this.setViews();
-			this.registereventhandlers();
-			this.setContent();
+			this.setListener();
+			this.getEvent();
 		}catch(Exception error){
 			Toast.makeText(this, error.getMessage().toString(), Toast.LENGTH_LONG).show();
 		}
@@ -92,39 +98,40 @@ public class Event_Activity extends AppCompatActivity{
 
 	}
 
-	private void registereventhandlers(){
+	private void setListener(){
 
 		final Context context = this;
 
 		
 	}
 
-	private void Participants_sharedTransitionAnimation() throws Exception{
-		Intent user_activity = new Intent(this,ParticipantsActivity.class);
-		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, new Pair<View, String>(img_running,"img_running"),new Pair<View, String>(text_view_participants,"text_view_participants"));
-		startActivity(user_activity,options.toBundle());
+	private void setContent(Event event) throws Exception{
+		if(event == null)
+			throw new Exception("no Event found");
+
+		this.collapsingToolbar.setTitle(event.getName());
+		this.setInfoItem(event.getCategory().toString(),getString(R.string.event_category),R.drawable.biker,null);
+		this.setInfoItem(event.getStartDate().toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
+		this.setInfoItem(event.getEndDate().toString(),getString(R.string.event_date_end),R.drawable.clock,null);
+		this.setInfoItem(event.getDescription().toString(),getString(R.string.event_information),R.drawable.rocket,null);
+		this.setInfoItem(event.getCreatorID().toString(),getString(R.string.event_organizer),R.drawable.profle,null);
+		this.setInfoItem(event.getLocation().toString(),getString(R.string.event_place),R.drawable.pin2,null);
+		this.setInfoItem(event.getMaxParticipants() + "",getString(R.string.event_participants),R.drawable.running,null);
+
 	}
 
-	private void User_sharedTransitionAnimation(){
-		Intent user_activity = new Intent(this,StrangerActivity.class);
-		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, new Pair<View, String>(img_profile,"img_profile"),new Pair<View, String>(text_view_profile,"text_view_profile"));
-		startActivity(user_activity,options.toBundle());
-	}
-
-	private void setContent(){
-		//this.collapsingToolbar.setTitle("Rad fahren");
-		//this.LoadImageFromURL();
-	}
-
-	private void LoadImageFromURL(int imageRes){
-		new TaskGetImage((ImageView) findViewById(imageRes))
-				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
-
+	private void getEvent(){
+		try{
+			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Event),new GetEvent_listener());
+			getEvent.execute();
+		}catch(Exception error){
+			HandlerState.handle(error,this);
+		}
 	}
 
 	private void setInfoItem(String header, String description, int pictureResource, View.OnClickListener listener){
-		LayoutInflater inflater = (LayoutInflater) this.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		View item = inflater.inflate(R.layout.listview_item_event,null, false);
+		LayoutInflater inflater = getLayoutInflater();
+		View item = inflater.inflate(R.layout.basic_cardview_info_item,null);
 
 		TextView head = (TextView) item.findViewById(R.id.cardiview_info_item_header_text);
 		TextView desc = (TextView) item.findViewById(R.id.cardiview_info_item_description);
@@ -139,97 +146,22 @@ public class Event_Activity extends AppCompatActivity{
 		this.content_event.addView(item);
 	}
 
-	//super
 
+	private class GetEvent_listener implements InterfaceGetEvent {
 
-	//async Task
+		@Override
+		public void onPreExecute() {
 
-	private class LoadEventsSync extends AsyncTask<Object, Object, ArrayList<Event>> {
-
-		//fields
-		private String url;
-
-		//constructors
-		public LoadEventsSync(String url) {
-			this.url = url;
 		}
 
-
-		//super
 		@Override
-		protected ArrayList<Event> doInBackground(Object... params) {
+		public void onPostExecute(Event event) {
 			try {
-				Gson gson = new Gson();
-				HttpURLConnection conn = (HttpURLConnection) new URL(this.url + "getAllEvents").openConnection();
-				Type collectionType = new TypeToken<Collection<Event>>(){}.getType();
-				String result = GetData(conn);
-				ArrayList<Event> events = gson.fromJson(result, collectionType);
-				return events;
-
-			} catch (IOException e) {
-				e.printStackTrace();
+				setContent(event);
+			} catch (Exception e) {
+				HandlerState.handle(e,getApplicationContext());
 			}
-			return null;
 		}
-
-		@Override
-		protected void onPostExecute(ArrayList<Event> events){
-			super.onPostExecute(events);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-		}
-
-		private void PostData(HttpURLConnection conn, String... params){
-			BufferedWriter writer;
-
-			try{
-
-				//posting the data
-				conn.setRequestMethod("POST");
-				conn.setRequestProperty("Content-Type", "application/json");
-				writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-				writer.write(params[0]); //product - object in json-format
-				writer.flush();
-				writer.close();
-				conn.getResponseCode();
-
-			}catch(Exception error){
-				System.out.println("ERROR --- " + error);
-			}
-
-		}
-
-		private String GetData(HttpURLConnection conn){
-			BufferedReader reader;
-			String content = null;
-
-			try{
-				//reading the result
-
-				reader = new BufferedReader(new InputStreamReader(
-						conn.getInputStream()));
-				StringBuilder sb = new StringBuilder();
-				String line;
-
-				while ((line = reader.readLine()) != null) {
-					sb.append(line);
-				}
-
-				content = sb.toString();
-				reader.close();
-				conn.disconnect();
-
-
-			}catch(Exception error){
-				System.out.println("ERROR --- " + error);
-			}
-			return content;
-		}
-
 	}
-
 
 }

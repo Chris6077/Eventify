@@ -17,6 +17,7 @@ import com.example.schueler.eventures.adapter.AdapterListViewEvent;
 import com.example.schueler.eventures.asynctask.TaskGetImage;
 import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
 import com.example.schueler.eventures.listener.ListenerCreateEvent;
@@ -97,7 +98,7 @@ public class EventListActivity extends AppCompatActivity {
 	}
 
 
-	private void fillList(ArrayList<Event> events) throws Exception {
+	private void fillList(ArrayList<SlimEvent> events) throws Exception {
 		if(events == null || events.size() < 1) {
 			throw new Exception("no Content found");
 		}else {
@@ -108,7 +109,7 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void getEvents(){
 		try{
-			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_base_url), new GetEvents_listener());
+			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), new GetEvents_listener());
 			get_events.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);
@@ -121,13 +122,13 @@ public class EventListActivity extends AppCompatActivity {
 
 		@Override
 		public void onPreExecute() {
-			AdapterListViewEvent adapter = new AdapterListViewEvent(EventListActivity.this, R.layout.listview_item_event, new ArrayList<Event>());
+			AdapterListViewEvent adapter = new AdapterListViewEvent(EventListActivity.this, R.layout.listview_item_event, new ArrayList<SlimEvent>());
 			listView_events.setAdapter(adapter);
 			listView_events.addHeaderView(progressView);
 		}
 
 		@Override
-		public void onPostExecute(ArrayList<Event> events) {
+		public void onPostExecute(ArrayList<SlimEvent> events) {
 			try{
 				fillList(events);
 				listView_events.removeHeaderView(progressView);

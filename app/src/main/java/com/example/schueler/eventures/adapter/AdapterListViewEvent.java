@@ -15,11 +15,13 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.schueler.eventures.Event_Activity;
 import com.example.schueler.eventures.R;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.listener.ListenerDoubleTap;
 
 import java.util.ArrayList;
@@ -28,16 +30,15 @@ import java.util.ArrayList;
  * Created by schueler on 3/23/18.
  */
 
-public class AdapterListViewEvent extends ArrayAdapter<Event> {
-
+public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 
 	AppCompatActivity appCompatActivityResource;
-	ArrayList<Event> data;
+	ArrayList<SlimEvent> data;
 
 
 	//constructors
 
-	public AdapterListViewEvent(AppCompatActivity res, @LayoutRes int resource, ArrayList<Event> data) {
+	public AdapterListViewEvent(AppCompatActivity res, @LayoutRes int resource, ArrayList<SlimEvent> data) {
 		super(res, resource, data);
 		this.setAppCompatActivityResource(res);
 		this.data = data;
@@ -60,19 +61,19 @@ public class AdapterListViewEvent extends ArrayAdapter<Event> {
 	@NonNull
 	@Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-		LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
+		System.out.println(this.data.get(position));
+			LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.listview_item_event, parent, false);
 		TextView header_desc = (TextView) rowView.findViewById(R.id.list_item_header);
 		TextView header = (TextView) rowView.findViewById(R.id.list_item_event_name);
-		header_desc.setText(this.data.get(position).getDescription());
-		header.setText(this.data.get(position).getName());
+		//header_desc.setText(this.data.get(position).getTotalLikes());
+		header.setText(this.data.get(position).geteID());
 
 		this.setUpIconLike(rowView);
-		this.setUpIconCategory(rowView,this.data.get(position).getCategory());
+		//this.setUpIconCategory(rowView,this.data.get(position).get);
 		this.setUpRowViewListener(rowView);
 		this.setUpTitleListener(rowView);
-
 		return rowView;
 	}
 
@@ -164,8 +165,7 @@ public class AdapterListViewEvent extends ArrayAdapter<Event> {
 				@Override
 				public void onClick(View v) {
 					Intent event_activity = new Intent(getAppCompatActivityResource(),Event_Activity.class);
-					ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(getAppCompatActivityResource(), new Pair<View, String>(header_image,"header_image"));
-					getAppCompatActivityResource().startActivity(event_activity,options.toBundle());
+					getAppCompatActivityResource().startActivity(event_activity);
 				}
 		});
 	}

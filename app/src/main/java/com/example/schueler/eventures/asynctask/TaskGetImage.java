@@ -1,5 +1,6 @@
 package com.example.schueler.eventures.asynctask;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
@@ -35,4 +36,11 @@ public class TaskGetImage extends AsyncTask<String, Void, Bitmap> {
 	protected void onPostExecute(Bitmap result) {
 		bmImage.setImageBitmap(result);
 	}
+
+	public static void get(String link, ImageView imageView){
+		new TaskGetImage(imageView)
+				.execute(link);
+
+	}
+
 }

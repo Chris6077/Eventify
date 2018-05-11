@@ -28,7 +28,7 @@ public class Event implements Serializable {
     private Date lastEdited;
     private Location location;
 
-    public Event(String name, String creatorID, EventState state, String description, int maxParticipants, int minAge, EventType type, EventCategory category, Date startDate, Date endDate) {
+    public Event(String name, String creatorID, EventState state, String description, int maxParticipants, int minAge, EventType type, EventCategory category, Date startDate, Date endDate)    {
         this.name = name;
         this.creatorID = creatorID;
         this.state = state;

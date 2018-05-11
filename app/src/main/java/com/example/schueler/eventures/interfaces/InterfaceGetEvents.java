@@ -1,6 +1,7 @@
 package com.example.schueler.eventures.interfaces;
 
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
 
 import java.util.ArrayList;
 
@@ -10,5 +11,5 @@ import java.util.ArrayList;
 
 public interface InterfaceGetEvents {
 	public void onPreExecute();
-	public void onPostExecute(ArrayList<Event> events);
+	public void onPostExecute(ArrayList<SlimEvent> events);
 }

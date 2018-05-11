@@ -3,7 +3,11 @@ package com.example.schueler.eventures.asynctask;
 import android.os.AsyncTask;
 
 import com.example.schueler.eventures.classes.pojo.Event;
-import com.example.schueler.eventures.classes.pojo.SlimEvent;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.EventState;
+import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.classes.pojo.Location;
+import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -18,19 +22,20 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 
 /**
  * Created by schueler on 5/7/18.
  */
 
-public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent>> {
+public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 
 	//fields
 	private String url;
-	private InterfaceGetEvents listener;
+	private InterfaceGetEvent listener;
 
 	//constructors
-	public TaskGetEvents(String url, InterfaceGetEvents listener) {
+	public TaskGetEvent(String url, InterfaceGetEvent listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}
@@ -44,35 +49,36 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 		this.url = url;
 	}
 
-	public InterfaceGetEvents getListener() {
+	public InterfaceGetEvent getListener() {
 		return listener;
 	}
 
-	public void setListener(InterfaceGetEvents listener) {
+	public void setListener(InterfaceGetEvent listener) {
 		this.listener = listener;
 	}
 
 	//super
 	@Override
-	protected ArrayList<SlimEvent> doInBackground(Object... params) {
+	protected Event doInBackground(Object... params) {
 		try {
 			Gson gson = new Gson();
-			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
-			Type collectionType = new TypeToken<Collection<SlimEvent>>(){}.getType();
-			String result = GetData(conn);
-			ArrayList<SlimEvent> events = gson.fromJson(result, collectionType);
-			return events;
+//			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
+//			String result = GetData(conn);
+//			Event event = gson.fromJson(result, Event.class);
 
-		} catch (IOException e) {
+			Event event =  new Event("name","191u11041401", EventState.Confirmed,"no description",200,21, EventType.Public, EventCategory.Other, new Date(),new Date());
+			event.setLocation(new Location(12,12));
+			return event;
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
 
 	@Override
-	protected void onPostExecute(ArrayList<SlimEvent> events){
-		this.getListener().onPostExecute(events);
-		super.onPostExecute(events);
+	protected void onPostExecute(Event event){
+		this.getListener().onPostExecute(event);
+		super.onPostExecute(event);
 	}
 
 	@Override
@@ -83,25 +89,6 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 
 
 	//custom
-	private void PostData(HttpURLConnection conn, String... params){
-		BufferedWriter writer;
-
-		try{
-
-			//posting the data
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-			writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-			writer.write(params[0]); //product - object in json-format
-			writer.flush();
-			writer.close();
-			conn.getResponseCode();
-
-		}catch(Exception error){
-			System.out.println("ERROR --- " + error);
-		}
-
-	}
 
 	private String GetData(HttpURLConnection conn){
 		BufferedReader reader;
