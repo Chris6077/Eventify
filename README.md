@@ -15,8 +15,6 @@ This app will manage user created eventActivities. They can be added, edited and
 
 * *[General Description](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EbAvtVUywLBAstYna4mbRVABu-LJ61s3_ly-v8ELw9-Jmg?e=cTvQP9)*
 
-* *[Changelog](https://htlvillachat-my.sharepoint.com/:x:/g/personal/winklerc_edu_htl-villach_at/EbIpKSl7UY1LvXmU4ruy584Bk8ntOYE6KvLfDNGshLGgeg?e=BIaFUx)*
-
 * *[Scrum Diary](https://htlvillachat-my.sharepoint.com/:x:/g/personal/winklerc_edu_htl-villach_at/EcPqzjz8_aVMnSdCNvz_rXUBaGldYmZRuDGrJQCu9_faUg?e=L8xzrw)*
 
 * *[Daily Scrum Log](https://htlvillachat-my.sharepoint.com/:x:/g/personal/winklerc_edu_htl-villach_at/EXtbpCOansBAoR7AqLHziX0BhJlfjjP077jxgPgL7cal_A?e=qxp9wd)*
@@ -31,6 +29,8 @@ This app will manage user created eventActivities. They can be added, edited and
 
 * *[Schnittstellendefinition](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/Ecna0Q--hulLnKaud-q1ATgBdUgAsIqeprQZuKkLSFXxVQ?e=NY39gD)*
 
+* *Schnittstellendefinition genau - Webservice (Postman requests)*
+
 * *[Akzeptanzkriterien](https://htlvillachat-my.sharepoint.com/:w:/g/personal/winklerc_edu_htl-villach_at/EWKYWMxxgSVFk8PcSJsaWOABvfcUlnKE-nCgzaNNNYeKKw?e=fTZHrs)*
 
 * *[Class Diagram (final - violet uml sourceforge)](./misc/syp/Eventify.class.violet.html)*
@@ -41,12 +41,17 @@ Our services are Java based and will be deployed on herokuapp.
 
 * *[Repository](https://github.com/Val9000/EventifyAPI)*
 * *[Deployed](https://eventifyapi.herokuapp.com/swagger)*
+* *[Postman Requests for local Develop server](https://raw.githubusercontent.com/Val9000/EventifyAPI/master/Eventify%20local.postman_collection.json)*
+* *Postman Requests for local Deploy server - replace "Develop" with "rest" in url*
+* *[Postman Requests for deployed Deploy server](https://raw.githubusercontent.com/Val9000/EventifyAPI/master/Eventify%20deployed.postman_collection.json)*
 
 ### Tags
 * Jetty
 * Jersey
 * Swagger
 * Embedded Server
+* Glassfish
+* Postman
 * Heroku
 * BSON
 * GSON
