@@ -3,9 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POJO;
+package data.models;
 
-import java.time.LocalDate;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import com.google.gson.Gson;
+import java.time.Instant;
 
 /**
  *
@@ -21,9 +28,9 @@ public class SlimUser {
     private int numberOfParticipated;
     private double rating;
     private int totalFollowers;
-    private LocalDate created;
+    private Instant created;
 
-    public SlimUser(String uID, String firstName, String lastName, String profilePicture, UserType type, int numberOfCreated, int numberOfParticipated, double rating, int totalFollowers, LocalDate created) {
+    public SlimUser(String uID, String firstName, String lastName, String profilePicture, UserType type, int numberOfCreated, int numberOfParticipated, double rating, int totalFollowers, Instant created) {
         this.uID = uID;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -72,7 +79,7 @@ public class SlimUser {
         return totalFollowers;
     }
 
-    public LocalDate getCreated() {
+    public Instant getCreated() {
         return created;
     }
 
@@ -112,7 +119,7 @@ public class SlimUser {
         this.totalFollowers = totalFollowers;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(Instant created) {
         this.created = created;
     }
     

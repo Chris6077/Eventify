@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POJO;
+package data.models;
+
+import com.google.gson.Gson;
 
 /**
  *
  * @author Chris
  */
-public class SlimEvent {
+public class SlimEvent{
     private String eID;
     private String name;
     private int totalLikes;
@@ -64,6 +66,14 @@ public class SlimEvent {
 
     public void setTotalParticipators(int totalParticipators) {
         this.totalParticipators = totalParticipators;
+    }
+
+    public EventCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(EventCategory category) {
+        this.category = category;
     }
     
     public EventCategory getCategory() {

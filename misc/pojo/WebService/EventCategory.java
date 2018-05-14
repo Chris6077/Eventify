@@ -3,20 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POJO;
+package data.models;
+
 
 /**
  *
  * @author Chris
  */
 public enum EventCategory {
-    Activity,
-    Concert,
+    Sportsevent,
     Festival,
-    Game,    
-    Meeting,
-    Other,
+    Concert,
     Party,
-    Tournament,
-    Training
+    Activity,
+    Other
 }

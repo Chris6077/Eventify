@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POJO;
+package data.models;
 
-import java.time.LocalDate;
+import com.google.gson.Gson;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 
 /**
  *
- * @author Chris
+ * @author Valon
  */
 public class User {
-    private int uID;
+
+    private String uID;
     private String firstName;
     private String lastName;
-    private LocalDate birthdate;
+    private Instant birthDate ;
     private String email;
     private String password;
     private String profilePicture;
@@ -25,18 +27,18 @@ public class User {
     private UserType type;
     private int numberOfCreated;
     private int numberOfParticipated;
-    private ArrayList<Integer> ratings;
     private int totalFollowers;
-    private LocalDate created;
-    private LocalDate lastEdited;
+    private Instant created;
+    private Instant lastEdited;
+    private ArrayList<Integer> ratings;
     private ArrayList<SlimUser> follows;
     private ArrayList<SlimEvent> likes;
     private ArrayList<SlimEvent> participatesIn;
 
-    public User(String firstName, String lastName, LocalDate birthdate, String email, String password, String profilePicture) {
+    public User(String firstName, String lastName, Instant birthDate, String email, String password, String profilePicture) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.birthdate = birthdate;
+        this.birthDate = birthDate;
         this.email = email;
         this.password = password;
         this.profilePicture = profilePicture;
@@ -46,14 +48,14 @@ public class User {
         this.numberOfParticipated = 0;
         this.ratings = new ArrayList<>();
         this.totalFollowers = 0;
-        this.created = LocalDate.now();
-        this.lastEdited = LocalDate.now();
+        this.created = Instant.now();
+        this.lastEdited = Instant.now();
         this.follows = new ArrayList<>();
         this.likes = new ArrayList<>();
         this.participatesIn = new ArrayList<>();
     }
 
-    public int getuID() {
+    public String getuID() {
         return uID;
     }
 
@@ -65,9 +67,7 @@ public class User {
         return lastName;
     }
 
-    public LocalDate getBirthdate() {
-        return birthdate;
-    }
+    
 
     public String getEmail() {
         return email;
@@ -97,35 +97,19 @@ public class User {
         return numberOfParticipated;
     }
 
-    public Collection<Integer> getRatings() {
-        return ratings;
-    }
-
     public int getTotalFollowers() {
         return totalFollowers;
     }
 
-    public LocalDate getCreated() {
+    public Instant getCreated() {
         return created;
     }
 
-    public LocalDate getLastEdited() {
+    public Instant getLastEdited() {
         return lastEdited;
     }
 
-    public Collection<SlimUser> getFollows() {
-        return follows;
-    }
-
-    public Collection<SlimEvent> getLikes() {
-        return likes;
-    }
-
-    public Collection<SlimEvent> getParticipatesIn() {
-        return participatesIn;
-    }
-
-    public void setuID(int uID) {
+    public void setuID(String uID) {
         this.uID = uID;
     }
 
@@ -137,9 +121,15 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setBirthdate(LocalDate birthdate) {
-        this.birthdate = birthdate;
+    public Instant getBirthDate() {
+        return birthDate;
     }
+
+    public void setBirthDate(Instant birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    
 
     public void setEmail(String email) {
         this.email = email;
@@ -177,28 +167,48 @@ public class User {
         this.totalFollowers = totalFollowers;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(Instant created) {
         this.created = created;
     }
 
-    public void setLastEdited(LocalDate lastEdited) {
+    public void setLastEdited(Instant lastEdited) {
         this.lastEdited = lastEdited;
     }
 
-    public void setFollows(Collection<SlimUser> follows) {
-        this.follows = (ArrayList<SlimUser>) follows;
+    public ArrayList<SlimEvent> getLikes() {
+        return likes;
     }
 
-    public void setLikes(Collection<SlimEvent> likes) {
-        this.likes = (ArrayList<SlimEvent>) likes;
+    public void setLikes(ArrayList<SlimEvent> likes) {
+        this.likes = likes;
     }
 
-    public void setParticipatesIn(Collection<SlimEvent> participatesIn) {
-        this.participatesIn = (ArrayList<SlimEvent>) participatesIn;
+    public ArrayList<SlimEvent> getParticipatesIn() {
+        return participatesIn;
     }
-    
+
+    public void setParticipatesIn(ArrayList<SlimEvent> participatesIn) {
+        this.participatesIn = participatesIn;
+    }
+
+    public ArrayList<SlimUser> getFollows() {
+        return follows;
+    }
+
+    public void setFollows(ArrayList<SlimUser> follows) {
+        this.follows = follows;
+    }
+
+    public void setRatings(ArrayList<Integer> rates) {
+        this.ratings = ratings;
+    }
+
+    public ArrayList<Integer> getRatings() {
+        return ratings;
+    }
+
     @Override
     public String toString() {
         return new Gson().toJson(this);
-    }   
+    }
 }

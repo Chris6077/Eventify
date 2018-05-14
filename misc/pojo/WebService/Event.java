@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package POJO;
+package data.models;
 
-import java.time.LocalDate;
+import com.google.gson.Gson;
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -21,30 +22,32 @@ public class Event {
     private int minAge;
     private int totalLikes;
     private int totalParticipators;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private LocalDate created;
-    private LocalDate lastEdited;
+    private Instant startDate;
+    private Instant endDate;
+    private Instant created;
+    private Instant lastEdited;
+    private Location location;
     private EventType type;
     private EventState state;
     private EventCategory category;
     private ArrayList<MinimalUser> participators;
     private MinimalUser creator;
 
-    public Event(String name, String description, int maxParticipators, int minAge, LocalDate startDate, LocalDate endDate, EventType type, EventCategory category, MinimalUser creator) {
+    public Event(String name, String description, int maxParticipators, int minAge, Instant startDate, Instant endDate,Location location, EventType type, EventCategory category, MinimalUser creator) {
         this.name = name;
         this.description = description;
         this.maxParticipators = maxParticipators;
         this.minAge = minAge;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.location = location;
         this.type = type;
         this.category = category;
         this.creator = creator;
         this.totalLikes = 0;
         this.totalParticipators = 0;
-        this.created = LocalDate.now();
-        this.lastEdited = LocalDate.now();
+        this.created = Instant.now();
+        this.lastEdited = Instant.now();
         this.state = EventState.Unconfirmed;
         this.participators = new ArrayList<>();
     }
@@ -77,19 +80,19 @@ public class Event {
         return totalParticipators;
     }
 
-    public LocalDate getStartDate() {
+    public Instant getStartDate() {
         return startDate;
     }
 
-    public LocalDate getEndDate() {
+    public Instant getEndDate() {
         return endDate;
     }
 
-    public LocalDate getCreated() {
+    public Instant getCreated() {
         return created;
     }
 
-    public LocalDate getLastEdited() {
+    public Instant getLastEdited() {
         return lastEdited;
     }
 
@@ -141,19 +144,19 @@ public class Event {
         this.totalParticipators = totalParticipators;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Instant startDate) {
         this.startDate = startDate;
     }
 
-    public void setEndDate(LocalDate endDate) {
+    public void setEndDate(Instant endDate) {
         this.endDate = endDate;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(Instant created) {
         this.created = created;
     }
 
-    public void setLastEdited(LocalDate lastEdited) {
+    public void setLastEdited(Instant lastEdited) {
         this.lastEdited = lastEdited;
     }
 
@@ -176,9 +179,36 @@ public class Event {
     public void setCreator(MinimalUser creator) {
         this.creator = creator;
     }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
     
     @Override
     public String toString(){
         return new Gson().toJson(this);
     }
+
 }
+
+//
+//{	
+//	"name":"UltrFetteParty",
+//	"description":"keine ahnung",
+//	"maxParticipators":"18",
+//	"minAge":"18",
+//	"startDate":{"year":2018,"month":4,"day":22},
+//	"endDate":{"year":2018,"month":4,"day":22},
+//	"type":"Public",
+//	"category":"Party",
+//	"creator":{
+//			   "uID": "5adf87606570440928a6aa9e",
+//			   "firstName": "Peter",
+//			   "lastName": "Berisa",
+//			   "profilePicture": "mypic.com/x.png"
+//			 }
+//}
