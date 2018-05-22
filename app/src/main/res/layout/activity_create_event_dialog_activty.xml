@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.schueler.eventures.New_EventActivity">
 
-    <ScrollView
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -79,12 +79,8 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+                            style="@style/Base.Widget.AppCompat.Spinner.Underlined.default"
                             android:hint="@string/event_date_begin"
-                            android:textSize="18sp"
-                            android:layout_marginTop="10dp"
                             android:id="@+id/create_event_input_begin_date"/>
 
                     </LinearLayout>
@@ -108,13 +104,9 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                            android:hint="@string/event_date_end"
-                            android:textSize="18sp"
-                            android:layout_marginTop="10dp"
-                            android:id="@+id/create_event_input_end_date"/>
+                            android:id="@+id/create_event_input_end_date"
+                            style="@style/Base.Widget.AppCompat.Spinner.Underlined.default"
+                            android:hint="@string/event_date_end"/>
 
                     </LinearLayout>
 
@@ -316,7 +308,7 @@
 
         </LinearLayout>
 
-    </ScrollView>
+    </android.support.v4.widget.NestedScrollView>
 
 
 </android.support.v4.widget.DrawerLayout>

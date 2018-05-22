@@ -3,6 +3,15 @@
 
     <item
         is-multidex="true"
+        jar="/home/schueler/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations-java5/15.0/7011b4551a8451906759b05814c58b9eb829ea9b/annotations-java5-15.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
+        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-java5-15.0_8d5aa64b52277693edebaabaa6fa34b90a18e5eb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/libs/gson-2.5.jar"
         jumboMode="false"
         optimize="true"

@@ -23,14 +23,14 @@ import java.util.Collection;
  * Created by schueler on 5/7/18.
  */
 
-public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent>> {
+public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<SlimEvent>> {
 
 	//fields
 	private String url;
 	private InterfaceGetEvents listener;
 
 	//constructors
-	public TaskGetEvents(String url, InterfaceGetEvents listener) {
+	public TaskGetParticipants(String url, InterfaceGetEvents listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}

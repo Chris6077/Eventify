@@ -64,7 +64,7 @@ public class UserActivity extends AppCompatActivity {
 	}
 
 	private void registrateeventhandlers(){
-		this.logoutView.setOnClickListener(new logout_listener());
+		//this.logoutView.setOnClickListener(new logout_listener());
 		this.fab_choose_pic.setOnClickListener(new choose_picture_listener());
 	}
 

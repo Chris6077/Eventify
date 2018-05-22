@@ -25,6 +25,7 @@ import com.example.schueler.eventures.asynctask.TaskGetEvent;
 import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.asynctask.TaskGetImage;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
@@ -39,6 +40,7 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -105,7 +107,7 @@ public class Event_Activity extends AppCompatActivity{
 		
 	}
 
-	private void setContent(Event event) throws Exception{
+	private void setContent(final Event event) throws Exception{
 		if(event == null)
 			throw new Exception("no Event found");
 
@@ -114,15 +116,23 @@ public class Event_Activity extends AppCompatActivity{
 		this.setInfoItem(event.getStartDate().toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
 		this.setInfoItem(event.getEndDate().toString(),getString(R.string.event_date_end),R.drawable.clock,null);
 		this.setInfoItem(event.getDescription().toString(),getString(R.string.event_information),R.drawable.rocket,null);
-		this.setInfoItem(event.getCreatorID().toString(),getString(R.string.event_organizer),R.drawable.profle,null);
-		this.setInfoItem(event.getLocation().toString(),getString(R.string.event_place),R.drawable.pin2,null);
-		this.setInfoItem(event.getMaxParticipants() + "",getString(R.string.event_participants),R.drawable.running,null);
+		//this.setInfoItem(event.getCreatorID().toString(),getString(R.string.event_organizer),R.drawable.profle,null);
+		this.setInfoItem("Klagenfurt",getString(R.string.event_place),R.drawable.pin2,null);
+		this.setInfoItem(String.valueOf(event.getMaxParticipants()), getString(R.string.event_participants), R.drawable.running, new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent event_activity = new Intent(getApplicationContext(),ParticipantsActivity.class);
+				event_activity.putExtra("event", event);
+				startActivity(event_activity);
+			}
+		});
+		this.setInfoItem(String.valueOf(event.getMinAge()),getString(R.string.event_minage),R.drawable.profle,null);
 
 	}
 
 	private void getEvent(){
 		try{
-			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Event),new GetEvent_listener());
+			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Events_url) + ((SlimEvent)this.getIntent().getSerializableExtra("event")).geteID(),new GetEvent_listener());
 			getEvent.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);
@@ -151,12 +161,13 @@ public class Event_Activity extends AppCompatActivity{
 
 		@Override
 		public void onPreExecute() {
-
+			content_event.addView(getLayoutInflater().inflate(R.layout.header_progressbar,null));
 		}
 
 		@Override
 		public void onPostExecute(Event event) {
 			try {
+				content_event.removeAllViews();
 				setContent(event);
 			} catch (Exception e) {
 				HandlerState.handle(e,getApplicationContext());

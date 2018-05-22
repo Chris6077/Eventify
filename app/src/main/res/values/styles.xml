@@ -89,5 +89,75 @@
 
     <!-- Style for map end -->
 
+    <!-- Style for basic info item -->
+
+    <style name="basic_info_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_margin">2.5dp</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:background">@drawable/shadow_box</item>
+    </style>
+    
+    <style name="basic_info_item_image">
+        <item name="android:transitionName">basic_info_item_image</item>
+        <item name="android:layout_marginRight">20dp</item>
+    </style>
+
+    <!-- Style for input elements -->
+    
+    <style name="input_default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="input_default.email">
+        <item name="android:inputType">textEmailAddress</item>
+    </style>
+
+    <style name="input_default.textPersonName">
+        <item name="android:inputType">textPersonName</item>
+    </style>
+
+    <style name="input_default.textPassword">
+        <item name="android:inputType">textPassword</item>
+    </style>
+
+    <style name="Base.Widget.AppCompat.Spinner.Underlined.default">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+
+    <!-- Style for button elements -->
+
+    <style name="button_rounded">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_rounded.primary">
+        <item name="android:background">@drawable/rounded_rectangle_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="button_rounded.accent">
+        <item name="android:background">@drawable/rounded_rectangle_accent</item>
+    </style>
+
+    <style name="button_rounded.white">
+        <item name="android:background">@drawable/rounded_border</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
+
+    <!-- Style for container elements -->
+
 
 </resources>

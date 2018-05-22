@@ -62,12 +62,10 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 	protected Event doInBackground(Object... params) {
 		try {
 			Gson gson = new Gson();
-//			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
-//			String result = GetData(conn);
-//			Event event = gson.fromJson(result, Event.class);
-
-			Event event =  new Event("name","191u11041401", EventState.Confirmed,"no description",200,21, EventType.Public, EventCategory.Other, new Date(),new Date());
-			event.setLocation(new Location(12,12));
+			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
+			String result = GetData(conn);
+			Event event = gson.fromJson(result, Event.class);
+			System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + event.toString());
 			return event;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -95,7 +93,9 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 		String content = null;
 
 		try{
-			//reading the result
+			conn.setRequestMethod("GET");
+			conn.setRequestProperty("API_KEY", "dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN");
+			conn.setRequestProperty("uID", "5af9599ca2d6f53ca8b702a7");
 
 			reader = new BufferedReader(new InputStreamReader(
 					conn.getInputStream()));

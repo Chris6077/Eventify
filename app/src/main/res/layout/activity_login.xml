@@ -50,14 +50,9 @@
 
             <EditText
                 android:id="@+id/email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                style="@style/input_default.email"
                 android:drawableLeft="@drawable/ic_email_black_24dp"
-                android:drawablePadding="20dp"
-                android:hint="@string/prompt_email"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                android:hint="@string/prompt_email"/>
 
         </android.support.design.widget.TextInputLayout>
 
@@ -67,40 +62,21 @@
 
             <EditText
                 android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"
-                android:drawablePadding="20dp"
                 android:hint="@string/prompt_password"
-                android:imeActionId="@+id/login"
-                android:imeActionLabel="@string/action_sign_in_short"
-                android:imeOptions="actionUnspecified"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:singleLine="true"/>
+                style="@style/input_default.textPassword"
+                android:drawableLeft="@drawable/ic_lock_outline_black_24dp"/>
 
         </android.support.design.widget.TextInputLayout>
 
         <Button
             android:id="@+id/email_sign_in_button"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_rectangle_primary"
-            android:text="@string/action_sign_in"
-            android:textColor="@color/white"
-            android:textStyle="bold"/>
+            style="@style/button_rounded.primary"
+            android:text="@string/action_sign_in"/>
+
         <Button
             android:id="@+id/btn_sign_up"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/rounded_border"
-            android:text="@string/action_sign_up"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"/>
+            style="@style/button_rounded.white"
+            android:text="@string/action_sign_up"/>
 
     </LinearLayout>
 

@@ -130,8 +130,8 @@ public class EventListActivity extends AppCompatActivity {
 		@Override
 		public void onPostExecute(ArrayList<SlimEvent> events) {
 			try{
-				fillList(events);
 				listView_events.removeHeaderView(progressView);
+				fillList(events);
 			}catch(Exception error){
 				HandlerState.handle(error,getApplicationContext());
 			}

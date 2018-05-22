@@ -6,13 +6,9 @@
 
     <!-- item -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp"
+        style="@style/basic_info_item"
         android:id="@+id/cardiview_info_item_content"
-        android:layout_margin="2.5dp"
-        android:background="@drawable/shadow_box">
+        >
 
         <ImageView
             android:id="@+id/cardiview_info_item_image"
@@ -38,6 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:paddingBottom="5dp"
                 />
 
         </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.schueler.eventures.adapter;
 import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.listener.ListenerDoubleTap;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -61,6 +63,7 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 	@NonNull
 	@Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+		SlimEvent event = this.data.get(position);
 		System.out.println(this.data.get(position));
 			LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -68,12 +71,12 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 		TextView header_desc = (TextView) rowView.findViewById(R.id.list_item_header);
 		TextView header = (TextView) rowView.findViewById(R.id.list_item_event_name);
 		//header_desc.setText(this.data.get(position).getTotalLikes());
-		header.setText(this.data.get(position).geteID());
+		header.setText(event.getName());
 
 		this.setUpIconLike(rowView);
 		//this.setUpIconCategory(rowView,this.data.get(position).get);
 		this.setUpRowViewListener(rowView);
-		this.setUpTitleListener(rowView);
+		this.setUpTitleListener(rowView,event);
 		return rowView;
 	}
 
@@ -156,7 +159,7 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 
 	}
 
-	private void setUpTitleListener(View rowView){
+	private void setUpTitleListener(View rowView, final SlimEvent event){
 		final LinearLayout content_title = (LinearLayout) rowView.findViewById(R.id.list_item_header_title);
 		final ImageView header_image = (ImageView) rowView.findViewById(R.id.category_image_event_list_item);
 
@@ -165,6 +168,7 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 				@Override
 				public void onClick(View v) {
 					Intent event_activity = new Intent(getAppCompatActivityResource(),Event_Activity.class);
+					event_activity.putExtra("event", event);
 					getAppCompatActivityResource().startActivity(event_activity);
 				}
 		});

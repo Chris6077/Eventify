@@ -11,6 +11,8 @@ package com.example.schueler.eventures.classes.pojo;/*
 
 import com.google.gson.Gson;
 
+import java.io.Serializable;
+
 /**
 
  *
@@ -19,7 +21,7 @@ import com.google.gson.Gson;
 
  */
 
-public class SlimEvent {
+public class SlimEvent implements Serializable{
 
 	private String eID;
 
