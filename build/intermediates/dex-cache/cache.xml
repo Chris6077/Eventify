@@ -3,21 +3,651 @@
 
     <item
         is-multidex="true"
-        jar="/home/schueler/.gradle/caches/modules-2/files-2.1/org.jetbrains/annotations-java5/15.0/7011b4551a8451906759b05814c58b9eb829ea9b/annotations-java5-15.0.jar"
-        jumboMode="false"
+        jar="C:\Users\Chris\.android\build-cache\6f3c2d3684a90da0a7c586c20bd3efe6934f168d\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
-        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-java5-15.0_8d5aa64b52277693edebaabaa6fa34b90a18e5eb/classes.dex" />
+        sha1="410897d8b3f6c340cc5393c2a1d1711c209cacb0">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4480f3d7b2ae47758e2590a99f15bd865c8a3bb8\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/libs/gson-2.5.jar"
-        jumboMode="false"
+        jar="C:\Users\Chris\.android\build-cache\59b65bfa196328229bf909237c975d0a4d7d0cbb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5139546b490a62153dea7b6c3eed029009565a6b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a627271b47b7262881cad936b5a461294f51277\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\2a8f36864fc7c9aefb3fba091e3b40d824a41a2f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c1eec02d13bf127e171f0c4eb3280b9f28bff5a3">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e1dcb581d61d2538cd07be1126b938e7628b6b36\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\1d2df17011df6ccdb3fe4c9af36675904aa1ed87\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c9a55c5e2a3af4aefe5c3222fbeb9f184b106dcc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\a6a57d15a2ce48e9a4f0a6177ce9815f3c605ae5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8f34896233f3fe6ecb75025e06b33980cee8239a">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c6507d0ef1ba6c4a6e03bbfeba646efa450e0993\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\c8bb6c5e34d9257a527f0baa46bd02eadaf2204d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a8891df045333735af59551ffd3bf208f277c86b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1254fd92af40145f0c33c814aed95b3fc2088603\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\92092cd15f4eb26ebf527b030ab55a8f96b49ab3\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5bcd79d54941608fbed486ef371f1bf31ed7e77a">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_92bbd84a4c182a0ba0a528300bff084b3347560c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\7148df242205dc624aa9f7f2505252f2ffca551c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3322192082c1b4304b975c9f52b82dab0b235120">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ebdf836c4989dc25dbb558c06c9288440024cdc3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\d929d6fea2eee73761dc026f63a351baf9de3643\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9be5e957849eb82ad9addf9bdb2896de8bf5654b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1982fa39dfe1cef097c54f3fa969c18d92b50ab9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\678a400c785fc45bdfedb012c349334b04507d90\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8dde03eb53b4cd9bc4ca01565dc214f3517e7009">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_356f81f0b962042bf0e4d5e2f3297add8272fbf4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations-java5\15.0\7011b4551a8451906759b05814c58b9eb829ea9b\annotations-java5-15.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-java5-15.0_9474a4dc67fb8968df18aa3b9ef7e76d12ea6a14\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\03fb7893929d5ae2bd5e2c9fc43ae976193d48d4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b4662e1c294e0afdac1e23b90912fb8df4e73a52\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\3d8904d268c494ccda12926188417d758a388858\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1a13eb4a071f829d517e465b79e023d9f677bbee">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_165161304684954534dea5a9627424f87e489c91\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\54c06ef7bc66d8224ae028df8fbe8ffb0dea82fb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="684feeeb5dfd681b5babbf3c7ea436e2a1b8cdbc">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_88fdcc017791a83158ee81848b39eb11c09b7eef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\be975cc6a1f585e16b4d62d8b20680e254b42a90\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f3071f3c7921e0c38d1e8e94a0d8b276843c21e1">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b438dca1a0cf1c2bd989b80f9e67352e7160a892\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\c9292a0be954dd46c2ff787fab06836892b57d37\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ed18fdd695456683717079e695c5683cdc042d89">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cb9f7d48ae66fb1dcef0cd5048cfb57211f877dc\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\2fd2464d7a2e1d8cae7945e16349e8204ca01323\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e5965e98a0593c932a5798e269b1b9375a16ae89\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\5353dd8ea37e1471a7021f685ead237ac5141fdc\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_093223e0422d20d1348c4754007fe5588ee05c54\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\184ec6864a1a09b54f64bcc69b4cb99f36c8331e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7a530cee3b6bfd5f1831388c820986e9436e0bd3">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_097d5cfd095033d80c22d9c2163c6ce67c316cfe\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\1a8742920cb210bdfb83592680a5fabb0ac5e91e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="846ee7de27ae2a06d0eaa0f9026ba2e492218b00">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_24d251e6ef80d80f26a2278fbc1c9577be3330f9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\856ff8cf6eacf376bedf8841d76992471276c4d0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bd47a98a8f3d53220afca6f869f37c56c273c8d9">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_367113707c5166d88d2d85a0a9abc8335d5e28ac\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\3bb81548204970d5bbaaff36554e900a224a9cc2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1245d179e6e26a068b45dafa11e66601fb4ff3af">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ab07ce2776c33b17586ef11750e385e02691051d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\db57aa4796499e51d1d03efb2141e2f0db14496c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5dd9a40a87a8aae6af1b7cd95bd1f245923a7268\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\f92e91e2f5fb9419eabce052ab5b7ece39151566\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="19d0794e1a98a52d61523431ee917a100bd620c1">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bbfaa1ed3e5e60a388cdcb84322fd5393731fce5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\7b342968af6fd732bed7f7d46cf9e43aa09ec768\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="70be699a588f6ef03ea5aee2f3642664a470896a">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b64025f6aaf2015612ee559684a68441af805275\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\0f94c2b2fbec9c4429310264f146c882a79de358\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4419abd361932fe84800422dd6f86adb912394e6">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4cf087aecf8a6bf8c99ac9d5875625e4d48fe2e9\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\10bba14393ff6e6fed0515a51d690c0db3da6ab4\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5b123987175c4329cd3c1e86c7dafb9ab7b56030">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_58a30522235be072fd817fa5d89f635e60773b41\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\d4989243f471ee06aeac18788ea009e7263a5a7f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="81731aca8a4bb4974bd5430f840cfea96c7017f0">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_61dcc4c159aa179916a9f5f8e00137acab6fe9dd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\69acbbb7252f48cd5d6a103e0b5e1ca2d583e6a9\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b294cca0025d1faea8e37fc9efd7ca49751c3734">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ca32e666209e99c7c43894858dcbd4c37a169a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\0bb26a1c6c460ec75e78513580e30b8db901f630\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7103df9f8ca6e66946c35fe23ce655ee4044db86">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d3bb077f5d029eb4dfa629e7957e1b284b9a6cb\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AppData\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\constraint-layout-solver-1.0.2_356f91ea6897d404ce9dac681338591b2a19e00b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\f30d7ca278b1dc768d1734c5cfdada73a1c890af\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7d47528730c8841cc4458ffb7f811dc81c4eb12b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e0b0bfb65762eefe9507e1e2e3c74f2ba7450d5b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\93eb73f8b30eadf3b9bf2cf33a4b1ded19d8051f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5564f359cac494cb5702ae4516d973785520e917">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fa3bd0e55409ee0229f10533b8c1bf8f4fe16fa0\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\e0a69c0ceac905e38a226b1a88192e52b0b86e30\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f32a31f3449f318d8f76b627644a19531285a0d6">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_341e88b9c4065600dfaa49b23c705f9f7d4e5944\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\2da807d7416c8db8ec6b0ac9fb4dfc0e5d5afed7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c51038e056200de0d6040a55d53ab35949b0970d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\7f96c56b69ec8f49cbfe765616d4c47039640c1c\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="2ec7576b86505fd346ecdccd3cf5bf6c09b90cbb">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fc254c75f255ea3c3bb0ec4f386f07f770af637d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\49ef31aba5aa1fd1c36d9424f90ff8f7d5a5c7e6\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="518804f4ba36c8943a8b0c9ab4a1f41100a43a26">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_324fd36e1b6660c080f5adeef5cfd0c645afb863\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\9ec361c31c32dfd66696f54c87499de8665b7703\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a58f364dfd41b781241eda83eecad4264e0ee739\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\a76f7d8e8c9247fee9a93c184ff99b1041aaad92\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="13bc23be353f868b74b6d30dd77c98d8c643e93d">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fb1722435a061f97edb8396061aadf9c0fd16918\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\b8db195526c64829c57a7adf62b2258cc3ecd913\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9a4626dbc2f1b119f419e75fba4508d2e9144fef\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\feaaf347962a552f1bbb69b98bf628d2e89a33d1\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="deffdc3b7ba352c6b726c7b0577c2d0af2e0b291">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fc3190b0a5a75deed3616fd1cc834f8f4a22bbde\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\e46a752140657288a67bf2eb680987cd282af487\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="81de512974c0475c4ec09bc9cd7f3d22ab2af0b6">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ecce360b591824f6c9c85078dd2abc1cf66de3de\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\f25fc8b9888603f5abaa223ff0ee237954e550e7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="eb366c8b72908e2afa66c66b0a3f1318265a473e">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_39ee34fd57341738ed860c93443f45d17f4226f5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\4b059bb2a66b209d54022172d1df2a7b1df72d47\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="02e8487403c23afede62be4be2b2015eef243bf3">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3ad53bc76bb1a2eb52782145a5de37ad5068a8c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\2b5c6925d5661e84c72aade378ff6e1f84d3f25f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3f2ba61b55c65642b0671ef9994a1c0043198800">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_490b32003404b6fe85d199f124418c8766f513b2\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\43565e9bb3269cebee7b7a0debfb29b6f85447e0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="88603d734296fa77a252c0199b57f4aba85ba277">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e02ae7addf86fd731773ed60eaa2281abe3f8cc3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\c08f94e02d5f787894e5507d5022e1aaa7d424fb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f07cb2232d540189809a00cfa20db47dbd79f632">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4c2a1796d031c9dd7dbe0270a59f220e5d778249\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\637a6cc4749bc4ef3556729b6262be879e8e2042\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="840da662e29342f1c5f1e2f70496635b74e85abd">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a7604108846d25406fc091d10f07bd58ec90def4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Documents\GitHub\Eventify\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_e3bf5f5247113ed535e6f7f555f41ae4746a4ad5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\301dadc1957d8c63b943cc277463e405ade4d7e2\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="c869a08f541fb9ab31e414519888f05b1e1d68ba">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_03217bd3c531ed983923bbc8d42c95a2a2ce9e98\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\5c04813e5744d821761f3222d925e67886c85330\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_89b345045c40514d2fa1116f9dc942a1c1c6e64b\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\ae9007af1871a70f071cb17c7d7830e918a5679a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="453427e529ccd47ef859c7d739a59ab32f7f14ee">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7f59549f31754c8c5c6b0ae0aebbb645f7c75848\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\e0f42a6f3f1f0fc81dda3030635af88384fdcdfe\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="49743d94bd8f62b64049c3e3065c18598ce2ca7f">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_40e9fcabf349494809cb8ae13ce9049cfb3ae2bd\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\b9df61260723cd4af0116238e8f8cfd8f8fe2273\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ddf82f6020377c5d449ad1df549b3533dff2f95">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_729521c97d8255a2fc57e391502e34059d76faf3\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\955ddf25f90b51a57ca17414dda7206b1ddcfefb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5ca720c467b9aa7b710c28c1a2e1b3db915d3bfb">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d4c205b22847c89e80c54f8eac59acb373278d6\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\942eeee367678834c101037619694a8949f7e8a8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9d3ba2503f758387971b4083357f2604ffc8c0e0">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_05d4250bf887dcada94564cded4627fb2ddd55a5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\711a2252c230277bd5a22fc5bc665f51a003369a\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e1fb737d72e295a54c677c0ab9aecfe3518e2ec6">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a67170d46469eb7be949e35d68e145af0aa91289\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\d474b673e47161fb12445a6e24a0818a5a19446f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ee4c8014f9ee388aadcd298cd05b77c20514faaf">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_800b748977dc74176293bbb7ac1746f19d095eea\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\8eefd2416d650d44c984e3b1f5906aeac3aabc3e\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cd125a78ba5f5081ce7f9a6e1544a8f7ab85d5c8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\AppData\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_bf76346e0a24e7ddc1b57f10bc593fecbfc5b93c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Documents\GitHub\Eventify\app\libs\gson-2.5.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
-        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.5_25e173d7fbac36df74959767131394e6ac07ba99/classes.dex" />
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\2\gson-2.5_bc5624e83c79f906c52860cc41a9537a4b533601\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\Documents\GitHub\Eventify\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6cf89f0084d3480fd941f2a4d3bd60106afd19ec">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_513b68de9a698742d7de48e4024be75995343895\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\1928636a035cff5347b4394254192c0fc30f67e7\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="ed3fc7c06f23dead13772eca1140a58f2960af0f">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_242fce2323ef8f60266d6bc42387646ec8747124\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\e6c685492675a2fe921ff58d6f90d28a93e737bb\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="13577c8eba4cab6e289a4c753ef7b0e376c918f1">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3b11de6d59721da7c7fe866017d53cfad78fb7be\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\cb0ec3d2d6e95b0ea4d3e551f2209d57a3f1eda0\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e5119bcdd79dd240077e3e3ea28186e2c3fe9ff8">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_21ec9fde3a60d3d7a7ea178dcd76be3d98129e2f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\54896c20898b387470ebfbe9be4173e8059cdb0f\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="af13a350b71b437ebf4be335d02a8f785c39b111">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f7c19ec0e84f8e1de8b8cc79b43330b6262a72d5\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\06c7b1febd516acaddc1f96c87f2ba9ae8a15746\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4c0c3a9709adc7608860b0a9f65f661cd3ff4d07">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e1732baa52e18bc4e6c904f2d82c1209871995da\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\b77491d074445b4bdd41129255eff96630babb70\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7b1611b735b2514838fd1f2907e42595a8e42816">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8a337fc62547f3b9708d019091ab1acd75cb997e\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\0e19a48e0217bbe6cef7648ab4811a567aa52f29\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cd965e34c46bc30aec04fa9f48b5fc540d87926c\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\3071b6f8e6e58510232d06ece7bba44e3ff5c2d5\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_45964e44171378edb1d1094e1aaeb9217069d749\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\c9e1c9fa961c4565696d8dc93d4fe5d5599e551d\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dc73c5de83617537447413fb09834f3dadb276fb">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b140c12feb5c884b43419710a7b140214fb942aa\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Chris\.android\build-cache\c46a190589b597eb10aa93f181acac54ec260ef8\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
+        <dex dex="D:\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_eb752d484aafea7319696554030db8e7528ab6ec\classes.dex" />
     </item>
 
 </items>
