@@ -64,13 +64,12 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 	@Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 		SlimEvent event = this.data.get(position);
-		System.out.println(this.data.get(position));
 			LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.listview_item_event, parent, false);
-		TextView header_desc = (TextView) rowView.findViewById(R.id.list_item_header);
 		TextView header = (TextView) rowView.findViewById(R.id.list_item_event_name);
-		//header_desc.setText(this.data.get(position).getTotalLikes());
+		TextView totalLikes = (TextView) rowView.findViewById(R.id.list_item_totalLikes);
+		totalLikes.setText(String.valueOf(event.getTotalLikes()));
 		header.setText(event.getName());
 
 		this.setUpIconLike(rowView);

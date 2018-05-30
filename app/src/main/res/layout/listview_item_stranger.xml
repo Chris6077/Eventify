@@ -42,7 +42,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/list_item_event_name"
+                android:id="@+id/list_item_user_name"
                 android:textSize="20sp"
                 android:layout_gravity="left"
                 android:text="Marcel Judth"
@@ -53,10 +53,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/list_item_user_email"
                     android:textSize="15sp"
-                    android:id="@+id/list_item_header"
                     android:transitionName="text_view_profile"
-                    android:text="marjudth22@gmail.com"
                     android:layout_gravity="left"
                     android:layout_marginLeft="20dp"/>
 
