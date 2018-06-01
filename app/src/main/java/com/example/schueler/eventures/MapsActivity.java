@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -50,7 +52,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
 
@@ -96,6 +100,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigation;
+    private Geocoder geocoder;
+    private Intent new_EventActivity_Intent;
 
 
 
@@ -147,6 +153,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.menuImage.setOnClickListener(this);
         this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
         this.navigation.setNavigationItemSelectedListener(this);
+        this.geocoder = new Geocoder(this);
+        this.new_EventActivity_Intent = new Intent(this, New_EventActivity.class);
     }
 
     private void setStyleMap() {
@@ -270,6 +278,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .position(latLng)
                         .title("Your marker title")
                         .snippet("Your marker snippet"));
+                try {
+                    List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+                    Log.d("sadf", listAddresses.toString());
+
+                    if(listAddresses.size() > 0){
+                        new_EventActivity_Intent.putExtra("listAdress", listAddresses.get(0));
+                    }
+                    startActivity(new_EventActivity_Intent);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
