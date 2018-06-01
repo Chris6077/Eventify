@@ -1,37 +1,50 @@
 package com.example.schueler.eventures;
 
 import android.animation.Animator;
+import android.location.Address;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
+import android.widget.EditText;
 
 import com.example.schueler.eventures.R;
 
 public class New_EventActivity extends AppCompatActivity {
 
 	DrawerLayout rootLayout;
+	EditText mOrtView;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		overridePendingTransition(R.anim.do_not_move, R.anim.do_not_move);
 		setContentView(R.layout.activity_new__event);
-
 		this.setViews();
 		this.setUpCircularReveal();
-
+		this.initOtherThings();
 	}
 
-	//custom
+    private void initOtherThings() {
+        Bundle intentExtra = this.getIntent().getExtras();
+        Object o = intentExtra.get("listAdress");
+	    if(o != null){
+            Address adress = (Address) o;
+	        this.mOrtView.setText(adress.getAddressLine(0).toString());
+        }
+    }
+
+    //custom
 
 	private void setViews(){
 		this.rootLayout = (DrawerLayout) findViewById(R.id.new_event_rootLayout);
+		this.mOrtView = (EditText) findViewById(R.id.input_place);
 	}
 
 	private void setUpCircularReveal(){

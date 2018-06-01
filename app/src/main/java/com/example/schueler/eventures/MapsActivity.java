@@ -256,7 +256,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
 
-                Log.d("Servas", "sldk");
 
                 View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
                        (FrameLayout) findViewById(R.id.map), false);
@@ -280,8 +279,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         .snippet("Your marker snippet"));
                 try {
                     List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
-                    Log.d("sadf", listAddresses.toString());
-
                     if(listAddresses.size() > 0){
                         new_EventActivity_Intent.putExtra("listAdress", listAddresses.get(0));
                     }
@@ -303,6 +300,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         this.fillMapWithEvents();
         this.setStyleMap();
+
+        this.mMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                CameraPosition p = mMap.getCameraPosition();
+                Log.d("move", p.toString());
+                
+            }
+        });
     }
 
     /**
