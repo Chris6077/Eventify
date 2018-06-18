@@ -39,9 +39,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.schueler.eventures.asynctask.TaskPostLogin;
 import com.example.schueler.eventures.classes.pojo.User;
 import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
 import com.example.schueler.eventures.classes.pojo.local.LoginUserObject;
+import com.example.schueler.eventures.dialog.DialogError;
+import com.example.schueler.eventures.dialog.DialogProgress;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -61,7 +65,7 @@ import static android.Manifest.permission.READ_CONTACTS;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginActivity extends AppCompatActivity{
+public class LoginActivity extends AppCompatActivity implements InterfaceTaskDefault {
 
     /**
      * Id to identity READ_CONTACTS permission request.
@@ -88,7 +92,10 @@ public class LoginActivity extends AppCompatActivity{
     private Animation anim_horizontal_right;
     private Button btn_sign_up;
     private Button btn_sign_in;
+    private ProgressDialog progressDialog;
     private LocalDatabase database;
+
+    //super
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +105,25 @@ public class LoginActivity extends AppCompatActivity{
 
         this.setViews();
     }
+
+    @Override
+    public void onPreExecute(Class resource) {
+        if(resource == TaskPostLogin.class){
+            this.progressDialog = DialogProgress.getDialog(this);
+            this.progressDialog.show();
+        }
+    }
+
+    @Override
+    public void onPostExecute(Object result, Class resource) {
+        if(resource == TaskPostLogin.class){
+            this.progressDialog.dismiss();
+            String res = (String) result;
+            this.processResult(res);
+        }
+    }
+
+    //custom
 
     private void setViews() {
         mEmailView = (EditText) findViewById(R.id.email);
@@ -151,7 +177,7 @@ public class LoginActivity extends AppCompatActivity{
     private void login() {
 
         Gson gson;
-        LoginSync loginSync;
+        TaskPostLogin task;
 
         //check if textfileds are empty
         if(isEmailValid() && isPasswordValid()){
@@ -164,8 +190,8 @@ public class LoginActivity extends AppCompatActivity{
 
                 LoginUserObject param = new LoginUserObject(email,password);
 
-                loginSync = new LoginSync(getString(R.string.webservice_post_Login));
-                loginSync.execute(gson.toJson(param).toString());
+                task = new TaskPostLogin(getString(R.string.webservice_post_Login),this);
+                task.execute(gson.toJson(param).toString());
 
             } catch (Exception error) {
                 Toast.makeText(this, error.toString(), Toast.LENGTH_LONG).show();
@@ -176,7 +202,7 @@ public class LoginActivity extends AppCompatActivity{
 
     public void processResult(String result){
         if(result == null){
-            Toast.makeText(this, "wrong credentials! ", Toast.LENGTH_SHORT).show();
+            DialogError.getDialog("wrong credentials!",this).show();
             return;
         }
         this.database.setUser(new LocalDatabase.currentUser("Julian","Blaschke",new Date(),"julian","jbl@gmail.com","jbl","https:((falösdflkjasf","dlöasdfj"));
@@ -186,102 +212,7 @@ public class LoginActivity extends AppCompatActivity{
 
 
 
-    //async Tasks
 
-
-    private class LoginSync extends AsyncTask<String, Void, String> {
-
-        //fields
-        private String url;
-        ProgressDialog asyncDialog = new ProgressDialog(LoginActivity.this);
-
-        //constructors
-
-        public LoginSync(String url) {
-            this.url = url;
-        }
-
-        //super
-
-        @Override
-        protected String doInBackground(String... params) {
-            try {
-                HttpURLConnection conn = (HttpURLConnection) new URL(this.url).openConnection();
-                this.PostData(conn, params);
-                return this.GetData(conn);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(final String result) {
-            asyncDialog.dismiss();
-            processResult(result);
-
-        }
-
-        @Override
-        protected void onPreExecute() {
-            //set message of the dialog
-            asyncDialog.setTitle(getString(R.string.progress_dialog_regestration_title));
-            asyncDialog.setMessage(getString(R.string.progress_dialog_login_message));
-            //show dialog
-            asyncDialog.show();
-            super.onPreExecute();
-        }
-
-        //custom
-
-        private void PostData(HttpURLConnection conn, String... params) {
-            BufferedWriter writer;
-
-            try {
-
-                //posting the data
-                conn.setRequestMethod("POST");
-                conn.setRequestProperty("Content-Type", "application/json");
-                writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-                writer.write(params[0]); //product - object in json-format
-                writer.flush();
-                writer.close();
-                conn.getResponseCode();
-
-            } catch (Exception error) {
-                System.out.println("ERROR --- " + error);
-            }
-
-        }
-
-        private String GetData(HttpURLConnection conn) {
-            BufferedReader reader;
-            String content = null;
-
-            try {
-                //reading the result
-
-                reader = new BufferedReader(new InputStreamReader(
-                        conn.getInputStream()));
-                StringBuilder sb = new StringBuilder();
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                }
-
-                content = sb.toString();
-                reader.close();
-                conn.disconnect();
-
-
-            } catch (Exception error) {
-                System.out.println("ERROR --- " + error);
-            }
-            return content;
-        }
-
-    }
 
 }
 

@@ -6,11 +6,13 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
+import android.location.Address;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -25,7 +27,7 @@ import com.example.schueler.eventures.listener.ListenerDatePicker;
 public abstract class DialogCreateEvent {
 
 
-	public static Dialog getDialog(final Context context){
+	public static Dialog getDialog(final Context context, Address adress){
 
 		final View dialogView = View.inflate(context,R.layout.activity_create_event_dialog_activty,null);
 		final Dialog dialog = new Dialog(context,R.style.MyAlertDialogStyle);
@@ -63,9 +65,12 @@ public abstract class DialogCreateEvent {
 		});
 		final Button input_begin_date = (Button) dialog.findViewById(R.id.create_event_input_begin_date);
 		final Button input_end_date = (Button) dialog.findViewById(R.id.create_event_input_end_date);
+		final EditText input_place = (EditText) dialog.findViewById(R.id.input_place);
 
 		input_begin_date.setOnClickListener(new ListenerDatePicker(input_begin_date,context));
 		input_end_date.setOnClickListener(new ListenerDatePicker(input_end_date,context));
+		if(adress != null)
+			input_place.setText(adress.toString());
 
 		final Button button_submit = (Button) dialog.findViewById(R.id.create_event_button_submit);
 
@@ -80,6 +85,10 @@ public abstract class DialogCreateEvent {
 		dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
 		return dialog;
+	}
+
+	public static Dialog getDialog(final Context context){
+		return getDialog(context,null);
 	}
 
 	private static void revealShow(View dialogView, boolean b, final Dialog dialog) {
@@ -124,6 +133,5 @@ public abstract class DialogCreateEvent {
 		}
 
 	}
-
 
 }

@@ -20,14 +20,16 @@ import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.example.schueler.eventures.listener.ListenerCreateEvent;
 import com.example.schueler.eventures.listener.ListenerNavigationMenuHeader;
 import com.example.schueler.eventures.listener.ListenerNavigationMenu;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.logging.Handler;
 
-public class EventListActivity extends AppCompatActivity {
+public class EventListActivity extends AppCompatActivity implements InterfaceTaskDefault {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -59,6 +61,22 @@ public class EventListActivity extends AppCompatActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
+
+	@Override
+	public void onPreExecute(Class resource) {
+
+	}
+
+	@Override
+	public void onPostExecute(Object result, Class resource) {
+		try{
+			ArrayList<SlimEvent> events = (ArrayList<SlimEvent>) result;
+			listView_events.removeHeaderView(progressView);
+			fillList(events);
+		}catch(Exception error){
+			HandlerState.handle(error,getApplicationContext());
+		}
+	}
 
 	//custom
 
@@ -109,12 +127,14 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void getEvents(){
 		try{
-			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), new GetEvents_listener());
+			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), this);
 			get_events.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);
 		}
 	}
+
+
 
 	//listener
 

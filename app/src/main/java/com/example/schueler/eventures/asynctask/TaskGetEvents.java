@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -27,10 +28,10 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 
 	//fields
 	private String url;
-	private InterfaceGetEvents listener;
+	private InterfaceTaskDefault listener;
 
 	//constructors
-	public TaskGetEvents(String url, InterfaceGetEvents listener) {
+	public TaskGetEvents(String url, InterfaceTaskDefault listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}
@@ -44,11 +45,11 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 		this.url = url;
 	}
 
-	public InterfaceGetEvents getListener() {
+	public InterfaceTaskDefault getListener() {
 		return listener;
 	}
 
-	public void setListener(InterfaceGetEvents listener) {
+	public void setListener(InterfaceTaskDefault listener) {
 		this.listener = listener;
 	}
 
@@ -71,37 +72,18 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 
 	@Override
 	protected void onPostExecute(ArrayList<SlimEvent> events){
-		this.getListener().onPostExecute(events);
+		this.getListener().onPostExecute(events,this.getClass());
 		super.onPostExecute(events);
 	}
 
 	@Override
 	protected void onPreExecute() {
-		this.getListener().onPreExecute();
+		this.getListener().onPreExecute(this.getClass());
 		super.onPreExecute();
 	}
 
 
 	//custom
-	private void PostData(HttpURLConnection conn, String... params){
-		BufferedWriter writer;
-
-		try{
-
-			//posting the data
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-			writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-			writer.write(params[0]); //product - object in json-format
-			writer.flush();
-			writer.close();
-			conn.getResponseCode();
-
-		}catch(Exception error){
-			System.out.println("ERROR --- " + error);
-		}
-
-	}
 
 	private String GetData(HttpURLConnection conn){
 		BufferedReader reader;

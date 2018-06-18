@@ -3,6 +3,7 @@
 
     <item
         is-multidex="true"
+<<<<<<< HEAD
         jar="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
@@ -36,6 +37,14 @@
         revision="25.0.3"
         sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
         <dex dex="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\2\gson-2.5_248a43112d9ed05ed424e980aaa3a0b479b464cf\classes.dex" />
+=======
+        jar="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/libs/gson-2.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
+        <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.5_25e173d7fbac36df74959767131394e6ac07ba99/classes.dex" />
+>>>>>>> 8003f3fa4b9cf061b51d4700e9e359d34e9e1c44
     </item>
 
 </items>

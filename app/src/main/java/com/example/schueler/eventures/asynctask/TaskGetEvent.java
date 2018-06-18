@@ -9,6 +9,7 @@ import com.example.schueler.eventures.classes.pojo.EventType;
 import com.example.schueler.eventures.classes.pojo.Location;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -32,10 +33,10 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 
 	//fields
 	private String url;
-	private InterfaceGetEvent listener;
+	private InterfaceTaskDefault listener;
 
 	//constructors
-	public TaskGetEvent(String url, InterfaceGetEvent listener) {
+	public TaskGetEvent(String url, InterfaceTaskDefault listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}
@@ -49,11 +50,11 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 		this.url = url;
 	}
 
-	public InterfaceGetEvent getListener() {
+	public InterfaceTaskDefault getListener() {
 		return listener;
 	}
 
-	public void setListener(InterfaceGetEvent listener) {
+	public void setListener(InterfaceTaskDefault listener) {
 		this.listener = listener;
 	}
 
@@ -65,7 +66,6 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
 			String result = GetData(conn);
 			Event event = gson.fromJson(result, Event.class);
-			System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" + event.toString());
 			return event;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -75,13 +75,13 @@ public class TaskGetEvent extends AsyncTask<Object, Object, Event> {
 
 	@Override
 	protected void onPostExecute(Event event){
-		this.getListener().onPostExecute(event);
+		this.getListener().onPostExecute(event,this.getClass());
 		super.onPostExecute(event);
 	}
 
 	@Override
 	protected void onPreExecute() {
-		this.getListener().onPreExecute();
+		this.getListener().onPreExecute(this.getClass());
 		super.onPreExecute();
 	}
 
