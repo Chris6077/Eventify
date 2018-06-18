@@ -12,7 +12,7 @@ import java.util.Collection;
 
 /**
  *
- * @author Valon
+ * @author Chris
  */
 public class User {
 
@@ -34,6 +34,7 @@ public class User {
     private ArrayList<SlimUser> follows;
     private ArrayList<SlimEvent> likes;
     private ArrayList<SlimEvent> participatesIn;
+    private ArrayList<SlimEvent> createdEvents;
 
     public User(String firstName, String lastName, Instant birthDate, String email, String password, String profilePicture) {
         this.firstName = firstName;
@@ -201,6 +202,14 @@ public class User {
 
     public void setRatings(ArrayList<Integer> rates) {
         this.ratings = ratings;
+    }
+    
+    public ArrayList<SlimEvent> getCreatedEvents(){
+        return createdEvents;
+    }
+    
+    public void setCreatedEvents(ArrayList<SlimEvent> createdEvents){
+        this.createdEvents = createdEvents;
     }
 
     public ArrayList<Integer> getRatings() {
