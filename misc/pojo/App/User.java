@@ -32,6 +32,7 @@ public class User {
     private transient ArrayList<SlimUser> follows;
     private transient ArrayList<SlimEvent> likes;
     private transient ArrayList<SlimEvent> participatesIn;
+    private transient ArrayList<SlimEvent> createdEvents;
 
     public User(String firstName, String lastName, LocalDate birthdate, String email, String password, String profilePicture) {
         this.firstName = firstName;
@@ -136,6 +137,14 @@ public class User {
 
     public void setProfilePicture(String profilePicture) {
         this.profilePicture = profilePicture;
+    }
+    
+    public ArrayList<SlimEvent> getCreatedEvents(){
+        return createdEvents;
+    }
+    
+    public void setCreatedEvents(ArrayList<SlimEvent> createdEvents){
+        this.createdEvents = createdEvents;
     }
     
     @Override
