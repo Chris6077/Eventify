@@ -25,6 +25,7 @@ import com.example.schueler.eventures.asynctask.TaskGetEvent;
 import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.asynctask.TaskGetImage;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
@@ -113,11 +114,11 @@ public class Event_Activity extends AppCompatActivity implements InterfaceTaskDe
 			throw new Exception("no Event found");
 
 		this.collapsingToolbar.setTitle(event.getName());
-		this.setInfoItem(event.getCategory().toString(),getString(R.string.event_category),R.drawable.biker,null);
+		this.setInfoItem(event.getCategory().toString(),getString(R.string.event_category),getIcon(event.getCategory()),null);
 		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getStartDate()).toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
 		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getEndDate()).toString(),getString(R.string.event_date_end),R.drawable.clock,null);
 		this.setInfoItem(event.getDescription().toString(),getString(R.string.event_information),R.drawable.rocket,null);
-		this.setInfoItem("Klagenfurt",getString(R.string.event_place),R.drawable.pin2,null);
+		this.setInfoItem("Velden am WS",getString(R.string.event_place),R.drawable.pin2,null);
 		if(event.getTotalParticipators() > 0)
 			this.setInfoItem(String.valueOf(event.getTotalParticipators()), getString(R.string.event_participants), R.drawable.running, new View.OnClickListener() {
 				@Override
@@ -161,11 +162,31 @@ public class Event_Activity extends AppCompatActivity implements InterfaceTaskDe
 		this.content_event.addView(item);
 	}
 
+
+	private Integer getIcon( EventCategory eventCategory){
+		switch (eventCategory){
+			case Activity:
+				return (R.drawable.category_activity);
+			case Festival:
+				return (R.drawable.category_festival);
+			case Other:
+				return (R.drawable.category_other);
+			case Sportsevent:
+				return (R.drawable.category_sports);
+			case Party:
+				return (R.drawable.category_party);
+			case Concert:
+				return (R.drawable.category_concert);
+			default:
+				return (R.drawable.rocket);
+		}
+	}
+
 	@Override
 	public void onPreExecute(Class resource) {
-
 		content_event.addView(getLayoutInflater().inflate(R.layout.header_progressbar,null));
 	}
+
 
 	@Override
 	public void onPostExecute(Object result, Class resource) {

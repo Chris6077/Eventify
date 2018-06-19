@@ -72,7 +72,6 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 		TextView totalLikes = (TextView) rowView.findViewById(R.id.list_item_totalLikes);
 		totalLikes.setText(String.valueOf(event.getTotalLikes()));
 		header.setText(event.getName());
-
 		this.setUpIconLike(rowView);
 		this.setUpRowViewListener(rowView);
 		this.setUpTitleListener(rowView,event);
