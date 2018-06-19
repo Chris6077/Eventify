@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import com.example.schueler.eventures.asynctask.TaskGetEvent;
 import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.asynctask.TaskGetMinimalEvents;
 import com.example.schueler.eventures.classes.pojo.Database;
@@ -59,6 +60,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -184,7 +186,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void fillMapWithEvents(ArrayList<MinimalEvent> allEvents) {
         for (MinimalEvent event : allEvents) {
             LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
-            this.mMap.addMarker(new MarkerOptions().position(newLatLng));
+            this.mMap.addMarker(new MarkerOptions().position(newLatLng)).setTitle(event.geteID());
             this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
         }
 
@@ -249,14 +251,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // Inflate the layouts for the info window, title and snippet.
 
 
-                 infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
+                infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
                        (FrameLayout) findViewById(R.id.map), false);
 
+                String eid = marker.getTitle();
 
-                /*TODO
-                *   Fill the event informations dynamically
-                *   Also an onclick on the menue and redirect to the event inforamtion activity
-                * */
+                getEventInfo(eid);
 
                 return infoWindow;
             }
@@ -588,10 +588,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
-    private void getEventInfo(){
+    private void getEventInfo(String eid){
         try{
-            TaskGetMinimalEvents get_events = new TaskGetMinimalEvents(getString(R.string.webservice_get_Minimal_Events_url), this);
-            get_events.execute();
+            TaskGetEvent get_event = new TaskGetEvent(getString(R.string.webservice_get_Event ) + eid, this);
+            get_event.execute();
         }catch(Exception error){
             HandlerState.handle(error,this);
         }
@@ -605,6 +605,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onPostExecute(Object result, Class resource) {
         try{
+            Log.d("halskd", "aölskdf");
             ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
             this.fillMapWithEvents(events);
         }catch(Exception error){
