@@ -29,12 +29,14 @@ import android.widget.Switch;
 import android.widget.ToggleButton;
 
 import com.example.schueler.eventures.asynctask.TaskGetEvents;
+import com.example.schueler.eventures.asynctask.TaskGetMinimalEvents;
 import com.example.schueler.eventures.classes.pojo.Database;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
-import com.example.schueler.eventures.classes.pojo.SlimEvent;
+import com.example.schueler.eventures.classes.pojo.MinimalEvent;
+import com.example.schueler.eventures.dialog.DialogCreateEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -143,7 +145,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void initOtherThings() {
         this.db = new Database();
-        this.fillDatabaseWithTestData();
         this.btnKarte = (ToggleButton) findViewById(R.id.btnKarte);
         this.btnSatellit = (ToggleButton) findViewById(R.id.btnSatellit);
         this.btnKarte.setOnClickListener(this);
@@ -159,6 +160,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.navigation.setNavigationItemSelectedListener(this);
         this.geocoder = new Geocoder(this);
         this.new_EventActivity_Intent = new Intent(this, New_EventActivity.class);
+        this.getEvents();
     }
 
     private void setStyleMap() {
@@ -178,29 +180,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    private void fillMapWithEvents() {
-        ArrayList<Event> allEvents = this.db.getEvents();
-        for (Event event : allEvents) {
+    private void fillMapWithEvents(ArrayList<MinimalEvent> allEvents) {
+        for (MinimalEvent event : allEvents) {
             LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
-            this.mMap.addMarker(new MarkerOptions().position(newLatLng)
-                    .title(event.getName()));
+            this.mMap.addMarker(new MarkerOptions().position(newLatLng));
             this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
         }
 
     }
-
-    private void fillDatabaseWithTestData() {
-        LatLng l = new LatLng(46.602540, 13.843018);
-        Event e = new Event("First Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(l.latitude, l.longitude));
-        this.db.add(e);
-        e = new Event("Second Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.608465, 13.844906));
-        this.db.add(e);
-        e = new Event("Third Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.612636, 13.845078));
-        this.db.add(e);
-        }
 
     /**
      * Saves the state of the map when the activity is paused.
@@ -277,16 +264,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                mMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .title("Your marker title")
-                        .snippet("Your marker snippet"));
+                Log.d("hallo", "aksldjfalksd");
+                mMap.addMarker(new MarkerOptions().position(latLng));
                 try {
                     List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
                     if(listAddresses.size() > 0){
-                        new_EventActivity_Intent.putExtra("listAdress", listAddresses.get(0));
+                        DialogCreateEvent.getDialog(MapsActivity.this, listAddresses.get(0)).show();
                     }
-                    startActivity(new_EventActivity_Intent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -302,7 +286,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Get the current event_icon_2 of the device and set the position of the map.
         getDeviceLocation();
 
-        this.fillMapWithEvents();
         this.setStyleMap();
 
         this.mMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
@@ -592,7 +575,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void getEvents(){
         try{
-            TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), this);
+            TaskGetMinimalEvents get_events = new TaskGetMinimalEvents(getString(R.string.webservice_get_Minimal_Events_url), this);
             get_events.execute();
         }catch(Exception error){
             HandlerState.handle(error,this);
@@ -607,10 +590,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onPostExecute(Object result, Class resource) {
         try{
-            ArrayList<SlimEvent> events = (ArrayList<SlimEvent>) result;
+            ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
             Log.d("aösdlkfaölks", result.toString());
-            //listView_events.removeHeaderView(progressView);
-            //fillList(events);
+            this.fillMapWithEvents(events);
         }catch(Exception error){
             HandlerState.handle(error,getApplicationContext());
         }

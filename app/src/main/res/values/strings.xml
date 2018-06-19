@@ -14,6 +14,7 @@
     <!-- webservice -->
     <string name="webservice_base_url">http://eventifyapi.herokuapp.com/rest/api/</string>
     <string name="webservice_get_Events_url">http://eventifyapi.herokuapp.com/rest/api/events/</string>
+    <string name="webservice_get_Minimal_Events_url">https://eventifyapi.herokuapp.com/rest/api/events/minimal</string>
     <string name="webservice_get_Event">http://eventifyapi.herokuapp.com/rest/api/events/5af8644b6570441b5404c3e3/</string>
     <string name="webservice_post_Login">https://eventify-test.glitch.me/login</string>
     <string name="webservice_post_Register">https://eventify-test.glitch.me/register</string>
