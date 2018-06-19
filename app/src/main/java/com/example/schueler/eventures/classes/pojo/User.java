@@ -25,7 +25,7 @@ public class User implements Serializable {
     private UserState state;
     private final Date created;
     private Date lastEdited;
-    private int numberOfCreatedEvents;
+    private int numberOfCreated;
     private int numberOfParticipated;
 
     public User(String firstName, String lastName, Date birthDate, String username, String email, String password, String profilePicture) {
@@ -40,7 +40,7 @@ public class User implements Serializable {
         state = UserState.Activated;
         created = null;
         lastEdited = null;
-        numberOfCreatedEvents = 0;
+        numberOfCreated = 0;
         numberOfParticipated = 0;
     }
     
@@ -96,8 +96,8 @@ public class User implements Serializable {
         return lastEdited;
     }
 
-    public int getNumberOfCreatedEvents() {
-        return numberOfCreatedEvents;
+    public int getNumberOfCreated() {
+        return numberOfCreated;
     }
 
     public int getNumberOfParticipated() {
@@ -132,8 +132,8 @@ public class User implements Serializable {
         this.lastEdited = lastEdited;
     }
 
-    public void setNumberOfCreatedEvents(int numberOfCreatedEvents) {
-        this.numberOfCreatedEvents = numberOfCreatedEvents;
+    public void setNumberOfCreated(int numberOfCreated) {
+        this.numberOfCreated = numberOfCreated;
     }
 
     public void setNumberOfParticipated(int numberOfParticipated) {
@@ -142,6 +142,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "{ 'uID': '" + uID + "', 'firstName': '" + firstName + "', 'lastName': '" + lastName + "', 'birthDate': '" + birthDate + "', 'username': '" + username + "', 'email': '" + email + "', 'password': '" + password + "', 'profilePicture': '" + profilePicture + "', 'type': '" + type + "', 'state': '" + state + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'numberOfCreatedEvents': '" + numberOfCreatedEvents + "', 'numberOfParticipated': '" + numberOfParticipated + "' }";
+        return "{ 'uID': '" + uID + "', 'firstName': '" + firstName + "', 'lastName': '" + lastName + "', 'birthDate': '" + birthDate + "', 'username': '" + username + "', 'email': '" + email + "', 'password': '" + password + "', 'profilePicture': '" + profilePicture + "', 'type': '" + type + "', 'state': '" + state + "', 'created': '" + created + "', 'lastEdited': '" + lastEdited + "', 'numberOfCreatedEvents': '" + numberOfCreated + "', 'numberOfParticipated': '" + numberOfParticipated + "' }";
     }
 }

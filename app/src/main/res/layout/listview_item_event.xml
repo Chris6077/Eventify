@@ -54,7 +54,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
-                android:id="@+id/list_item_header"
+                android:id="@+id/list_item_event_descr"
                 android:transitionName="text_view_profile"
                 android:text="@string/event_organizer"
                 android:layout_marginLeft="50dp"/>

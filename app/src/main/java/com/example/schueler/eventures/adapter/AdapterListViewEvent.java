@@ -70,7 +70,10 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 		View rowView = inflater.inflate(R.layout.listview_item_event, parent, false);
 		TextView header = (TextView) rowView.findViewById(R.id.list_item_event_name);
 		TextView totalLikes = (TextView) rowView.findViewById(R.id.list_item_totalLikes);
+		TextView descr = (TextView) rowView.findViewById(R.id.list_item_event_descr);
 		totalLikes.setText(String.valueOf(event.getTotalLikes()));
+		descr.setText(event.getTotalParticipators() + " Teilnehmer");
+		setUpIconCategory(rowView,event.getCategory());
 		header.setText(event.getName());
 		this.setUpIconLike(rowView);
 		this.setUpRowViewListener(rowView);

@@ -37,7 +37,6 @@ public class EventListActivity extends AppCompatActivity implements InterfaceTas
 	private ListView listView_events;
 	private NavigationView navigation;
 	private View progressView;
-	public FloatingActionButton fab_add_event;
 	private SwipeRefreshLayout swipeRefreshLayout;
 
 	//super
@@ -95,14 +94,12 @@ public class EventListActivity extends AppCompatActivity implements InterfaceTas
 		this.mdl = (DrawerLayout) findViewById(R.id.content_event_list);
 		this.listView_events = (ListView) findViewById(R.id.listview_events);
 		this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
-		this.fab_add_event = (FloatingActionButton) findViewById(R.id.event_list_add_event_fab);
 		this.swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.list_view_events_swipe_to_refresh_layout);
 
 	}
 
 	private void setListener(){
 		this.navigation.setNavigationItemSelectedListener(new ListenerNavigationMenu(this));
-		this.fab_add_event.setOnClickListener(new ListenerCreateEvent(this));
 		this.setListenerNavigationHeader();
 		this.setActionBarToggle();
 		this.swipeRefreshLayout.setOnRefreshListener(this);
