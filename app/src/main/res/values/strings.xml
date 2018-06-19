@@ -22,6 +22,7 @@
     <string name="webservice_post_Register">https://eventify-test.glitch.me/register</string>
     <string name="webservice_api_key">dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN</string>
     <string name="webservice_api_uID">5b2776686358aa0004540d94</string>
+    <string name="webservice_post_Login_1">http://eventifyapi.herokuapp.com/rest/api/login</string>
 
     <string name="actionbar_open">Open</string>
     <string name="actionbar_close">Close</string>
