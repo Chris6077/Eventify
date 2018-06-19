@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.EventListActivity;
+import com.example.schueler.eventures.MapsActivity;
 import com.example.schueler.eventures.R;
 
 public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,6 +37,8 @@ public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSe
 			startActivity(EventListActivity.class);
 		}else if(item.getItemId() == R.id.mntm_my_events){
 			startActivity(EventListActivity.class);
+		}else if(item.getItemId() == R.id.mntm_map){
+			startActivity(MapsActivity.class);
 		}
 		return true;
 	}
