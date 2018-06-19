@@ -54,6 +54,7 @@
     <string name="event_participants">Teilnehmer</string>
     <string name="event_category">Kategorie</string>
     <string name="event_information">Beschreibung</string>
+    <string name="event_name">Name</string>
     <string name="event_place">Ort</string>
     <string name="event_chat">Event-Chat</string>
 

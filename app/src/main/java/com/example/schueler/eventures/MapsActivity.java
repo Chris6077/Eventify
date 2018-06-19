@@ -269,6 +269,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 try {
                     List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
                     if(listAddresses.size() > 0){
+                        Log.d("hallo2", "aksldjfalksd");
                         DialogCreateEvent.getDialog(MapsActivity.this, listAddresses.get(0)).show();
                     }
                 } catch (IOException e) {
@@ -591,7 +592,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onPostExecute(Object result, Class resource) {
         try{
             ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
-            Log.d("aösdlkfaölks", result.toString());
             this.fillMapWithEvents(events);
         }catch(Exception error){
             HandlerState.handle(error,getApplicationContext());
