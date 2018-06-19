@@ -47,6 +47,7 @@ public class EventListActivity extends AppCompatActivity implements InterfaceTas
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_list);
 
+<<<<<<< HEAD
 		try {
 			this.setViews();
 			this.setListener();
@@ -54,6 +55,11 @@ public class EventListActivity extends AppCompatActivity implements InterfaceTas
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+=======
+		this.setViews();
+		this.setListener();
+		this.getEvents();
+>>>>>>> b131b7bea5819f1072804d27e5719536dc3a365f
 
 	}
 

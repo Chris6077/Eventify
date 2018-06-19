@@ -4,22 +4,21 @@ import android.animation.Animator;
 import android.location.Address;
 import android.os.Build;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewTreeObserver;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
-import com.example.schueler.eventures.R;
-
-public class New_EventActivity extends AppCompatActivity {
+public class New_EventActivity extends AppCompatActivity implements View.OnClickListener {
 
 	DrawerLayout rootLayout;
 	EditText mOrtView;
+	Button createButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +37,8 @@ public class New_EventActivity extends AppCompatActivity {
             Address adress = (Address) o;
 	        this.mOrtView.setText(adress.getAddressLine(0).toString());
         }
+
+        this.createButton.setOnClickListener(this);
     }
 
     //custom
@@ -45,6 +46,7 @@ public class New_EventActivity extends AppCompatActivity {
 	private void setViews(){
 		this.rootLayout = (DrawerLayout) findViewById(R.id.new_event_rootLayout);
 		this.mOrtView = (EditText) findViewById(R.id.input_place);
+		this.createButton = (Button) findViewById(R.id.create_event);
 	}
 
 	private void setUpCircularReveal(){
@@ -83,5 +85,22 @@ public class New_EventActivity extends AppCompatActivity {
 		// make the view visible and start the animation
 		rootLayout.setVisibility(View.VISIBLE);
 		circularReveal.start();
+	}
+
+	@Override
+	public void onClick(View view) {
+		try{
+			if(view.getId() == R.id.create_event){
+				this.createEvent();
+			}
+		}catch(Exception ex){
+			Log.d("error", ex.toString());
+		}
+	}
+
+	private void createEvent() {
+		int teilnehmer = Integer.parseInt(((TextView)findViewById(R.id.input_participants)).getText().toString());
+		String beschreibung = ((EditText) findViewById(R.id.input_iformation)).getText().toString();
+
 	}
 }
