@@ -253,7 +253,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/input_iformation"
+                            android:id="@+id/input_information"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/event_information"

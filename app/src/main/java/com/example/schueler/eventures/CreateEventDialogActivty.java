@@ -1,15 +1,12 @@
 package com.example.schueler.eventures;
 
-import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.DatePicker;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Calendar;
 
 public class CreateEventDialogActivty extends AppCompatActivity {
 
@@ -28,6 +25,7 @@ public class CreateEventDialogActivty extends AppCompatActivity {
 
 	private void setViews(){
 		this.input_date = (TextView) this.findViewById(R.id.create_event_input_begin_date);
+
 	}
 
 	private void registerEventHandler(){
@@ -38,7 +36,6 @@ public class CreateEventDialogActivty extends AppCompatActivity {
 			}
 		});
 	}
-
 
 
 	//listener

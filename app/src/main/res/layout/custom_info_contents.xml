@@ -24,7 +24,7 @@
         <TextView
             android:id="@+id/txtEventName"
             style="@style/MapEventName"
-            android:text="Spazieren"/>
+            android:text=""/>
         <TextView
             android:id="@+id/txtEventPublicity"
             style="@style/MapEventPublicity"
@@ -58,11 +58,11 @@
 
                 <TextView
                     style="@style/MapEventInfoHeadLine"
-                    android:text="Villach an der Drau"/>
+                    android:text=""/>
 
                 <TextView
                     style="@style/MapEventInfoDescription"
-                    android:text="Ort"/>
+                    android:text=""/>
 
             </LinearLayout>
         </LinearLayout>
@@ -93,7 +93,7 @@
 
                     <TextView
                         style="@style/MapEventInfoHeadLine"
-                        android:text="9:30"/>
+                        android:text=""/>
 
                     <TextView
                         style="@style/MapEventInfoDescription"
@@ -128,7 +128,7 @@
 
                     <TextView
                         style="@style/MapEventInfoHeadLine"
-                        android:text="Julian Blaschke"/>
+                        android:text=""/>
 
                     <TextView
                         style="@style/MapEventInfoDescription"

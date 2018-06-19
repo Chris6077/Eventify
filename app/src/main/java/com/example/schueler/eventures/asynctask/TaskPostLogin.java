@@ -71,7 +71,6 @@ public class TaskPostLogin extends AsyncTask<String, Void, String> {
 			writer.flush();
 			writer.close();
 			conn.getResponseCode();
-
 		} catch (Exception error) {
 			System.out.println("ERROR --- " + error);
 		}

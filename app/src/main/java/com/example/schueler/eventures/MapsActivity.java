@@ -108,6 +108,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private NavigationView navigation;
     private Geocoder geocoder;
     private Intent new_EventActivity_Intent;
+    private View infoWindow;
 
 
 
@@ -248,8 +249,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // Inflate the layouts for the info window, title and snippet.
 
 
-                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
+                 infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
                        (FrameLayout) findViewById(R.id.map), false);
+
 
                 /*TODO
                 *   Fill the event informations dynamically
@@ -259,18 +261,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 return infoWindow;
             }
 
+
+
         });
 
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                Log.d("hallo", "aksldjfalksd");
-                mMap.addMarker(new MarkerOptions().position(latLng));
+                //mMap.addMarker(new MarkerOptions().position(latLng));
+                DialogCreateEvent.getDialog(MapsActivity.this).show();
                 try {
                     List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
                     if(listAddresses.size() > 0){
-                        Log.d("hallo2", "aksldjfalksd");
                         DialogCreateEvent.getDialog(MapsActivity.this, listAddresses.get(0)).show();
+                    }else{
+                        DialogCreateEvent.getDialog(MapsActivity.this).show();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -575,6 +580,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     //Webservice
 
     private void getEvents(){
+        try{
+            TaskGetMinimalEvents get_events = new TaskGetMinimalEvents(getString(R.string.webservice_get_Minimal_Events_url), this);
+            get_events.execute();
+        }catch(Exception error){
+            HandlerState.handle(error,this);
+        }
+    }
+
+    private void getEventInfo(){
         try{
             TaskGetMinimalEvents get_events = new TaskGetMinimalEvents(getString(R.string.webservice_get_Minimal_Events_url), this);
             get_events.execute();
