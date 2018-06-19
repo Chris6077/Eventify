@@ -20,6 +20,7 @@ public class Event implements Serializable {
     private String description;
     private int maxParticipants;
     private int minAge;
+    private int totalParticipators;
     private EventType type;
     private EventCategory category;
     private Date startDate;
@@ -28,13 +29,14 @@ public class Event implements Serializable {
     private Date lastEdited;
     private Location location;
 
-    public Event(String name, String creatorID, EventState state, String description, int maxParticipants, int minAge, EventType type, EventCategory category, Date startDate, Date endDate)    {
+    public Event(String name, String creatorID, EventState state, String description, int maxParticipants,int totalParticipators, int minAge, EventType type, EventCategory category, Date startDate, Date endDate)    {
         this.name = name;
         this.creatorID = creatorID;
         this.state = state;
         this.description = description;
         this.maxParticipants = maxParticipants;
         this.minAge = minAge;
+        this.totalParticipators = totalParticipators;
         this.type = type;
         this.category = category;
         this.startDate = startDate;
@@ -145,6 +147,14 @@ public class Event implements Serializable {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public int getTotalParticipators() {
+        return totalParticipators;
+    }
+
+    public void setTotalParticipators(int totalParticipators) {
+        this.totalParticipators = totalParticipators;
     }
 
     @Override

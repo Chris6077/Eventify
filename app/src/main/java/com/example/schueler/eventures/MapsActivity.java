@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,11 +28,18 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import com.example.schueler.eventures.asynctask.TaskGetEvent;
+import com.example.schueler.eventures.asynctask.TaskGetEvents;
+import com.example.schueler.eventures.asynctask.TaskGetMinimalEvents;
 import com.example.schueler.eventures.classes.pojo.Database;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.classes.pojo.MinimalEvent;
+import com.example.schueler.eventures.dialog.DialogCreateEvent;
+import com.example.schueler.eventures.handler.HandlerState;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -50,9 +59,12 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, InterfaceTaskDefault {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
@@ -96,6 +108,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private NavigationView navigation;
+    private Geocoder geocoder;
+    private Intent new_EventActivity_Intent;
+    private View infoWindow;
 
 
 
@@ -133,7 +148,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void initOtherThings() {
         this.db = new Database();
-        this.fillDatabaseWithTestData();
         this.btnKarte = (ToggleButton) findViewById(R.id.btnKarte);
         this.btnSatellit = (ToggleButton) findViewById(R.id.btnSatellit);
         this.btnKarte.setOnClickListener(this);
@@ -147,6 +161,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.menuImage.setOnClickListener(this);
         this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
         this.navigation.setNavigationItemSelectedListener(this);
+        this.geocoder = new Geocoder(this);
+        this.new_EventActivity_Intent = new Intent(this, New_EventActivity.class);
+        this.getEvents();
     }
 
     private void setStyleMap() {
@@ -166,29 +183,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     }
 
-    private void fillMapWithEvents() {
-        ArrayList<Event> allEvents = this.db.getEvents();
-        for (Event event : allEvents) {
+    private void fillMapWithEvents(ArrayList<MinimalEvent> allEvents) {
+        for (MinimalEvent event : allEvents) {
             LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
-            this.mMap.addMarker(new MarkerOptions().position(newLatLng)
-                    .title(event.getName()));
+            this.mMap.addMarker(new MarkerOptions().position(newLatLng)).setTitle(event.geteID());
             this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
         }
 
     }
-
-    private void fillDatabaseWithTestData() {
-        LatLng l = new LatLng(46.602540, 13.843018);
-        Event e = new Event("First Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(l.latitude, l.longitude));
-        this.db.add(e);
-        e = new Event("Second Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.608465, 13.844906));
-        this.db.add(e);
-        e = new Event("Third Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.612636, 13.845078));
-        this.db.add(e);
-        }
 
     /**
      * Saves the state of the map when the activity is paused.
@@ -248,28 +250,36 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
 
-                Log.d("Servas", "sldk");
 
-                View infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
+                infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
                        (FrameLayout) findViewById(R.id.map), false);
 
-                /*TODO
-                *   Fill the event informations dynamically
-                *   Also an onclick on the menue and redirect to the event inforamtion activity
-                * */
+                String eid = marker.getTitle();
+
+                getEventInfo(eid);
 
                 return infoWindow;
             }
+
+
 
         });
 
         mMap.setOnMapLongClickListener(new GoogleMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                mMap.addMarker(new MarkerOptions()
-                        .position(latLng)
-                        .title("Your marker title")
-                        .snippet("Your marker snippet"));
+                //mMap.addMarker(new MarkerOptions().position(latLng));
+                DialogCreateEvent.getDialog(MapsActivity.this).show();
+                try {
+                    List<Address> listAddresses = geocoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
+                    if(listAddresses.size() > 0){
+                        DialogCreateEvent.getDialog(MapsActivity.this, listAddresses.get(0)).show();
+                    }else{
+                        DialogCreateEvent.getDialog(MapsActivity.this).show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -282,8 +292,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Get the current event_icon_2 of the device and set the position of the map.
         getDeviceLocation();
 
-        this.fillMapWithEvents();
         this.setStyleMap();
+
+        this.mMap.setOnCameraMoveListener(new GoogleMap.OnCameraMoveListener() {
+            @Override
+            public void onCameraMove() {
+                CameraPosition p = mMap.getCameraPosition();
+                Log.d("move", p.toString());
+
+            }
+        });
     }
 
     /**
@@ -558,4 +576,40 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
     }
 
+
+    //Webservice
+
+    private void getEvents(){
+        try{
+            TaskGetMinimalEvents get_events = new TaskGetMinimalEvents(getString(R.string.webservice_get_Minimal_Events_url), this);
+            get_events.execute();
+        }catch(Exception error){
+            HandlerState.handle(error,this);
+        }
+    }
+
+    private void getEventInfo(String eid){
+        try{
+            TaskGetEvent get_event = new TaskGetEvent(getString(R.string.webservice_get_Event ) + eid, this);
+            get_event.execute();
+        }catch(Exception error){
+            HandlerState.handle(error,this);
+        }
+    }
+
+    @Override
+    public void onPreExecute(Class resource) {
+
+    }
+
+    @Override
+    public void onPostExecute(Object result, Class resource) {
+        try{
+            Log.d("halskd", "aölskdf");
+            ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
+            this.fillMapWithEvents(events);
+        }catch(Exception error){
+            HandlerState.handle(error,getApplicationContext());
+        }
+    }
 }

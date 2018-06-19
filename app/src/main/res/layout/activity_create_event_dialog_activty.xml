@@ -63,6 +63,37 @@
                 android:padding="10dp"
                 android:focusable="true" android:focusableInTouchMode="true">
 
+                <!-- Name -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:layout_margin="2.5dp"
+                    android:background="@drawable/shadow_box">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/create_event_input_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/event_name"
+                            android:inputType="text"
+                            android:drawablePadding="20dp"
+                            android:maxLines="1"
+                            android:singleLine="true"/>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
                 <!-- Anfangsdatum -->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -222,7 +253,7 @@
                         android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/input_iformation"
+                            android:id="@+id/input_information"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/event_information"

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.schueler.eventures.EventListActivity;
-import com.example.schueler.eventures.MapActivity;
 import com.example.schueler.eventures.MapsActivity;
 import com.example.schueler.eventures.R;
 

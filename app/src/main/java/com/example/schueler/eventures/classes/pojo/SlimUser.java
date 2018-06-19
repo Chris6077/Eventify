@@ -10,8 +10,8 @@ import java.util.Date;
  */
 public class SlimUser {
 	private String uID;
-	private transient String firstName;
-	private transient String lastName;
+	private String firstName;
+	private String lastName;
 	private transient String profilePicture;
 	private transient UserType type;
 	private transient int numberOfCreated;

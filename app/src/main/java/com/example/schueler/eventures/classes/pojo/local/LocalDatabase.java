@@ -10,32 +10,10 @@ import java.util.Date;
 
 public class LocalDatabase {
 
-	//classes
-	public static class currentUser extends User{
 
-		private String UID;
-
-		public currentUser(String firstName, String lastName, Date birthDate, String username, String email, String password, String profilePicture, String UID) {
-			super(firstName, lastName, birthDate, username, email, password, profilePicture);
-			this.UID = UID;
-		}
-
-
-
-		@Override
-		public String getUID() {
-			return UID;
-		}
-
-		@Override
-		public void setUID(String UID) {
-			this.UID = UID;
-		}
-
-	}
 
 	//fields
-	private currentUser User;
+	private static String uID;
 	private static LocalDatabase database = null;
 
 
@@ -43,14 +21,15 @@ public class LocalDatabase {
 	private LocalDatabase() {
 	}
 
-
 	//getter & setter
-	public currentUser getUser() {
-		return User;
+
+
+	public static String getuID() {
+		return uID;
 	}
 
-	public void setUser(currentUser user) {
-		User = user;
+	public static void setuID(String uID) {
+		LocalDatabase.uID = uID;
 	}
 
 	//custom

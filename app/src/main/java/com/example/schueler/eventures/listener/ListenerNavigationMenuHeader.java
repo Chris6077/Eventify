@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.schueler.eventures.Event_Activity;
+import com.example.schueler.eventures.StrangerActivity;
 import com.example.schueler.eventures.UserActivity;
+import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
 
 /**
  * Created by schueler on 4/23/18.
@@ -25,17 +28,10 @@ public class ListenerNavigationMenuHeader implements View.OnClickListener {
 	//super
 	@Override
 	public void onClick(View v) {
-		this.startActivity(UserActivity.class);
+		Intent intent= new Intent(resource,StrangerActivity.class);
+		intent.putExtra("uID", LocalDatabase.getuID());
+		resource.startActivity(intent);
 	}
 
-	//custom
-	private void startActivity(Class classname){
-		Intent activity = new Intent(this.resource,classname);
-
-
-		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this.resource);
-		this.resource.startActivity(activity,options.toBundle());
-		//((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
-	}
 
 }

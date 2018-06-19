@@ -25,13 +25,13 @@ public class SlimEvent implements Serializable{
 
 	private String eID;
 
-	private transient String name;
+	private String name;
 
-	private transient int totalLikes;
+	private  int totalLikes;
 
-	private transient int maxParticipators;
+	private int maxParticipators;
 
-	private transient int totalParticipators;
+	private int totalParticipators;
 
 
 

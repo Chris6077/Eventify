@@ -27,9 +27,9 @@ public class MinimalEvent {
 
 	private String eID;
 
-	private transient Location location;
+	private Location location;
 
-	private transient EventCategory category;
+	private EventCategory category;
 
 
 

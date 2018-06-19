@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -18,7 +19,11 @@ import android.widget.LinearLayout;
 
 import com.example.schueler.eventures.EventListActivity;
 import com.example.schueler.eventures.R;
+import com.example.schueler.eventures.asynctask.TaskPostLogin;
+import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.local.LoginUserObject;
 import com.example.schueler.eventures.listener.ListenerDatePicker;
+import com.google.gson.Gson;
 
 /**
  * Created by schueler on 5/9/18.
@@ -67,16 +72,33 @@ public abstract class DialogCreateEvent {
 		final Button input_end_date = (Button) dialog.findViewById(R.id.create_event_input_end_date);
 		final EditText input_place = (EditText) dialog.findViewById(R.id.input_place);
 
+
 		input_begin_date.setOnClickListener(new ListenerDatePicker(input_begin_date,context));
 		input_end_date.setOnClickListener(new ListenerDatePicker(input_end_date,context));
 		if(adress != null)
-			input_place.setText(adress.toString());
+			input_place.setText(adress.getAddressLine(0).toString());
 
 		final Button button_submit = (Button) dialog.findViewById(R.id.create_event_button_submit);
 
 		button_submit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				String name = ((EditText) dialog.findViewById(R.id.create_event_input_name)).getText().toString();
+				int participation = Integer.parseInt(((EditText) dialog.findViewById(R.id.create_event_input_participants)).getText().toString());
+				int minAge = Integer.parseInt(((EditText) dialog.findViewById(R.id.create_event_input_minage)).getText().toString());
+				String address = ((EditText) dialog.findViewById(R.id.input_place)).getText().toString();
+				String description = ((EditText) dialog.findViewById(R.id.input_information)).getText().toString();
+				String endDate = "2018-09-02T04:00:00.000Z";
+				String startDate = input_begin_date.getText().toString();
+				Gson gson;
+				TaskPostLogin task;
+
+				gson = new Gson();
+
+				//Event param = new Event(name, );
+
+				//task = new TaskPostLogin(getString(R.string.webservice_post_Login),this);
+				//task.execute(gson.toJson(param).toString());
 				revealShow(dialogView,false, dialog);
 			}
 		});
@@ -133,6 +155,5 @@ public abstract class DialogCreateEvent {
 		}
 
 	}
-
 
 }

@@ -13,10 +13,16 @@
 
     <!-- webservice -->
     <string name="webservice_base_url">http://eventifyapi.herokuapp.com/rest/api/</string>
-    <string name="webservice_get_Events_url">http://eventifyapi.herokuapp.com/rest/api/events/</string>
-    <string name="webservice_get_Event">http://eventifyapi.herokuapp.com/rest/api/events/5af8644b6570441b5404c3e3/</string>
+    <string name="webservice_get_Users_url">http://eventifyapi.herokuapp.com/rest/api/</string>
+    <string name="webservice_get_Events_url">http://eventifyapi.herokuapp.com/rest/api/users/</string>
+    <string name="webservice_get_Minimal_Events_url">https://eventifyapi.herokuapp.com/rest/api/events/minimal</string>
+    <string name="webservice_get_Event">http://eventifyapi.herokuapp.com/rest/api/events/</string>
     <string name="webservice_post_Login">https://eventify-test.glitch.me/login</string>
+    <string name="webservice_post_Event">https://eventifyapi.herokuapp.com/rest/api/events/</string>
     <string name="webservice_post_Register">https://eventify-test.glitch.me/register</string>
+    <string name="webservice_api_key">dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN</string>
+    <string name="webservice_api_uID">5b2776686358aa0004540d94</string>
+    <string name="webservice_post_Login_1">http://eventifyapi.herokuapp.com/rest/api/login</string>
 
     <string name="actionbar_open">Open</string>
     <string name="actionbar_close">Close</string>
@@ -51,6 +57,7 @@
     <string name="event_participants">Teilnehmer</string>
     <string name="event_category">Kategorie</string>
     <string name="event_information">Beschreibung</string>
+    <string name="event_name">Name</string>
     <string name="event_place">Ort</string>
     <string name="event_chat">Event-Chat</string>
 

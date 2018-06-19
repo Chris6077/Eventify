@@ -3,7 +3,9 @@ package com.example.schueler.eventures.asynctask;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 
+import com.example.schueler.eventures.classes.pojo.local.uIDObject;
 import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -35,6 +37,7 @@ public class TaskPostLogin extends AsyncTask<String, Void, String> {
 	@Override
 	protected String doInBackground(String... params) {
 		try {
+			Gson gson = new Gson();
 			HttpURLConnection conn = (HttpURLConnection) new URL(this.url).openConnection();
 			this.PostData(conn, params);
 			return this.GetData(conn);
@@ -65,13 +68,13 @@ public class TaskPostLogin extends AsyncTask<String, Void, String> {
 
 			//posting the data
 			conn.setRequestMethod("POST");
+			conn.setRequestProperty("API_KEY", "dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN");
 			conn.setRequestProperty("Content-Type", "application/json");
 			writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
 			writer.write(params[0]); //product - object in json-format
 			writer.flush();
 			writer.close();
 			conn.getResponseCode();
-
 		} catch (Exception error) {
 			System.out.println("ERROR --- " + error);
 		}
@@ -97,7 +100,6 @@ public class TaskPostLogin extends AsyncTask<String, Void, String> {
 			content = sb.toString();
 			reader.close();
 			conn.disconnect();
-
 
 		} catch (Exception error) {
 			System.out.println("ERROR --- " + error);

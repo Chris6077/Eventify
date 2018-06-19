@@ -3,6 +3,7 @@ package com.example.schueler.eventures;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,14 +21,16 @@ import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.example.schueler.eventures.listener.ListenerCreateEvent;
 import com.example.schueler.eventures.listener.ListenerNavigationMenuHeader;
 import com.example.schueler.eventures.listener.ListenerNavigationMenu;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.logging.Handler;
 
-public class EventListActivity extends AppCompatActivity {
+public class EventListActivity extends AppCompatActivity implements InterfaceTaskDefault, SwipeRefreshLayout.OnRefreshListener {
 
 	private DrawerLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -35,6 +38,7 @@ public class EventListActivity extends AppCompatActivity {
 	private NavigationView navigation;
 	private View progressView;
 	public FloatingActionButton fab_add_event;
+	private SwipeRefreshLayout swipeRefreshLayout;
 
 	//super
 
@@ -43,10 +47,13 @@ public class EventListActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_event_list);
 
-		this.setViews();
-		this.setListener();
-		this.getEvents();
-
+		try {
+			this.setViews();
+			this.setListener();
+			this.getEvents();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 	}
 
@@ -60,17 +67,37 @@ public class EventListActivity extends AppCompatActivity {
 	}
 
 
+	@Override
+	public void onPreExecute(Class resource) {
+		swipeRefreshLayout.setRefreshing(true);
+	}
+
+
+	@Override
+	public void onPostExecute(Object result, Class resource) {
+		try{
+			swipeRefreshLayout.setRefreshing(false);
+			ArrayList<SlimEvent> events = (ArrayList<SlimEvent>) result;
+			fillList(events);
+		}catch(Exception error){
+			HandlerState.handle(error,getApplicationContext());
+		}
+	}
+
+	@Override
+	public void onRefresh() {
+		this.getEvents();
+	}
+
 	//custom
 
-	private void setViews(){
+	private void setViews() throws Exception {
 		this.mdl = (DrawerLayout) findViewById(R.id.content_event_list);
 		this.listView_events = (ListView) findViewById(R.id.listview_events);
 		this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
 		this.fab_add_event = (FloatingActionButton) findViewById(R.id.event_list_add_event_fab);
+		this.swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.list_view_events_swipe_to_refresh_layout);
 
-		//progress bar
-		LayoutInflater layoutInflater = (LayoutInflater) this.getLayoutInflater();
-		progressView = layoutInflater.inflate(R.layout.header_progressbar,null,false);
 	}
 
 	private void setListener(){
@@ -78,15 +105,13 @@ public class EventListActivity extends AppCompatActivity {
 		this.fab_add_event.setOnClickListener(new ListenerCreateEvent(this));
 		this.setListenerNavigationHeader();
 		this.setActionBarToggle();
+		this.swipeRefreshLayout.setOnRefreshListener(this);
 	}
 
 	private void setListenerNavigationHeader(){
 		View navHeader;
 		navHeader = navigation.getHeaderView(0);
 		navHeader.setOnClickListener(new ListenerNavigationMenuHeader(this));
-		new TaskGetImage((ImageView) navigation.getHeaderView(0).findViewById(R.id.navHeader_image)    )
-				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
-
 	}
 
 	private void setActionBarToggle(){
@@ -99,7 +124,7 @@ public class EventListActivity extends AppCompatActivity {
 
 
 	private void fillList(ArrayList<SlimEvent> events) throws Exception {
-		if(events == null || events.size() < 1) {
+		if(events == null) {
 			throw new Exception("no Content found");
 		}else {
 			AdapterListViewEvent adapter = new AdapterListViewEvent(this, R.layout.listview_item_event, events);
@@ -109,34 +134,13 @@ public class EventListActivity extends AppCompatActivity {
 
 	private void getEvents(){
 		try{
-			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), new GetEvents_listener());
+			TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), this);
 			get_events.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);
 		}
 	}
 
-	//listener
-
-	private class GetEvents_listener implements InterfaceGetEvents {
-
-		@Override
-		public void onPreExecute() {
-			AdapterListViewEvent adapter = new AdapterListViewEvent(EventListActivity.this, R.layout.listview_item_event, new ArrayList<SlimEvent>());
-			listView_events.setAdapter(adapter);
-			listView_events.addHeaderView(progressView);
-		}
-
-		@Override
-		public void onPostExecute(ArrayList<SlimEvent> events) {
-			try{
-				listView_events.removeHeaderView(progressView);
-				fillList(events);
-			}catch(Exception error){
-				HandlerState.handle(error,getApplicationContext());
-			}
-		}
-	}
 
 
 }

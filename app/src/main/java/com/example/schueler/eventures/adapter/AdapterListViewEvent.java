@@ -64,6 +64,7 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 	@Override
 	public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 		SlimEvent event = this.data.get(position);
+		System.out.println(event);
 			LayoutInflater inflater = (LayoutInflater) this.getAppCompatActivityResource()
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View rowView = inflater.inflate(R.layout.listview_item_event, parent, false);
@@ -73,7 +74,6 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 		header.setText(event.getName());
 
 		this.setUpIconLike(rowView);
-		//this.setUpIconCategory(rowView,this.data.get(position).get);
 		this.setUpRowViewListener(rowView);
 		this.setUpTitleListener(rowView,event);
 		return rowView;
@@ -167,7 +167,7 @@ public class AdapterListViewEvent extends ArrayAdapter<SlimEvent> {
 				@Override
 				public void onClick(View v) {
 					Intent event_activity = new Intent(getAppCompatActivityResource(),Event_Activity.class);
-					event_activity.putExtra("event", event);
+					event_activity.putExtra("eID", event.geteID());
 					getAppCompatActivityResource().startActivity(event_activity);
 				}
 		});
