@@ -6,8 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="hallo" />
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="servs" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e6ea6dd7-7ccb-42d0-9508-9f8184b355d1" name="Default" comment="" />
@@ -33,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/MapsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="893">
-              <caret line="258" column="34" lean-forward="false" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
+            <state relative-caret-position="596">
+              <caret line="614" column="47" lean-forward="false" selection-start-line="614" selection-start-column="47" selection-end-line="614" selection-end-column="47" />
               <folding>
                 <element signature="method#onCreate#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#initOtherThings#0;class#MapsActivity#0" expanded="false" />
@@ -56,7 +56,7 @@
                 <element signature="method#onNavigationItemSelected#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#startActivity#0;class#MapsActivity#0" expanded="false" />
                 <element signature="method#getEvents#0;class#MapsActivity#0" expanded="false" />
-                <element signature="e#24182#24223#0" expanded="true" />
+                <element signature="e#24246#24287#0" expanded="true" />
                 <element signature="method#onPreExecute#0;class#MapsActivity#0" expanded="false" />
               </folding>
             </state>
@@ -108,12 +108,12 @@
       </file>
       <file leaf-file-name="custom_info_contents.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_contents.xml">
-          <provider selected="true" editor-type-id="android-designer2">
+          <provider editor-type-id="android-designer2">
             <state />
           </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="130" column="38" lean-forward="false" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="363">
+              <caret line="25" column="40" lean-forward="false" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -131,36 +131,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="24" column="90" lean-forward="false" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="203" column="5" lean-forward="false" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
-              <folding>
-                <element signature="e#4679#4815#0" expanded="true" />
-                <element signature="e#4814#4815#0" expanded="true" />
-                <element signature="e#4920#5224#0" expanded="true" />
-                <element signature="e#5223#5224#0" expanded="true" />
-                <element signature="e#5421#5466#0" expanded="true" />
-                <element signature="e#5632#5676#0" expanded="true" />
-                <element signature="e#5930#5975#0" expanded="true" />
-                <element signature="e#6608#6651#0" expanded="true" />
-                <marker date="1529417420325" expanded="true" signature="7047:7171" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -172,6 +142,7 @@
       <find>Activity</find>
       <find>Text</find>
       <find>text</find>
+      <find>getInfoContents</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2627,10 +2598,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/asynctask/TaskPostEvent.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/CreateEventDialogActivty.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/dialog/DialogCreateEvent.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_info_contents.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/MapsActivity.java" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/custom_info_contents.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/MapsActivity.java" />
       </list>
     </option>
   </component>
@@ -2881,7 +2852,7 @@
       <option name="ACTIVITY_CLASS" value="com.example.schueler.eventures.MapsActivity" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529418379255" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529432817603" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -2954,7 +2925,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529418379256" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529432817604" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3002,7 +2973,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529418379256" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529432817604" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3185,7 +3156,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529418379258" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1529432817604" />
       </method>
     </configuration>
     <list size="2">
@@ -3235,7 +3206,7 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931423" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32931423" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32931423" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -3271,7 +3242,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="7" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3400,16 +3371,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/dialog/DialogCreateEvent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="858">
-          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding>
-            <element signature="method#revealShow#0;class#DialogCreateEvent#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_event.xml">
       <provider selected="true" editor-type-id="android-designer2">
         <state />
@@ -3443,50 +3404,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_contents.xml">
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="130" column="38" lean-forward="false" selection-start-line="130" selection-start-column="38" selection-end-line="130" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://X:/Programs/AndroidStdio/platforms/android-25/android.jar!/android/os/AsyncTask.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="627">
           <caret line="62" column="53" lean-forward="false" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/MapsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="893">
-          <caret line="258" column="34" lean-forward="false" selection-start-line="258" selection-start-column="34" selection-end-line="258" selection-end-column="34" />
-          <folding>
-            <element signature="method#onCreate#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#initOtherThings#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#setStyleMap#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onSaveInstanceState#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onCreateOptionsMenu#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onOptionsItemSelected#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#getDeviceLocation#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#getLocationPermission#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onRequestPermissionsResult#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#showCurrentPlace#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#openPlacesDialog#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#updateLocationUI#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onWindowFocusChanged#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onClick#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#onNavigationItemSelected#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#startActivity#0;class#MapsActivity#0" expanded="false" />
-            <element signature="method#getEvents#0;class#MapsActivity#0" expanded="false" />
-            <element signature="e#24182#24223#0" expanded="true" />
-            <element signature="method#onPreExecute#0;class#MapsActivity#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3514,18 +3436,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="24" column="90" lean-forward="false" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="203" column="5" lean-forward="false" selection-start-line="203" selection-start-column="5" selection-end-line="203" selection-end-column="5" />
+        <state relative-caret-position="80">
+          <caret line="204" column="0" lean-forward="true" selection-start-line="204" selection-start-column="0" selection-end-line="204" selection-end-column="0" />
           <folding>
             <element signature="e#4679#4815#0" expanded="true" />
             <element signature="e#4814#4815#0" expanded="true" />
@@ -3536,6 +3450,63 @@
             <element signature="e#5930#5975#0" expanded="true" />
             <element signature="e#6608#6651#0" expanded="true" />
             <marker date="1529417420325" expanded="true" signature="7047:7171" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="24" column="90" lean-forward="false" selection-start-line="24" selection-start-column="90" selection-end-line="24" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/dialog/DialogCreateEvent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="method#revealShow#0;class#DialogCreateEvent#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/custom_info_contents.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="25" column="40" lean-forward="false" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/schueler/eventures/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="596">
+          <caret line="614" column="47" lean-forward="false" selection-start-line="614" selection-start-column="47" selection-end-line="614" selection-end-column="47" />
+          <folding>
+            <element signature="method#onCreate#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#initOtherThings#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#setStyleMap#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onSaveInstanceState#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onCreateOptionsMenu#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onOptionsItemSelected#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#getDeviceLocation#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#getLocationPermission#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onRequestPermissionsResult#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#showCurrentPlace#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#openPlacesDialog#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#updateLocationUI#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onWindowFocusChanged#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onClick#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#onNavigationItemSelected#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#startActivity#0;class#MapsActivity#0" expanded="false" />
+            <element signature="method#getEvents#0;class#MapsActivity#0" expanded="false" />
+            <element signature="e#24246#24287#0" expanded="true" />
+            <element signature="method#onPreExecute#0;class#MapsActivity#0" expanded="false" />
           </folding>
         </state>
       </provider>

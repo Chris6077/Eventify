@@ -23,9 +23,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.example.schueler.eventures.asynctask.TaskGetEvent;
@@ -605,9 +607,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onPostExecute(Object result, Class resource) {
         try{
-            Log.d("halskd", "aölskdf");
-            ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
-            this.fillMapWithEvents(events);
+            if(result.getClass() == Event.class){
+                Event infoEvent = (Event) result;
+                Log.d("servs", infoEvent.getName());
+
+                TextView t = (TextView) this.infoWindow.findViewById(R.id.txtEventName);
+                t.setText(infoEvent.getName());
+                ((TextView)findViewById(R.layout.custom_info_contents).findViewById(R.id.txtEventName)).setText("aöksdfa");
+            }else {
+                ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
+                this.fillMapWithEvents(events);
+            }
         }catch(Exception error){
             HandlerState.handle(error,getApplicationContext());
         }

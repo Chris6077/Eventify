@@ -23,8 +23,7 @@
             />
         <TextView
             android:id="@+id/txtEventName"
-            style="@style/MapEventName"
-            android:text=""/>
+            style="@style/MapEventName" />
         <TextView
             android:id="@+id/txtEventPublicity"
             style="@style/MapEventPublicity"
