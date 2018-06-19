@@ -29,6 +29,7 @@ import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvent;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -132,7 +133,7 @@ public class Event_Activity extends AppCompatActivity{
 
 	private void getEvent(){
 		try{
-			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Events_url) + ((SlimEvent)this.getIntent().getSerializableExtra("event")).geteID(),new GetEvent_listener());
+			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Events_url) , (InterfaceTaskDefault) new GetEvent_listener());
 			getEvent.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);

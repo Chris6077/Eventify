@@ -92,7 +92,7 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 		try{
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("API_KEY", "dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN");
-			conn.setRequestProperty("uID", "5af9599ca2d6f53ca8b702a7");
+			conn.setRequestProperty("uID", "5b2776686358aa0004540d94");
 
 			reader = new BufferedReader(new InputStreamReader(
 					conn.getInputStream()));
