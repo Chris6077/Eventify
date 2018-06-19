@@ -49,7 +49,6 @@ public class EventListActivity extends AppCompatActivity implements InterfaceTas
 		this.setListener();
 		this.getEvents();
 
-
 	}
 
 	@Override

@@ -28,11 +28,15 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.ToggleButton;
 
+import com.example.schueler.eventures.asynctask.TaskGetEvents;
 import com.example.schueler.eventures.classes.pojo.Database;
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
 import com.example.schueler.eventures.classes.pojo.EventState;
 import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
+import com.example.schueler.eventures.handler.HandlerState;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -49,14 +53,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener.
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, InterfaceTaskDefault {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
@@ -583,4 +587,32 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         //((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
     }
 
+
+    //Webservice
+
+    private void getEvents(){
+        try{
+            TaskGetEvents get_events = new TaskGetEvents(getString(R.string.webservice_get_Events_url), this);
+            get_events.execute();
+        }catch(Exception error){
+            HandlerState.handle(error,this);
+        }
+    }
+
+    @Override
+    public void onPreExecute(Class resource) {
+
+    }
+
+    @Override
+    public void onPostExecute(Object result, Class resource) {
+        try{
+            ArrayList<SlimEvent> events = (ArrayList<SlimEvent>) result;
+            Log.d("aösdlkfaölks", result.toString());
+            //listView_events.removeHeaderView(progressView);
+            //fillList(events);
+        }catch(Exception error){
+            HandlerState.handle(error,getApplicationContext());
+        }
+    }
 }
