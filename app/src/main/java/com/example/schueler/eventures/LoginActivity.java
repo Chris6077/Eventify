@@ -193,7 +193,7 @@ public class LoginActivity extends AppCompatActivity implements InterfaceTaskDef
 
                 LoginUserObject param = new LoginUserObject(email,password);
 
-                task = new TaskPostLogin(getString(R.string.webservice_post_Login),this);
+                task = new TaskPostLogin(getString(R.string.webservice_post_Login_1),this);
                 task.execute(gson.toJson(param).toString());
 
             } catch (Exception error) {
