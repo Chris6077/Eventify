@@ -15,9 +15,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.schueler.eventures.asynctask.TaskPostRegistrate;
 import com.example.schueler.eventures.classes.pojo.User;
 import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
 import com.example.schueler.eventures.classes.pojo.local.RegistrationUserObject;
+import com.example.schueler.eventures.classes.pojo.local.uIDObject;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -33,7 +36,7 @@ import java.util.Date;
 /**
  * A login screen that offers login via email/password.
  */
-public class Registration_Activity extends AppCompatActivity {
+public class Registration_Activity extends AppCompatActivity implements InterfaceTaskDefault {
 
 	//fields
 	private EditText mPasswordView;
@@ -42,6 +45,7 @@ public class Registration_Activity extends AppCompatActivity {
 	private EditText mLastNameView;
 	private Button mBirthDateView;
 	private Button btn_register;
+	ProgressDialog asyncDialog;
 
 
 	//super
@@ -65,7 +69,7 @@ public class Registration_Activity extends AppCompatActivity {
 		mFirstNameView = (EditText) findViewById(R.id.firstname);
 		mLastNameView = (EditText) findViewById(R.id.lastname);
 		mBirthDateView = (Button) findViewById(R.id.birthdate);
-
+		asyncDialog = new ProgressDialog(this);
 
 	}
 
@@ -118,7 +122,7 @@ public class Registration_Activity extends AppCompatActivity {
 		//finally make post request
 
 		try{
-			registerSync = new RegisterSync(getString(R.string.webservice_post_Register));
+			TaskPostRegistrate task = new TaskPostRegistrate(getString(R.string.webservice_post_Register),this);
 			gson = new Gson();
 			String email = this.mEmailView.getText().toString();
 			String firstname = this.mFirstNameView.getText().toString();
@@ -126,9 +130,8 @@ public class Registration_Activity extends AppCompatActivity {
 			String birthdate = this.mBirthDateView.getText().toString();
 			String password = this.mPasswordView.getText().toString();
 
-
 			RegistrationUserObject param = new RegistrationUserObject(firstname,lastname,birthdate,email,password);
-			registerSync.execute(gson.toJson(param).toString());
+			task.execute(gson.toJson(param).toString());
 
 		}catch(Exception error){
 			Toast.makeText(this,error.toString(),Toast.LENGTH_LONG).show();
@@ -153,6 +156,24 @@ public class Registration_Activity extends AppCompatActivity {
 		}
 		Intent event_activity = new Intent(this,EventListActivity.class);
 		this.startActivity(event_activity);
+	}
+
+	@Override
+	public void onPreExecute(Class resource) {
+		//set message of the dialog
+		asyncDialog.setTitle(getString(R.string.progress_dialog_regestration_title));
+		asyncDialog.setMessage(getString(R.string.progress_dialog_registration_message));
+		//show dialog
+		asyncDialog.show();
+	}
+
+	@Override
+	public void onPostExecute(Object result, Class resource) {
+		asyncDialog.dismiss();
+		String res = (String) result;
+		Gson gson = new Gson();
+		LocalDatabase.setuID(gson.fromJson(res,uIDObject.class).getuID());
+		this.processResult(res);
 	}
 
 	//listener

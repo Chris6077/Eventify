@@ -14,14 +14,16 @@ import android.widget.Toast;
 import com.example.schueler.eventures.EventListActivity;
 import com.example.schueler.eventures.MapsActivity;
 import com.example.schueler.eventures.R;
+import com.example.schueler.eventures.WelcomeActivity;
+import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
 
 public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSelectedListener {
 
-	private AppCompatActivity resource;
+	private Context resource;
 
 
 	//constructors
-	public ListenerNavigationMenu(AppCompatActivity obj){
+	public ListenerNavigationMenu(Context obj){
 		this.resource = obj;
 	}
 
@@ -31,12 +33,11 @@ public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSe
 	public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 		if(item.getItemId() == R.id.mntm_all_events){
 			startActivity(EventListActivity.class);
-		}else if(item.getItemId() == R.id.mntm_favourites){
+		}else if(item.getItemId() == R.id.mntm_all_events){
 			startActivity(EventListActivity.class);
-		}else if(item.getItemId() == R.id.mntm_fixed_events){
-			startActivity(EventListActivity.class);
-		}else if(item.getItemId() == R.id.mntm_my_events){
-			startActivity(EventListActivity.class);
+		}else if(item.getItemId() == R.id.mntm_logout){
+			LocalDatabase.setuID(null);
+			startActivity(WelcomeActivity.class);
 		}else if(item.getItemId() == R.id.mntm_map){
 			startActivity(MapsActivity.class);
 		}
@@ -49,9 +50,7 @@ public class ListenerNavigationMenu implements NavigationView.OnNavigationItemSe
 		Intent activity = new Intent(this.resource,classname);
 
 		activity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-		ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this.resource);
-		this.resource.startActivity(activity,options.toBundle());
-		this.resource.finish();
+		this.resource.startActivity(activity);
 		//((AppCompatActivity)obj).overridePendingTransition(R.anim.anim_slide_in_right,R.anim.anim_slide_out_left);
 	}
 

@@ -40,6 +40,7 @@ import com.example.schueler.eventures.classes.pojo.MinimalEvent;
 import com.example.schueler.eventures.dialog.DialogCreateEvent;
 import com.example.schueler.eventures.handler.HandlerState;
 import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
+import com.example.schueler.eventures.listener.ListenerNavigationMenu;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
@@ -64,7 +65,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, InterfaceTaskDefault {
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, InterfaceTaskDefault {
 
     private static final String TAG = MapsActivity.class.getSimpleName();
     private GoogleMap mMap;
@@ -160,7 +161,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         this.mToggle.syncState();
         this.menuImage.setOnClickListener(this);
         this.navigation = (NavigationView) findViewById(R.id.navigation_drawer);
-        this.navigation.setNavigationItemSelectedListener(this);
+        this.navigation.setNavigationItemSelectedListener(new ListenerNavigationMenu(this));
         this.geocoder = new Geocoder(this);
         this.new_EventActivity_Intent = new Intent(this, New_EventActivity.class);
         this.getEvents();
@@ -547,23 +548,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("Error", ex.toString());
         }
     }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.mntm_all_events){
-            startActivity(EventListActivity.class);
-        }else if(item.getItemId() == R.id.mntm_favourites){
-            startActivity(EventListActivity.class);
-        }else if(item.getItemId() == R.id.mntm_fixed_events){
-            startActivity(EventListActivity.class);
-        }else if(item.getItemId() == R.id.mntm_my_events){
-            startActivity(EventListActivity.class);
-        }else if(item.getItemId() == R.id.mntm_map){
-            startActivity(MapsActivity.class);
-        }
-        return true;
-    }
-
 
     //custom
     private void startActivity(Class classname){

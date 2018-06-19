@@ -61,6 +61,7 @@ public class TaskGetEvents extends AsyncTask<Object, Object, ArrayList<SlimEvent
 			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
 			Type collectionType = new TypeToken<Collection<SlimEvent>>(){}.getType();
 			String result = GetData(conn);
+			System.out.println("EWEWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW" + result);
 			ArrayList<SlimEvent> events = gson.fromJson(result, collectionType);
 			return events;
 
