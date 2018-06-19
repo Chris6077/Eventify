@@ -7,7 +7,7 @@ db.createCollection("Users", {
             uID: {
                bsonType: "string",
                description: "must be a string and is automatically generated"
-            }
+            },
             firstName: {
                bsonType: "string",
                description: "must be a string and is required"
@@ -86,7 +86,7 @@ db.createCollection("Users", {
                   uID: {
                      bsonType: "string",
                      description: "must be a string and is automatically generated"
-                  }
+                  },
                   firstName: {
                      bsonType: "string",
                      description: "must be a string and is required"
