@@ -3,48 +3,12 @@
 
     <item
         is-multidex="true"
-<<<<<<< HEAD
-        jar="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3e039ac7fc228f89e7af985b1d29ee70243402a0">
-        <dex dex="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_417da1073cd7143bfcb93ff92b242a2a4813717b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="c323c36ecc68965c4cfb460f7721113d2b61ed03">
-        <dex dex="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_3ca7b412a992fea1d23c24531322d56e233daf42\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Marcel Judth\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations-java5\15.0\7011b4551a8451906759b05814c58b9eb829ea9b\annotations-java5-15.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="7011b4551a8451906759b05814c58b9eb829ea9b">
-        <dex dex="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\10\annotations-java5-15.0_fa2591a8acc83ba5c074f2c9afc0bf532a3c8c51\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\libs\gson-2.5.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.3"
-        sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
-        <dex dex="C:\Users\Marcel Judth\Documents\GitHub\Eventify\app\build\intermediates\transforms\dex\debug\folders\1000\2\gson-2.5_248a43112d9ed05ed424e980aaa3a0b479b464cf\classes.dex" />
-=======
         jar="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/libs/gson-2.5.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="686c608d1805b6d4d425ec4459e88164ffc85870">
         <dex dex="/home/schueler/AndroidStudioProjects/ProjectX/EventifyV2/Eventify/app/build/intermediates/transforms/dex/debug/folders/1000/2/gson-2.5_25e173d7fbac36df74959767131394e6ac07ba99/classes.dex" />
->>>>>>> 8003f3fa4b9cf061b51d4700e9e359d34e9e1c44
     </item>
 
 </items>
