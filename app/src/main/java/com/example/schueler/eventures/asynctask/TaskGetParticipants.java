@@ -4,7 +4,9 @@ import android.os.AsyncTask;
 
 import com.example.schueler.eventures.classes.pojo.Event;
 import com.example.schueler.eventures.classes.pojo.SlimEvent;
+import com.example.schueler.eventures.classes.pojo.SlimUser;
 import com.example.schueler.eventures.interfaces.InterfaceGetEvents;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -23,14 +25,14 @@ import java.util.Collection;
  * Created by schueler on 5/7/18.
  */
 
-public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<SlimEvent>> {
+public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<SlimUser>> {
 
 	//fields
 	private String url;
-	private InterfaceGetEvents listener;
+	private InterfaceTaskDefault listener;
 
 	//constructors
-	public TaskGetParticipants(String url, InterfaceGetEvents listener) {
+	public TaskGetParticipants(String url, InterfaceTaskDefault listener) {
 		this.setUrl(url);
 		this.setListener(listener);
 	}
@@ -44,24 +46,24 @@ public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<Sli
 		this.url = url;
 	}
 
-	public InterfaceGetEvents getListener() {
+	public InterfaceTaskDefault getListener() {
 		return listener;
 	}
 
-	public void setListener(InterfaceGetEvents listener) {
+	public void setListener(InterfaceTaskDefault listener) {
 		this.listener = listener;
 	}
 
 	//super
 	@Override
-	protected ArrayList<SlimEvent> doInBackground(Object... params) {
+	protected ArrayList<SlimUser> doInBackground(Object... params) {
 		try {
 			Gson gson = new Gson();
 			HttpURLConnection conn = (HttpURLConnection) new URL(this.getUrl()).openConnection();
-			Type collectionType = new TypeToken<Collection<SlimEvent>>(){}.getType();
+			Type collectionType = new TypeToken<Collection<SlimUser>>(){}.getType();
 			String result = GetData(conn);
-			ArrayList<SlimEvent> events = gson.fromJson(result, collectionType);
-			return events;
+			ArrayList<SlimUser> users = gson.fromJson(result, collectionType);
+			return users;
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -70,38 +72,19 @@ public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<Sli
 	}
 
 	@Override
-	protected void onPostExecute(ArrayList<SlimEvent> events){
-		this.getListener().onPostExecute(events);
+	protected void onPostExecute(ArrayList<SlimUser> events){
+		this.getListener().onPostExecute(events,this.getClass());
 		super.onPostExecute(events);
 	}
 
 	@Override
 	protected void onPreExecute() {
-		this.getListener().onPreExecute();
+		this.getListener().onPreExecute(this.getClass());
 		super.onPreExecute();
 	}
 
 
 	//custom
-	private void PostData(HttpURLConnection conn, String... params){
-		BufferedWriter writer;
-
-		try{
-
-			//posting the data
-			conn.setRequestMethod("POST");
-			conn.setRequestProperty("Content-Type", "application/json");
-			writer = new BufferedWriter(new OutputStreamWriter(conn.getOutputStream()));
-			writer.write(params[0]); //product - object in json-format
-			writer.flush();
-			writer.close();
-			conn.getResponseCode();
-
-		}catch(Exception error){
-			System.out.println("ERROR --- " + error);
-		}
-
-	}
 
 	private String GetData(HttpURLConnection conn){
 		BufferedReader reader;
@@ -110,7 +93,7 @@ public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<Sli
 		try{
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("API_KEY", "dmFsaTEyMzRpMjMwOGhnaW9zZ2Rqb2lqY3hvaTgwN");
-			conn.setRequestProperty("uID", "5af9599ca2d6f53ca8b702a7");
+			conn.setRequestProperty("uID", "5b2776116358aa0004540d92");
 
 			reader = new BufferedReader(new InputStreamReader(
 					conn.getInputStream()));
@@ -128,7 +111,7 @@ public class TaskGetParticipants extends AsyncTask<Object, Object, ArrayList<Sli
 		}catch(Exception error){
 			error.printStackTrace();
 		}
-		System.out.println("CONTENT AAAAAAAAAAAAAAAAAAAAAAAAAA" + content);
+		System.out.println("CONTENT" + content);
 		return content;
 	}
 
