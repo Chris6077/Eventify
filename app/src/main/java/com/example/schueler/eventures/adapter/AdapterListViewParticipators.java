@@ -16,8 +16,8 @@ import android.widget.TextView;
 
 import com.example.schueler.eventures.Event_Activity;
 import com.example.schueler.eventures.R;
+import com.example.schueler.eventures.StrangerActivity;
 import com.example.schueler.eventures.classes.pojo.EventCategory;
-import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.classes.pojo.SlimUser;
 import com.example.schueler.eventures.listener.ListenerDoubleTap;
 
@@ -31,6 +31,7 @@ public class AdapterListViewParticipators extends ArrayAdapter<SlimUser> {
 
 	AppCompatActivity appCompatActivityResource;
 	ArrayList<SlimUser> data;
+
 
 
 	//constructors
@@ -64,13 +65,23 @@ public class AdapterListViewParticipators extends ArrayAdapter<SlimUser> {
 		View rowView = inflater.inflate(R.layout.listview_item_stranger, parent, false);
 		TextView textView_username = (TextView) rowView.findViewById(R.id.list_item_user_name);
 		TextView textView_email = (TextView) rowView.findViewById(R.id.list_item_user_email);
-		textView_email.setText(stranger.getTotalFollowers() + " Followers");
+		textView_email.setText(stranger.getLastName());
 		textView_username.setText(stranger.getFirstName());
+		setListener(rowView,stranger);
 		return rowView;
 	}
 
-
 	//custom
 
+	private void setListener(View view, final SlimUser user){
+		view.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getAppCompatActivityResource(),StrangerActivity.class);
+				intent.putExtra("uID", user.getuID());
+				getAppCompatActivityResource().startActivity(intent);
+			}
+		});
+	}
 
 }

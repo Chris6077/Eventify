@@ -45,7 +45,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class Event_Activity extends AppCompatActivity{
+public class Event_Activity extends AppCompatActivity implements InterfaceTaskDefault {
 
 	private CoordinatorLayout mdl;
 	private ActionBarDrawerToggle toggle;
@@ -114,26 +114,30 @@ public class Event_Activity extends AppCompatActivity{
 
 		this.collapsingToolbar.setTitle(event.getName());
 		this.setInfoItem(event.getCategory().toString(),getString(R.string.event_category),R.drawable.biker,null);
-		this.setInfoItem(event.getStartDate().toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
-		this.setInfoItem(event.getEndDate().toString(),getString(R.string.event_date_end),R.drawable.clock,null);
+		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getStartDate()).toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
+		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getEndDate()).toString(),getString(R.string.event_date_end),R.drawable.clock,null);
 		this.setInfoItem(event.getDescription().toString(),getString(R.string.event_information),R.drawable.rocket,null);
-		//this.setInfoItem(event.getCreatorID().toString(),getString(R.string.event_organizer),R.drawable.profle,null);
 		this.setInfoItem("Klagenfurt",getString(R.string.event_place),R.drawable.pin2,null);
-		this.setInfoItem(String.valueOf(event.getMaxParticipants()), getString(R.string.event_participants), R.drawable.running, new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent event_activity = new Intent(getApplicationContext(),ParticipantsActivity.class);
-				event_activity.putExtra("event", event);
-				startActivity(event_activity);
-			}
-		});
+		if(event.getTotalParticipators() > 0)
+			this.setInfoItem(String.valueOf(event.getTotalParticipators()), getString(R.string.event_participants), R.drawable.running, new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					Intent intent = new Intent(getApplicationContext(),ParticipantsActivity.class);
+					intent.putExtra("eID", getIntent().getStringExtra("eID"));
+					startActivity(intent);
+				}
+			});
+		else
+			this.setInfoItem(String.valueOf(event.getTotalParticipators()), getString(R.string.event_participants), R.drawable.running,null);
 		this.setInfoItem(String.valueOf(event.getMinAge()),getString(R.string.event_minage),R.drawable.profle,null);
 
 	}
 
 	private void getEvent(){
 		try{
-			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Events_url) , (InterfaceTaskDefault) new GetEvent_listener());
+			Intent intent = getIntent();
+			String eID = intent.getStringExtra("eID");
+			TaskGetEvent getEvent = new TaskGetEvent(getString(R.string.webservice_get_Events_url) + eID,this);
 			getEvent.execute();
 		}catch(Exception error){
 			HandlerState.handle(error,this);
@@ -157,23 +161,24 @@ public class Event_Activity extends AppCompatActivity{
 		this.content_event.addView(item);
 	}
 
+	@Override
+	public void onPreExecute(Class resource) {
 
-	private class GetEvent_listener implements InterfaceGetEvent {
+		content_event.addView(getLayoutInflater().inflate(R.layout.header_progressbar,null));
+	}
 
-		@Override
-		public void onPreExecute() {
-			content_event.addView(getLayoutInflater().inflate(R.layout.header_progressbar,null));
-		}
-
-		@Override
-		public void onPostExecute(Event event) {
-			try {
-				content_event.removeAllViews();
-				setContent(event);
-			} catch (Exception e) {
-				HandlerState.handle(e,getApplicationContext());
-			}
+	@Override
+	public void onPostExecute(Object result, Class resource) {
+		try {
+			content_event.removeAllViews();
+			Event event = (Event) result;
+			setContent(event);
+		} catch (Exception e) {
+			HandlerState.handle(e,getApplicationContext());
 		}
 	}
+
+
+
 
 }

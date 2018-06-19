@@ -186,17 +186,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void fillDatabaseWithTestData() {
-        LatLng l = new LatLng(46.602540, 13.843018);
-        Event e = new Event("First Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(l.latitude, l.longitude));
-        this.db.add(e);
-        e = new Event("Second Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.608465, 13.844906));
-        this.db.add(e);
-        e = new Event("Third Event", "1", EventState.Confirmed, "Nice event", 20, 15, EventType.Private, EventCategory.Other, null, null);
-        e.setLocation(new com.example.schueler.eventures.classes.pojo.Location(46.612636, 13.845078));
-        this.db.add(e);
-        }
+
+    }
 
     /**
      * Saves the state of the map when the activity is paused.

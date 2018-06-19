@@ -43,6 +43,7 @@ import com.example.schueler.eventures.asynctask.TaskPostLogin;
 import com.example.schueler.eventures.classes.pojo.User;
 import com.example.schueler.eventures.classes.pojo.local.LocalDatabase;
 import com.example.schueler.eventures.classes.pojo.local.LoginUserObject;
+import com.example.schueler.eventures.classes.pojo.local.uIDObject;
 import com.example.schueler.eventures.dialog.DialogError;
 import com.example.schueler.eventures.dialog.DialogProgress;
 import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
@@ -119,6 +120,8 @@ public class LoginActivity extends AppCompatActivity implements InterfaceTaskDef
         if(resource == TaskPostLogin.class){
             this.progressDialog.dismiss();
             String res = (String) result;
+            Gson gson = new Gson();
+            LocalDatabase.setuID(gson.fromJson(res,uIDObject.class).getuID());
             this.processResult(res);
         }
     }
@@ -205,7 +208,6 @@ public class LoginActivity extends AppCompatActivity implements InterfaceTaskDef
             DialogError.getDialog("wrong credentials!",this).show();
             return;
         }
-        this.database.setUser(new LocalDatabase.currentUser("Julian","Blaschke",new Date(),"julian","jbl@gmail.com","jbl","https:((falösdflkjasf","dlöasdfj"));
         Intent event_activity = new Intent(this,EventListActivity.class);
         this.startActivity(event_activity);
     }
