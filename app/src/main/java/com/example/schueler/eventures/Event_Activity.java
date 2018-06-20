@@ -118,7 +118,7 @@ public class Event_Activity extends AppCompatActivity implements InterfaceTaskDe
 		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getStartDate()).toString(),getString(R.string.event_date_begin),R.drawable.clock,null);
 		this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", event.getEndDate()).toString(),getString(R.string.event_date_end),R.drawable.clock,null);
 		this.setInfoItem(event.getDescription().toString(),getString(R.string.event_information),R.drawable.rocket,null);
-		this.setInfoItem("Velden am WS",getString(R.string.event_place),R.drawable.pin2,null);
+		//this.setInfoItem("Velden am WS",getString(R.string.event_place),R.drawable.pin2,null);
 		if(event.getTotalParticipators() > 0)
 			this.setInfoItem(String.valueOf(event.getTotalParticipators()), getString(R.string.event_participants), R.drawable.running, new View.OnClickListener() {
 				@Override

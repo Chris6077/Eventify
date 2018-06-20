@@ -18,6 +18,8 @@ public class StrangerActivity extends AppCompatActivity implements InterfaceTask
 
 	private CollapsingToolbarLayout collapsingToolbar;
 	private LinearLayout content_user;
+
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +54,7 @@ public class StrangerActivity extends AppCompatActivity implements InterfaceTask
 	}
 
 	private void setListener(){
+
 	}
 
 	private void registrateeventhandlers(){
@@ -68,8 +71,10 @@ public class StrangerActivity extends AppCompatActivity implements InterfaceTask
 
 			this.collapsingToolbar.setTitle(user.getFirstName());
 			this.setInfoItem(user.getFirstName() + " " + user.getLastName(),getString(R.string.user_full_name),R.drawable.ic_account_circle_black_24dp,null);
-			this.setInfoItem("sample@mail.com",getString(R.string.prompt_email),R.drawable.ic_email_black_24dp,null);
-			this.setInfoItem(user.getNumberOfCreatedEvents()+"","Veranstaltete Events",R.drawable.rocket,null);
+			this.setInfoItem(user.getNumberOfCreated()+"","Veranstaltete Events",R.drawable.rocket,null);
+			this.setInfoItem(user.getNumberOfParticipated() + "", "Teilgenommene Events",R.drawable.rocket, null);
+			this.setInfoItem(android.text.format.DateFormat.format("yyyy-MM-dd ", user.getCreated()).toString(),"Im System seit",R.drawable.clock,null);
+
 
 
 		}catch (Exception error){
@@ -93,12 +98,5 @@ public class StrangerActivity extends AppCompatActivity implements InterfaceTask
 
 		this.content_user.addView(item);
 	}
-
-
-	private void LoadImageFromURL(){
-		new TaskGetImage((ImageView) findViewById(R.id.User_header_img))
-				.execute("https://previews.123rf.com/images/alexutemov/alexutemov1702/alexutemov170200440/71260689-man-portrait-face-icon-web-avatar-flat-style-vector-male-blocked-or-unknown-anonymous-silhouette-bus.jpg");
-	}
-
 
 }

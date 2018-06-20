@@ -51,16 +51,6 @@
 
         </RelativeLayout>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/event_list_add_event_fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            app:layout_anchor="@id/event_list_fab_anchor"
-            app:layout_anchorGravity="bottom|end"
-            android:transitionName="fab_transition"
-            android:src="@drawable/ic_add_circle_outline_white_24dp"
-        />
 
     </android.support.design.widget.CoordinatorLayout>
 
