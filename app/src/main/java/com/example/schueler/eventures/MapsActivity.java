@@ -1,6 +1,8 @@
 package com.example.schueler.eventures;
 
+import android.app.Activity;
 import android.app.ActivityOptions;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -66,6 +68,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.zip.Inflater;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, View.OnClickListener, InterfaceTaskDefault {
 
@@ -114,7 +117,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Geocoder geocoder;
     private Intent new_EventActivity_Intent;
     private View infoWindow;
-
+    private Context contextInfoWindow;
 
 
     @Override
@@ -188,9 +191,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private void fillMapWithEvents(ArrayList<MinimalEvent> allEvents) {
         for (MinimalEvent event : allEvents) {
-            LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
-            this.mMap.addMarker(new MarkerOptions().position(newLatLng)).setTitle(event.geteID());
-            this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
+            if(event.getLocation() != null) {
+                LatLng newLatLng = new LatLng(event.getLocation().getLat(), event.getLocation().getLon());
+                this.mMap.addMarker(new MarkerOptions().position(newLatLng)).setTitle(event.geteID());
+                this.mMap.moveCamera(CameraUpdateFactory.newLatLng(newLatLng));
+            }
         }
 
     }
@@ -253,15 +258,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public View getInfoContents(Marker marker) {
                 // Inflate the layouts for the info window, title and snippet.
 
-
-                infoWindow = getLayoutInflater().inflate(R.layout.custom_info_contents,
-                       (FrameLayout) findViewById(R.id.map), false);
-
-                String eid = marker.getTitle();
-
-                getEventInfo(eid);
-
-                return infoWindow;
+                Intent newIntent = new Intent(getApplication().getBaseContext() , Event_Activity.class);
+                newIntent.putExtra("eID", marker.getTitle());
+                startActivity(newIntent);
+                return null;
             }
 
 
@@ -324,9 +324,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         if (task.isSuccessful()) {
                             // Set the map's camera position to the current event_icon_2 of the device.
                             mLastKnownLocation = task.getResult();
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    new LatLng(mLastKnownLocation.getLatitude(),
-                                            mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            if(mLastKnownLocation != null) {
+                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                                        new LatLng(mLastKnownLocation.getLatitude(),
+                                                mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                            }
                         } else {
                             Log.d(TAG, "Current event_icon_2 is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());
@@ -595,9 +597,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Event infoEvent = (Event) result;
                 Log.d("servs", infoEvent.getName());
 
-                TextView t = (TextView) this.infoWindow.findViewById(R.id.txtEventName);
-                t.setText(infoEvent.getName());
-                ((TextView)findViewById(R.layout.custom_info_contents).findViewById(R.id.txtEventName)).setText("aöksdfa");
+                TextView txtView = (TextView) ((Activity)contextInfoWindow).findViewById(R.id.txtEventName);
+                txtView.setText("Hello");
+
+
+                //((TextView)((Activity)contextInfoWindow).findViewById(R.id.txtEventName)).setText("aöslkdfölaksf");
+                //TextView t = (TextView) this.infoWindow.findViewById(R.id.txtEventName);
+                //t.setText(infoEvent.getName());
+                //((TextView)findViewById(R.layout.custom_info_contents).findViewById(R.id.txtEventName)).setText("aöksdfa");
             }else {
                 ArrayList<MinimalEvent> events = (ArrayList<MinimalEvent>) result;
                 this.fillMapWithEvents(events);

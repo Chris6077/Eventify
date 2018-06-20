@@ -2,11 +2,14 @@ package com.example.schueler.eventures.dialog;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.location.Address;
+import android.location.Geocoder;
+import android.os.Build;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -21,15 +24,27 @@ import com.example.schueler.eventures.EventListActivity;
 import com.example.schueler.eventures.R;
 import com.example.schueler.eventures.asynctask.TaskPostLogin;
 import com.example.schueler.eventures.classes.pojo.Event;
+import com.example.schueler.eventures.classes.pojo.EventCategory;
+import com.example.schueler.eventures.classes.pojo.EventType;
+import com.example.schueler.eventures.classes.pojo.Location;
+import com.example.schueler.eventures.classes.pojo.SlimEvent;
 import com.example.schueler.eventures.classes.pojo.local.LoginUserObject;
+import com.example.schueler.eventures.interfaces.InterfaceTaskDefault;
 import com.example.schueler.eventures.listener.ListenerDatePicker;
+import com.google.android.gms.gcm.Task;
 import com.google.gson.Gson;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+
+import static android.support.v4.content.res.TypedArrayUtils.getString;
 
 /**
  * Created by schueler on 5/9/18.
  */
 
-public abstract class DialogCreateEvent {
+public abstract class DialogCreateEvent{
 
 
 	public static Dialog getDialog(final Context context, Address adress){
@@ -81,6 +96,7 @@ public abstract class DialogCreateEvent {
 		final Button button_submit = (Button) dialog.findViewById(R.id.create_event_button_submit);
 
 		button_submit.setOnClickListener(new View.OnClickListener() {
+			@TargetApi(Build.VERSION_CODES.CUPCAKE)
 			@Override
 			public void onClick(View v) {
 				String name = ((EditText) dialog.findViewById(R.id.create_event_input_name)).getText().toString();
@@ -90,16 +106,41 @@ public abstract class DialogCreateEvent {
 				String description = ((EditText) dialog.findViewById(R.id.input_information)).getText().toString();
 				String endDate = "2018-09-02T04:00:00.000Z";
 				String startDate = input_begin_date.getText().toString();
+				Date d = new Date();
 				Gson gson;
 				TaskPostLogin task;
 
 				gson = new Gson();
+				task = new TaskPostLogin("https://eventifyapi.herokuapp.com/rest/api/events/", new InterfaceTaskDefault(){
 
-				//Event param = new Event(name, );
+					@Override
+					public void onPreExecute(Class resource) {
 
-				//task = new TaskPostLogin(getString(R.string.webservice_post_Login),this);
-				//task.execute(gson.toJson(param).toString());
-				revealShow(dialogView,false, dialog);
+					}
+
+					@Override
+					public void onPostExecute(Object result, Class resource) {
+						Log.d("result", "" + result);
+						revealShow(dialogView,false, dialog);
+					}
+				});
+
+				Event newEvent = new Event(name, "asd", null, description, participation, 0, minAge, EventType.Public, EventCategory.Activity, null, null);
+
+				Geocoder geocoder = new Geocoder(context);
+				try {
+					List<Address> allAdresses = geocoder.getFromLocationName(address, 1);
+					if(allAdresses.size() > 0){
+						Location l = new Location(allAdresses.get(0).getLongitude(), allAdresses.get(0).getLatitude());
+						newEvent.setLocation(l);
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				String jsonString = gson.toJson(newEvent).toString();
+
+				task.execute(jsonString);
 			}
 		});
 
